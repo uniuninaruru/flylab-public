@@ -1,0 +1,50 @@
+# TEMPLATE for a MaleCNS v1.0 run. NOT RUNNABLE AS IS, on purpose (spec 8.1 warning):
+# `PLACEHOLDER_VERIFY_WITH_DATA` matches no neuron, so `flylab run` rejects this file until a
+# population has been chosen from the real annotations (docs/OPEN_QUESTIONS.md Q8). The
+# transmitter column follows the measured recommendation of Q14. Nothing here is a validated
+# physiology setting. A runnable MaleCNS example is configs/male_cns_lb3c_mn9.yaml (Q8).
+#
+# Needs the processed graph from PR-01 on the machine that runs it:
+#   flylab data prepare && flylab data verify
+#   flylab run --config configs/male_cns_template.yaml --validate-only
+schema_version: 1
+experiment_id: male_cns_population_stimulation_template
+dataset:
+  kind: processed
+  path: data/processed/male-cns-v1.0/superclass_annotated
+  expected_dataset_id: male-cns:v1.0
+backend: numpy                   # torch-cpu and torch-cuda run the same scheme (M3)
+dtype: float32                   # halves edge-weight memory; NumPy and torch agree (tests)
+dt_ms: 0.1
+steps: 10000                     # 1 s
+seed: 42
+model:
+  parameter_set: shiu2024_code_v1
+synapse_sign:
+  source: transmitter
+  transmitter_column: consensus_nt   # Q14 (measured); compare with the predicted-nt variant
+  mapping: fast_ionotropic_v1
+  unknown_sign_policy: exclude       # modulatory/unclear/null presynaptic neurons send nothing
+populations:
+  stimulated:
+    column: type
+    values: [PLACEHOLDER_VERIFY_WITH_DATA]
+stimuli:
+  - kind: forced_spikes
+    population: stimulated
+    onset_ms: 100.0
+    offset_ms: 600.0
+    rate_hz: 100.0
+interventions: []
+recording:
+  spike_events: true
+  population_rate_bin_ms: 10.0
+sensitivity:
+  - name: glutamate-excitatory
+    synapse_sign: {overrides: {glutamate: 1}}
+  - name: unknown-as-excitatory
+    synapse_sign: {unknown_sign_policy: as_excitatory}
+  - name: unknown-as-inhibitory
+    synapse_sign: {unknown_sign_policy: as_inhibitory}
+  - name: predicted-nt-column
+    synapse_sign: {transmitter_column: predicted_nt}

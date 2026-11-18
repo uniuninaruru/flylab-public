@@ -1,0 +1,52 @@
+# CROSS-CHECK ONLY (PR-04, OPEN_QUESTIONS Q19): FlyLab's engine on the FlyWire v630 graph that
+# Shiu et al. (2024) used (female brain, NOT MaleCNS). Build the local processed directory first:
+#   uv run python scripts/analysis/build_flywire_shiu_graph.py --shiu-repo <clone @91bdd1e> \
+#       --version 630 --out data/processed/flywire-shiu-630
+# Populations (root ids of Shiu et al.'s figures.ipynb, v630):
+# - sugar_shiu21: their 21 labellar "sugar GRNs" (notebook cell 23). In current FlyWire
+#   annotations (flywire_annotations @a83b277) 20 are side "left" (1 not found): LB3c 9, LB3d 5,
+#   LB4b 4, LB3b 2. Shiu et al.: "we refer to the true biological side" (FAFB is left-right
+#   inverted); their figures use left-hemisphere GRNs.
+# - mn9_contra: 720575940660219265, the MN9 of their analysis (side "right" now).
+# - mn9_ipsi: 720575940645521262, the other CB0701 of notebook cell 17; it is v783
+#   720575940618238523 (side "left"): 210 of 242 presynaptic ids shared vs 70 for the other MN9.
+# Input mode differs from theirs: FlyLab forced Poisson spikes keep the 2.2 ms refractory period;
+# Brian2 PoissonInput in their code adds 68.75 mV per event with the targets' refractory set to 0.
+schema_version: 1
+experiment_id: flywire630_sugar_mn9
+description: Forced Poisson spikes in Shiu et al.'s 21 left sugar GRNs (FlyWire v630); MN9 ipsi/contra.
+dataset:
+  kind: processed
+  path: data/processed/flywire-shiu-630
+  expected_dataset_id: flywire:v630:shiu2024-repo
+backend: numpy
+dtype: float32
+dt_ms: 0.1
+steps: 10000
+seed: 1
+model:
+  parameter_set: shiu2024_code_v1      # w_syn 0.275 mV is the value Shiu et al. chose on this graph
+synapse_sign:
+  source: graph                        # their Excitatory column, stored by the builder
+  unknown_sign_policy: error
+populations:
+  sugar_shiu21:
+    body_ids: [720575940624963786, 720575940630233916, 720575940637568838, 720575940638202345,
+               720575940617000768, 720575940630797113, 720575940632889389, 720575940621754367,
+               720575940621502051, 720575940640649691, 720575940639332736, 720575940616885538,
+               720575940639198653, 720575940620900446, 720575940617937543, 720575940632425919,
+               720575940633143833, 720575940612670570, 720575940628853239, 720575940629176663,
+               720575940611875570]
+  lb3c_shiu9:                          # the 9 of the 21 typed LB3c in current annotations
+    body_ids: [720575940617000768, 720575940621754367, 720575940621502051, 720575940640649691,
+               720575940639332736, 720575940616885538, 720575940639198653, 720575940612670570,
+               720575940628853239]
+  mn9_ipsi: {body_ids: [720575940645521262]}
+  mn9_contra: {body_ids: [720575940660219265]}
+stimuli:
+  - {kind: forced_spikes, population: sugar_shiu21, onset_ms: 0.0, offset_ms: 1000.0, rate_hz: 100.0}
+interventions: []
+recording:
+  spike_events: false
+  population_rate_bin_ms: 10.0
+  populations: [sugar_shiu21, lb3c_shiu9, mn9_ipsi, mn9_contra, __all__]

@@ -1,0 +1,45 @@
+# Benchmark B0 (docs/BENCHMARK_PROTOCOL.md): SYNTHETIC random graph, 20,000 neurons x 20
+# out-degree, 100 ms. Harness check only: tests code paths and timing, not biology.
+#   flylab bench --config configs/bench/b0_synthetic_100ms.yaml --tag B0
+schema_version: 1
+experiment_id: bench_b0_synthetic_100ms
+description: Harness check on a synthetic graph (engineering workload, not an experiment).
+dataset:
+  kind: synthetic_random
+  n_neurons: 20000
+  mean_out_degree: 20
+  graph_seed: 7
+  inhibitory_fraction: 0.2
+backend: torch-cuda
+dtype: float32
+deterministic: true
+dt_ms: 0.1
+steps: 1000                      # 100 ms
+seed: 42
+model:
+  parameter_set: shiu2024_code_v1
+  overrides:
+    w_syn:
+      value: 1.8
+      units: mV
+      evidence: ASSUMED
+      rationale: >-
+        synthetic graph only, same value and reason as configs/synthetic.yaml: with the preset
+        0.275 mV nothing downstream of the stimulus spikes on this graph. Not a calibration
+synapse_sign:
+  source: graph
+  unknown_sign_policy: error
+populations:
+  input:                         # body ids of synthetic neurons 0..9
+    body_ids: [9000000000000, 9000000000001, 9000000000002, 9000000000003, 9000000000004,
+               9000000000005, 9000000000006, 9000000000007, 9000000000008, 9000000000009]
+stimuli:
+  - kind: injected_current
+    population: input
+    onset_ms: 10.0
+    offset_ms: 100.0
+    amplitude_mV: 20.0           # R*I_ext; uncalibrated (MODEL_ASSUMPTIONS 5)
+interventions: []
+recording:
+  spike_events: false
+  population_rate_bin_ms: 10.0

@@ -1,0 +1,110 @@
+name: neural-torch-cpu
+
+# Full torch CPU tests on Linux use the explicit, locked PyTorch CPU index (Q15).
+# Keep macOS as separate coverage of the existing PyPI wheel and platform-specific numerics.
+# The macOS `gpu` extra is CPU-only there; Linux GPU containers retain the PyPI CUDA stack.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: neural-torch-cpu-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  torch-cpu-linux:
+    name: torch CPU engine (ubuntu-24.04, py${{ matrix.python }})
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          python-version: ${{ matrix.python }}
+      - run: uv lock --check
+      - run: uv sync --locked --group dev --extra cpu
+      - name: verify the CPU build and absence of CUDA dependencies
+        run: |
+          uv run python - <<'PY'
+          from importlib.metadata import distributions
+          import torch
+          print('torch', torch.__version__, 'cuda', torch.version.cuda)
+          assert torch.__version__ == '2.15.0+cpu'
+          assert torch.version.cuda is None
+          assert not any(d.metadata['Name'].lower().startswith(('nvidia-', 'cuda-', 'triton'))
+                         for d in distributions())
+          PY
+      - run: uv run pytest
+        env:
+          FLYLAB_REQUIRE_TORCH: "1"
+      # Resolution-only check: never install the GPU stack or run GPU code in CI.
+      - run: uv sync --locked --extra gpu --dry-run
+
+  torch-cpu:
+    name: torch CPU engine (macos-15, py3.12)
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          python-version: "3.12"
+      - run: uv sync --locked --group dev --extra gpu
+      - name: torch is the locked CPU build
+        run: >-
+          uv run python -c "import torch;
+          print('torch', torch.__version__, 'cuda', torch.version.cuda);
+          assert torch.__version__.split('+')[0] == '2.15.0';
+          assert torch.version.cuda is None"
+      # FLYLAB_REQUIRE_TORCH=1 turns a missing torch into a failure instead of a skip.
+      - run: uv run pytest
+        env:
+          FLYLAB_REQUIRE_TORCH: "1"
+      - name: example run through the CLI (torch-cpu backend)
+        run: |
+          sed 's/^backend: numpy .*/backend: torch-cpu/' configs/tiny_fixture.yaml > "$RUNNER_TEMP/tiny_torch.yaml"
+          grep -q '^backend: torch-cpu' "$RUNNER_TEMP/tiny_torch.yaml"
+          uv run flylab run --config "$RUNNER_TEMP/tiny_torch.yaml" --with-baseline --out "$RUNNER_TEMP/runs" --run-id tiny
+          cd "$RUNNER_TEMP/runs/tiny" && shasum -a 256 -c checksums.sha256
+
+  example-runs:
+    name: example configs through the CLI (ubuntu, numpy)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          python-version: "3.12"
+      - run: uv sync --locked --group dev
+      - run: uv run flylab run --config configs/tiny_fixture.yaml --with-baseline --out "$RUNNER_TEMP/runs" --run-id tiny
+      - run: uv run flylab run --config configs/synthetic.yaml --with-baseline --out "$RUNNER_TEMP/runs" --run-id synthetic
+      - name: checksums of every run directory
+        run: |
+          for d in "$RUNNER_TEMP"/runs/*/; do (cd "$d" && sha256sum -c --quiet checksums.sha256); done
+      # The MaleCNS template must be rejected for the expected reason: no processed data here
+      # (data error, exit 3). Any other exit code, including a crash, fails this step.
+      - name: MaleCNS template is rejected with a data error
+        run: |
+          set +e
+          uv run flylab run --config configs/male_cns_template.yaml --validate-only 2> "$RUNNER_TEMP/err.txt"
+          rc=$?
+          set -e
+          cat "$RUNNER_TEMP/err.txt"
+          test "$rc" -eq 3
+          grep -q "^data error:" "$RUNNER_TEMP/err.txt"

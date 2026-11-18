@@ -1,0 +1,14 @@
+FlyLab
+Copyright 2026 FlyLab contributors
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This repository contains no connectome data. When FlyLab downloads or processes data, the
+following attribution applies to that data (not to this code):
+
+  Male CNS connectome v1.0 - FlyEM (HHMI Janelia), University of Cambridge (Dept. of
+  Zoology), MRC Laboratory of Molecular Biology and Google Research.
+  https://male-cns.janelia.org/  Licensed under CC BY 4.0
+  (https://creativecommons.org/licenses/by/4.0/).
+
+No third-party source code is vendored. Reference projects consulted (not copied) are listed
+with their licenses in docs/SOURCES_AND_LICENSES.md.

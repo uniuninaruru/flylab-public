@@ -1,0 +1,43 @@
+# Benchmark B1 (docs/BENCHMARK_PROTOCOL.md): MaleCNS v1.0, full default node set, 100 ms.
+# ENGINEERING WORKLOAD, NOT AN EXPERIMENT: every neuron annotated `class == gustatory` (1,428 on
+# the processed `superclass_annotated` graph, counted on the owner's host) receives Poisson forced
+# spikes at 100 Hz for the whole run, so that activity propagates through the real connectome and
+# the engine is timed under real fan-out. No claim about taste processing is made or implied.
+# Sign settings as in configs/male_cns_template.yaml: column per Q14 (measured), mapping ASSUMED.
+# Needs the processed graph (PR-01) on the machine that runs it:
+#   flylab bench --config configs/bench/b1_male_cns_100ms.yaml --tag B1
+#   flylab parity --config configs/bench/b1_male_cns_100ms.yaml --tag B1
+schema_version: 1
+experiment_id: bench_b1_male_cns_100ms
+description: Timing workload on the full MaleCNS graph (engineering, not physiology).
+dataset:
+  kind: processed
+  path: data/processed/male-cns-v1.0/superclass_annotated
+  expected_dataset_id: male-cns:v1.0
+backend: torch-cuda
+dtype: float32
+deterministic: true
+dt_ms: 0.1
+steps: 1000
+seed: 42
+model:
+  parameter_set: shiu2024_code_v1
+synapse_sign:
+  source: transmitter
+  transmitter_column: consensus_nt   # Q14 (measured)
+  mapping: fast_ionotropic_v1
+  unknown_sign_policy: exclude
+populations:
+  gustatory:
+    column: class
+    values: [gustatory]
+stimuli:
+  - kind: forced_spikes
+    population: gustatory
+    onset_ms: 0.0
+    offset_ms: 100.0
+    rate_hz: 100.0
+interventions: []
+recording:
+  spike_events: false
+  population_rate_bin_ms: 10.0

@@ -1,0 +1,56 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  cpu:
+    name: cpu (${{ matrix.os }}, py${{ matrix.python }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: ubuntu-24.04, python: "3.12" }
+          - { os: ubuntu-24.04, python: "3.13" }
+          - { os: macos-15, python: "3.12" }
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          python-version: ${{ matrix.python }}
+      # Core + dev only. neural-torch-cpu.yml separately tests the Linux `cpu` extra and
+      # the macOS PyPI wheel; no Linux CUDA stack is installed in CI.
+      - run: uv sync --locked --group dev
+      - run: uv run ruff check .
+      - run: uv run ruff format --check .
+      - run: uv run mypy
+      - run: uv run shellcheck -x scripts/*.sh scripts/remote/*.sh
+      # GPU tests are skipped unless --run-gpu is passed; CI never passes it.
+      - run: uv run pytest
+
+  docker-cpu:
+    # Checks Dockerfile/compose mechanics without the ~3 GB torch layer (FLYLAB_EXTRAS empty).
+    # The real GPU image is only built and verified on the owner's RTX host.
+    name: docker image (CPU, no torch)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - run: docker compose config --quiet
+      - run: docker build --build-arg FLYLAB_EXTRAS= -t flylab:ci .
+      - run: docker run --rm --network none flylab:ci pytest -q -p no:cacheprovider

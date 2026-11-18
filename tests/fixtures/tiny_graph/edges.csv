@@ -1,0 +1,11 @@
+# SYNTHETIC fixture, not MaleCNS. Direction: pre_body_id -> post_body_id.
+# sign: +1 excitatory, -1 inhibitory, 0 unknown (hand-chosen test values).
+pre_body_id,post_body_id,synapse_count,sign
+900001,900002,5,1
+900001,900003,2,1
+900002,900004,3,-1
+900003,900004,4,1
+900004,900005,1,1
+900002,900004,2,-1
+900005,900005,1,1
+900006,900001,7,0

@@ -1,0 +1,630 @@
+{
+  "schema_version": 1,
+  "kind": "flylab_body_smoke",
+  "started_utc": "2026-11-04T05:31:32+00:00",
+  "environment": {
+    "schema_version": 1,
+    "captured_at_utc": "2026-11-04T05:31:32+00:00",
+    "flylab_version": "0.0.1",
+    "python": {
+      "version": "3.12.3",
+      "implementation": "CPython",
+      "executable_prefix_is_venv": true
+    },
+    "os": {
+      "system": "Linux",
+      "release": "6.18.44-fc-v233",
+      "machine": "x86_64"
+    },
+    "packages": {
+      "numpy": "1.26.4",
+      "pyarrow": null,
+      "torch": null,
+      "mujoco": "3.17.0",
+      "flybody": "0.1.0",
+      "flygym": null
+    },
+    "git": {
+      "commit": "610dd01d8c0cc9bf643e2d2fa020c97190fd6b6d",
+      "dirty": false,
+      "source": "git",
+      "reason": null
+    }
+  },
+  "body_stack": {
+    "numpy": "1.26.4",
+    "mujoco": "3.17.0",
+    "dm-control": "1.0.50",
+    "dm-env": "1.6",
+    "flybody": "0.1.0",
+    "scipy": "1.17.1",
+    "h5py": "3.16.0",
+    "python": "3.12.3",
+    "flybody_commit": "d015e9bfe441bd90ae431bac24c55cb74bdbce26"
+  },
+  "checks": {
+    "action_dim_read_from_env": true,
+    "all_actuators_classified": true,
+    "bounds_finite_and_ordered": true,
+    "zero_action_valid": true,
+    "steps_completed": true,
+    "observations_finite": true,
+    "no_mujoco_warnings": true,
+    "no_physics_error": true,
+    "sim_time_matches_steps": true,
+    "same_seed_reproducible": true
+  },
+  "status": "PASS",
+  "gl": {
+    "selected": "disable",
+    "probes": [
+      {
+        "backend": "egl",
+        "physics_ok": false,
+        "render_ok": false,
+        "detail": "AttributeError: 'NoneType' object has no attribute 'eglQueryString'"
+      },
+      {
+        "backend": "osmesa",
+        "physics_ok": false,
+        "render_ok": false,
+        "detail": "AttributeError: 'NoneType' object has no attribute 'glGetError'"
+      }
+    ]
+  },
+  "config": {
+    "env_name": "walk_imitation",
+    "terminal_com_dist": "inf",
+    "joint_filter_s": 0.01,
+    "force_actuators": false,
+    "disable_wings": true,
+    "mujoco_gl": "disable"
+  },
+  "action_spec": {
+    "schema_version": 1,
+    "evidence": "ENGINEERED",
+    "note": "Action elements are MuJoCo actuator controls of the upstream body model (a software interface). They are not a biological motor map.",
+    "source": "flybody@d015e9bfe441bd90ae431bac24c55cb74bdbce26 fly_envs.walk_imitation: env.action_spec() + compiled MjModel actuator fields, read at runtime",
+    "dim": 59,
+    "dtype": "float64",
+    "control_timestep_ms": 2.0,
+    "physics_timestep_ms": 0.2,
+    "actuators": [
+      {
+        "name": "adhere_claw_T1_left",
+        "kind": "adhesion",
+        "units": "1",
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "filter_tau_ms": null
+      },
+      {
+        "name": "adhere_claw_T1_right",
+        "kind": "adhesion",
+        "units": "1",
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "filter_tau_ms": null
+      },
+      {
+        "name": "adhere_claw_T2_left",
+        "kind": "adhesion",
+        "units": "1",
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "filter_tau_ms": null
+      },
+      {
+        "name": "adhere_claw_T2_right",
+        "kind": "adhesion",
+        "units": "1",
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "filter_tau_ms": null
+      },
+      {
+        "name": "adhere_claw_T3_left",
+        "kind": "adhesion",
+        "units": "1",
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "filter_tau_ms": null
+      },
+      {
+        "name": "adhere_claw_T3_right",
+        "kind": "adhesion",
+        "units": "1",
+        "minimum": 0.0,
+        "maximum": 1.0,
+        "filter_tau_ms": null
+      },
+      {
+        "name": "head_abduct",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.2,
+        "maximum": 0.2,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "head_twist",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -3.0,
+        "maximum": 3.0,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "head",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.5,
+        "maximum": 0.3,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "abdomen_abduct",
+        "kind": "position_fixed_tendon",
+        "units": "rad",
+        "minimum": -0.7,
+        "maximum": 0.7,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "abdomen",
+        "kind": "position_fixed_tendon",
+        "units": "rad",
+        "minimum": -1.05,
+        "maximum": 0.7,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "coxa_abduct_T1_left",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -1.0,
+        "maximum": 0.7,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "coxa_twist_T1_left",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.8,
+        "maximum": 0.8,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "coxa_T1_left",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.2,
+        "maximum": 1.7,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "femur_twist_T1_left",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -1.0,
+        "maximum": 1.0,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "femur_T1_left",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.15,
+        "maximum": 2.0,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "tibia_T1_left",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -1.35,
+        "maximum": 1.3,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "tarsus_T1_left",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.7,
+        "maximum": 1.2,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "tarsus2_T1_left",
+        "kind": "position_fixed_tendon",
+        "units": "rad",
+        "minimum": -0.9,
+        "maximum": 0.9,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "coxa_abduct_T1_right",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -1.0,
+        "maximum": 0.7,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "coxa_twist_T1_right",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.8,
+        "maximum": 0.8,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "coxa_T1_right",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.2,
+        "maximum": 1.7,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "femur_twist_T1_right",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -1.0,
+        "maximum": 1.0,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "femur_T1_right",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.15,
+        "maximum": 2.0,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "tibia_T1_right",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -1.35,
+        "maximum": 1.3,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "tarsus_T1_right",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.7,
+        "maximum": 1.2,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "tarsus2_T1_right",
+        "kind": "position_fixed_tendon",
+        "units": "rad",
+        "minimum": -0.9,
+        "maximum": 0.9,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "coxa_abduct_T2_left",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.5,
+        "maximum": 0.3,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "coxa_twist_T2_left",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.75,
+        "maximum": 0.8,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "coxa_T2_left",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.2,
+        "maximum": 0.9,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "femur_twist_T2_left",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -1.0,
+        "maximum": 1.0,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "femur_T2_left",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.15,
+        "maximum": 2.0,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "tibia_T2_left",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -1.35,
+        "maximum": 1.3,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "tarsus_T2_left",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -1.0,
+        "maximum": 1.8,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "tarsus2_T2_left",
+        "kind": "position_fixed_tendon",
+        "units": "rad",
+        "minimum": -0.9,
+        "maximum": 0.9,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "coxa_abduct_T2_right",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.5,
+        "maximum": 0.3,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "coxa_twist_T2_right",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.75,
+        "maximum": 0.8,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "coxa_T2_right",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.2,
+        "maximum": 0.9,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "femur_twist_T2_right",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -1.0,
+        "maximum": 1.0,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "femur_T2_right",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.15,
+        "maximum": 2.0,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "tibia_T2_right",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -1.35,
+        "maximum": 1.3,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "tarsus_T2_right",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -1.0,
+        "maximum": 1.8,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "tarsus2_T2_right",
+        "kind": "position_fixed_tendon",
+        "units": "rad",
+        "minimum": -0.9,
+        "maximum": 0.9,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "coxa_abduct_T3_left",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.9,
+        "maximum": 0.25,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "coxa_twist_T3_left",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.15,
+        "maximum": 0.8,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "coxa_T3_left",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.3,
+        "maximum": 1.3,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "femur_twist_T3_left",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -1.0,
+        "maximum": 1.0,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "femur_T3_left",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.7,
+        "maximum": 1.5,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "tibia_T3_left",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -1.35,
+        "maximum": 1.3,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "tarsus_T3_left",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.8,
+        "maximum": 1.2,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "tarsus2_T3_left",
+        "kind": "position_fixed_tendon",
+        "units": "rad",
+        "minimum": -0.9,
+        "maximum": 0.9,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "coxa_abduct_T3_right",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.9,
+        "maximum": 0.25,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "coxa_twist_T3_right",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.15,
+        "maximum": 0.8,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "coxa_T3_right",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.3,
+        "maximum": 1.3,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "femur_twist_T3_right",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -1.0,
+        "maximum": 1.0,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "femur_T3_right",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.7,
+        "maximum": 1.5,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "tibia_T3_right",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -1.35,
+        "maximum": 1.3,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "tarsus_T3_right",
+        "kind": "position_hinge",
+        "units": "rad",
+        "minimum": -0.8,
+        "maximum": 1.2,
+        "filter_tau_ms": 10.0
+      },
+      {
+        "name": "tarsus2_T3_right",
+        "kind": "position_fixed_tendon",
+        "units": "rad",
+        "minimum": -0.9,
+        "maximum": 0.9,
+        "filter_tau_ms": 10.0
+      }
+    ]
+  },
+  "action_dim": 59,
+  "action_kinds": {
+    "adhesion": 6,
+    "position_hinge": 45,
+    "position_fixed_tendon": 8
+  },
+  "rollout": {
+    "seed": 0,
+    "steps_requested": 200,
+    "steps_completed": 200,
+    "episode_ended_at_step": null,
+    "final_time_ms": 399.9999999999886,
+    "non_finite": [],
+    "mujoco_warnings": {},
+    "physics_error": null,
+    "python_warnings": [],
+    "observation_shapes": {
+      "walker/accelerometer": [
+        3
+      ],
+      "walker/actuator_activation": [
+        53
+      ],
+      "walker/appendages_pos": [
+        21
+      ],
+      "walker/force": [
+        18
+      ],
+      "walker/gyro": [
+        3
+      ],
+      "walker/joints_pos": [
+        85
+      ],
+      "walker/joints_vel": [
+        85
+      ],
+      "walker/touch": [
+        6
+      ],
+      "walker/velocimeter": [
+        3
+      ],
+      "walker/world_zaxis": [
+        3
+      ],
+      "walker/ref_displacement": [
+        65,
+        3
+      ],
+      "walker/ref_root_quat": [
+        65,
+        4
+      ]
+    },
+    "final_observation_sha256": "9c67b1b514f59c3d9fc18c7f8071f50b1ae85bc22ab6ff1e80eb9f96e2e1f1d6"
+  },
+  "timing_wall_s": {
+    "note": "informational wall-clock times on this machine, not a benchmark",
+    "build_and_first_reset": 7.416,
+    "rollout": 2.242
+  }
+}

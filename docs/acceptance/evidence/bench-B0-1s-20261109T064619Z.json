@@ -1,0 +1,329 @@
+{
+  "schema_version": 1,
+  "kind": "flylab_benchmark",
+  "tag": "B0-1s",
+  "started_utc": "2026-11-09T06:46:10+00:00",
+  "status": "PASS",
+  "workload": {
+    "config_path": "configs/bench/b0_synthetic_100ms.yaml",
+    "config_sha256": "320f36f8760e5c3fa4a84e53d76f9613b841adf544dd1c464eb816a6f02284ae",
+    "experiment_id": "bench_b0_synthetic_100ms",
+    "backend": "torch-cuda",
+    "dtype": "float32",
+    "dt_ms": 0.1,
+    "steps": 10000,
+    "simulated_ms": 1000.0,
+    "seed": 42,
+    "deterministic": true,
+    "engine_impl_requested": "auto",
+    "stimuli": [
+      {
+        "kind": "injected_current",
+        "population": "input",
+        "onset_ms": 10.0,
+        "offset_ms": 100.0,
+        "amplitude_mV": 20.0,
+        "evidence": "ENGINEERED"
+      }
+    ],
+    "interventions": [],
+    "populations": {
+      "input": 10
+    }
+  },
+  "dataset": {
+    "kind": "synthetic_random",
+    "dataset_id": "synthetic:random:v1:n=20000:k=20.0:seed=7",
+    "biological_data": false,
+    "note": "generated in memory; reproducible from the config (no files)",
+    "files": [],
+    "graph_fingerprint_sha256": "04d86425a01d95242a67dec3a27a469431a23522e0c06ff590d5cf09e1b00974",
+    "n_neurons": 20000,
+    "n_unique_edges": 399812,
+    "total_synapses": 2201535
+  },
+  "network": {
+    "n_neurons": 20000,
+    "n_edges_after_sign_policy": 399812,
+    "max_out_degree": 42,
+    "unknown_sign_policy": "error",
+    "network_fingerprint_sha256": "16fa0dc8f927186753667f1d7ccf702eaa03d532d4e5a05c585f685610329c3e"
+  },
+  "method": {
+    "warmup_runs": 1,
+    "timed_repeats": 3,
+    "timed_region": "engine.simulate(steps) after reset(seed): schedule inputs + engine step + counting recorder; device synchronized before both clock reads (time.perf_counter)",
+    "not_timed": "dataset load, network build, copy to device (phases_s); no artifacts",
+    "synaptic_events": "sum of out-degrees of propagated spikes (edges a spike is sent along); spikes in the last `delay` steps are counted though they arrive after the end"
+  },
+  "phases_s": {
+    "load_dataset": 0.08400952399824746,
+    "resolve_populations": 7.168900265241973e-05,
+    "prepare_signs_and_removal": 0.003286671002570074,
+    "build_network": 0.003601789998356253,
+    "engine_init_and_copy_to_device": 0.7186009690012725
+  },
+  "environment": {
+    "schema_version": 1,
+    "captured_at_utc": "2026-11-09T06:46:10+00:00",
+    "flylab_version": "0.0.1",
+    "python": {
+      "version": "3.12.3",
+      "implementation": "CPython",
+      "executable_prefix_is_venv": true
+    },
+    "os": {
+      "system": "Linux",
+      "release": "6.18.33.2-microsoft-standard-WSL2",
+      "machine": "x86_64"
+    },
+    "packages": {
+      "numpy": "2.5.4",
+      "pyarrow": "26.0.1",
+      "torch": "2.15.0",
+      "mujoco": null,
+      "flybody": null,
+      "flygym": null
+    },
+    "git": {
+      "commit": "8507026ee591cc5176c71e0812f1d5d767a751ea",
+      "dirty": null,
+      "source": "env:FLYLAB_GIT_COMMIT",
+      "reason": null
+    }
+  },
+  "hardware": {
+    "cpu_model": "AMD Ryzen 7 9700X 8-Core Processor",
+    "logical_cpus": 8,
+    "machine": "x86_64",
+    "total_ram_bytes": 16770527232,
+    "cgroup_memory_limit_bytes": 6442450944,
+    "note": "inside a WSL2 container total_ram_bytes is the WSL VM's memory, not the PC's"
+  },
+  "gpu": {
+    "nvidia_smi_before": [
+      {
+        "name": "NVIDIA GeForce RTX 5070",
+        "driver_version": "616.92",
+        "memory.total": "12227 MiB",
+        "memory.used": "109 MiB",
+        "compute_cap": "12.0"
+      }
+    ],
+    "device_memory": {
+      "before_engine_init": {
+        "device_index": 0,
+        "free_bytes": 11552161792,
+        "total_bytes": 12792037376,
+        "used_bytes": 1239875584,
+        "reason": null
+      },
+      "after_engine_init": {
+        "device_index": 0,
+        "free_bytes": 11487150080,
+        "total_bytes": 12792037376,
+        "used_bytes": 1304887296,
+        "reason": null
+      },
+      "end": {
+        "device_index": 0,
+        "free_bytes": 11487150080,
+        "total_bytes": 12792037376,
+        "used_bytes": 1304887296,
+        "reason": null
+      }
+    },
+    "nvidia_smi_while_loaded": [
+      {
+        "name": "NVIDIA GeForce RTX 5070",
+        "driver_version": "616.92",
+        "memory.total": "12227 MiB",
+        "memory.used": "332 MiB",
+        "compute_cap": "12.0"
+      }
+    ],
+    "nvidia_smi_device_memory_deltas": [
+      {
+        "nvidia_smi_row_index": 0,
+        "used_before_bytes": 114294784,
+        "used_while_loaded_bytes": 348127232,
+        "used_delta_bytes": 233832448
+      }
+    ],
+    "nvidia_smi_this_process": {
+      "visible": false,
+      "reason": "this PID is not among the 0 compute process(es) nvidia-smi lists (container PID namespace or WSL2)",
+      "used_mib": null
+    }
+  },
+  "engine": {
+    "backend": "torch-cuda",
+    "dtype": "float32",
+    "impl": "fused",
+    "device": "cuda:0",
+    "batch_steps": 32,
+    "arrival_accumulation": "exact integer synapse counts x w_syn, one float64 rounding",
+    "triton_version": "3.9.0",
+    "fp_fusion": false,
+    "torch_version": "2.15.0+cu132",
+    "deterministic_algorithms": true,
+    "num_threads": 8,
+    "torch_cuda_build": "13.2",
+    "cuda_device_name": "NVIDIA GeForce RTX 5070",
+    "cuda_capability": "12.0",
+    "cuda_total_memory_bytes": 12792037376,
+    "cuda_arch_list": [
+      "sm_75",
+      "sm_80",
+      "sm_86",
+      "sm_90",
+      "sm_100",
+      "sm_120"
+    ]
+  },
+  "memory_after_init": {
+    "engine_retained_bytes": {
+      "edges": 3358504,
+      "state": 1360000,
+      "in_flight": 4752844
+    },
+    "device": {
+      "allocated_bytes": 9484800,
+      "reserved_bytes": 25165824,
+      "max_allocated_bytes": 9484800,
+      "max_reserved_bytes": 25165824
+    }
+  },
+  "finished_utc": "2026-11-09T06:46:19+00:00",
+  "error": null,
+  "warmup": [
+    {
+      "wall_s": 1.4143432279997796,
+      "steps_per_s": 7070.419543170152,
+      "simulated_s_per_wall_s": 0.7070419543170152,
+      "n_spikes": 128,
+      "spikes_per_wall_s": 90.50137015257795,
+      "synaptic_events": 2627,
+      "synaptic_events_per_wall_s": 1857.399213990799,
+      "mean_active_fraction": 6.4e-07,
+      "fraction_spiked_at_least_once": 0.00205,
+      "state_finite": true,
+      "gpu_max_memory_allocated_bytes": 9627136,
+      "gpu_max_memory_reserved_bytes": 25165824
+    }
+  ],
+  "repeats": [
+    {
+      "wall_s": 3.622184939998988,
+      "steps_per_s": 2760.764611870645,
+      "simulated_s_per_wall_s": 0.27607646118706447,
+      "n_spikes": 128,
+      "spikes_per_wall_s": 35.33778703194425,
+      "synaptic_events": 2627,
+      "synaptic_events_per_wall_s": 725.2528635384184,
+      "mean_active_fraction": 6.4e-07,
+      "fraction_spiked_at_least_once": 0.00205,
+      "state_finite": true,
+      "gpu_max_memory_allocated_bytes": 9627136,
+      "gpu_max_memory_reserved_bytes": 25165824
+    },
+    {
+      "wall_s": 1.4280972839987953,
+      "steps_per_s": 7002.3240797707695,
+      "simulated_s_per_wall_s": 0.700232407977077,
+      "n_spikes": 128,
+      "spikes_per_wall_s": 89.62974822106585,
+      "synaptic_events": 2627,
+      "synaptic_events_per_wall_s": 1839.5105357557811,
+      "mean_active_fraction": 6.4e-07,
+      "fraction_spiked_at_least_once": 0.00205,
+      "state_finite": true,
+      "gpu_max_memory_allocated_bytes": 9627136,
+      "gpu_max_memory_reserved_bytes": 25165824
+    },
+    {
+      "wall_s": 1.455162461999862,
+      "steps_per_s": 6872.084912262497,
+      "simulated_s_per_wall_s": 0.6872084912262496,
+      "n_spikes": 128,
+      "spikes_per_wall_s": 87.96268687695995,
+      "synaptic_events": 2627,
+      "synaptic_events_per_wall_s": 1805.2967064513577,
+      "mean_active_fraction": 6.4e-07,
+      "fraction_spiked_at_least_once": 0.00205,
+      "state_finite": true,
+      "gpu_max_memory_allocated_bytes": 9627136,
+      "gpu_max_memory_reserved_bytes": 25165824
+    }
+  ],
+  "stats": {
+    "wall_s": {
+      "n": 3,
+      "median": 1.455162461999862,
+      "p25": 1.4416298729993287,
+      "p75": 2.538673700999425,
+      "iqr": 1.0970438280000963,
+      "min": 1.4280972839987953,
+      "max": 3.622184939998988,
+      "mean": 2.168481561999215
+    },
+    "steps_per_s": {
+      "n": 3,
+      "median": 6872.084912262497,
+      "p25": 4816.424762066571,
+      "p75": 6937.204496016633,
+      "iqr": 2120.779733950062,
+      "min": 2760.764611870645,
+      "max": 7002.3240797707695,
+      "mean": 5545.05786796797
+    },
+    "simulated_s_per_wall_s": {
+      "n": 3,
+      "median": 0.6872084912262496,
+      "p25": 0.481642476206657,
+      "p75": 0.6937204496016633,
+      "iqr": 0.21207797339500634,
+      "min": 0.27607646118706447,
+      "max": 0.700232407977077,
+      "mean": 0.554505786796797
+    },
+    "spikes_per_wall_s": {
+      "n": 3,
+      "median": 87.96268687695995,
+      "p25": 61.6502369544521,
+      "p75": 88.79621754901291,
+      "iqr": 27.14598059456081,
+      "min": 35.33778703194425,
+      "max": 89.62974822106585,
+      "mean": 70.97674070999001
+    },
+    "synaptic_events_per_wall_s": {
+      "n": 3,
+      "median": 1805.2967064513577,
+      "p25": 1265.274784994888,
+      "p75": 1822.4036211035695,
+      "iqr": 557.1288361086815,
+      "min": 725.2528635384184,
+      "max": 1839.5105357557811,
+      "mean": 1456.6867019151857
+    }
+  },
+  "memory": {
+    "host_process_peak_rss_bytes": 1141616640,
+    "host_note": "lifetime maximum of this process (dataset load included)",
+    "gpu_max_memory_allocated_bytes": 9627136,
+    "gpu_max_memory_reserved_bytes": 25165824,
+    "gpu_device_wide_used_delta_after_init_bytes": 65011712,
+    "gpu_device_wide_used_delta_end_bytes": 65011712,
+    "gpu_device_wide_observed_used_delta_bytes": 233832448,
+    "gpu_device_wide_delta_minus_peak_reserved_bytes": 208666624,
+    "gpu_device_wide_note": "Device-wide changes include other processes; sampled deltas are estimates, not a process-specific peak. The first mem_get_info call may initialize CUDA before its baseline; pre-init nvidia-smi can capture that overhead. Delta minus allocator peak is a signed estimate, not exact overhead.",
+    "gpu_note": null
+  },
+  "gates": {
+    "no_oom": true,
+    "all_runs_finite": true,
+    "vram_peak_reserved_within_10GiB_target": true,
+    "vram_observed_device_delta_within_10GiB_target": true
+  }
+}

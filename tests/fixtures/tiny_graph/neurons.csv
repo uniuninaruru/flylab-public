@@ -1,0 +1,9 @@
+# SYNTHETIC fixture, not MaleCNS. Order shuffled on purpose to test deterministic indexing.
+body_id,label
+900004,syn_d
+900001,syn_a
+900007,syn_isolated
+900003,syn_c
+900006,syn_unknown_sign_source
+900002,syn_b
+900005,syn_e

@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "reduced_motion_defaults_to_paused": true,
+  "static_final_plot_rendered": true,
+  "explicit_light_theme_under_dark_preference": true,
+  "landscape_no_overflow": true,
+  "scope": "Synthetic NumPy UI mock; no GPU or body run",
+  "config": "configs/synthetic.yaml",
+  "demo_pace_ms_per_bin": 100,
+  "run_id": "dd73be2708e2466d902211e0e07152a2",
+  "keyboard_skip_link": true,
+  "pause_freezes_chart": true,
+  "reconnect_finished_run": true,
+  "stop_state": "Stopped",
+  "responsive": [
+    {
+      "width": 375,
+      "scroll_width": 375
+    },
+    {
+      "width": 768,
+      "scroll_width": 768
+    },
+    {
+      "width": 1024,
+      "scroll_width": 1024
+    },
+    {
+      "width": 1440,
+      "scroll_width": 1440
+    }
+  ],
+  "console_errors": [],
+  "finished": {
+    "state": "Finished",
+    "simulation_time_ms": "200",
+    "wall_time": "2.5 s",
+    "population_table": "input\t10\t0\nprobe\t5\t20\n__all__\t2,000\t0.05",
+    "manifest": {
+      "dataset": {
+        "kind": "synthetic_random",
+        "dataset_id": "synthetic:random:v1:n=2000:k=20.0:seed=7",
+        "n_neurons": 2000,
+        "n_edges": 39794,
+        "graph_fingerprint_sha256": "8cfebff3ca2522c15017abf0bd46332a3e4b655b4f0eb91053fffc15dd3746da",
+        "biological_data": false,
+        "files": [],
+        "verified_at_load": true
+      },
+      "model": {
+        "parameter_set": "shiu2024_code_v1",
+        "parameters": {
+          "v_rest": {
+            "value": -52,
+            "evidence": "LITERATURE_DERIVED",
+            "source": "Shiu et al. 2024, Nature, doi:10.1038/s41586-024-07763-9; Methods 'Computational model': 'Vresting = -52 mV (resting potential)'; reference code github.com/philshiu/Drosophila_brain_model@91bdd1e7dcf193f3e7ca5a8933497fcef63b7960 model.py:22 'v_0' : -52 * mV # resting potential",
+            "rationale": null,
+            "units": "mV"
+          },
+          "v_reset": {
+            "value": -52,
+            "evidence": "LITERATURE_DERIVED",
+            "source": "Shiu et al. 2024, Nature, doi:10.1038/s41586-024-07763-9; Methods 'Computational model': 'Vreset = -52 mV (reset potential after spike)'; reference code github.com/philshiu/Drosophila_brain_model@91bdd1e7dcf193f3e7ca5a8933497fcef63b7960 model.py:23 'v_rst' : -52 * mV # reset potential after spike",
+            "rationale": null,
+            "units": "mV"
+          },
+          "v_threshold": {
+            "value": -45,
+            "evidence": "LITERATURE_DERIVED",
+            "source": "Shiu et al. 2024, Nature, doi:10.1038/s41586-024-07763-9; Methods 'Computational model': 'Vthreshold = -45 mV (threshold for spiking)'; reference code github.com/philshiu/Drosophila_brain_model@91bdd1e7dcf193f3e7ca5a8933497fcef63b7960 model.py:24 'v_th' : -45 * mV # threshold for spiking",
+            "rationale": null,
+            "units": "mV"
+          },
+          "tau_m": {
+            "value": 20,
+            "evidence": "LITERATURE_DERIVED",
+            "source": "Shiu et al. 2024, Nature, doi:10.1038/s41586-024-07763-9; Methods 'Computational model': 'Tmbr = Cmb x Rmbr' with 'Rmbr = 10 Kohm cm2', 'Cmbr = 2 uF cm-2'; reference code github.com/philshiu/Drosophila_brain_model@91bdd1e7dcf193f3e7ca5a8933497fcef63b7960 model.py:25 't_mbr' : 20 * ms # membrane time scale",
+            "rationale": null,
+            "units": "ms"
+          },
+          "tau_syn": {
+            "value": 5,
+            "evidence": "LITERATURE_DERIVED",
+            "source": "Shiu et al. 2024, Nature, doi:10.1038/s41586-024-07763-9; Methods 'Computational model': 'tau = 5 ms (synapse decay timescale)'; reference code github.com/philshiu/Drosophila_brain_model@91bdd1e7dcf193f3e7ca5a8933497fcef63b7960 model.py:28 'tau' : 5 * ms # time constant",
+            "rationale": null,
+            "units": "ms"
+          },
+          "t_ref": {
+            "value": 2.2,
+            "evidence": "LITERATURE_DERIVED",
+            "source": "Shiu et al. 2024, Nature, doi:10.1038/s41586-024-07763-9; Methods 'Computational model': 'Trefractory = 2.2 ms (refractory period)'; reference code github.com/philshiu/Drosophila_brain_model@91bdd1e7dcf193f3e7ca5a8933497fcef63b7960 model.py:31 't_rfc' : 2.2 * ms # refractory period",
+            "rationale": null,
+            "units": "ms"
+          },
+          "delay": {
+            "value": 1.8,
+            "evidence": "LITERATURE_DERIVED",
+            "source": "Shiu et al. 2024, Nature, doi:10.1038/s41586-024-07763-9; Methods 'Computational model': 'Tdly = 1.8 ms (time delay from spike to change in membrane potential)'; reference code github.com/philshiu/Drosophila_brain_model@91bdd1e7dcf193f3e7ca5a8933497fcef63b7960 model.py:34 't_dly' : 1.8*ms # delay for changes in post-synaptic neuron",
+            "rationale": null,
+            "units": "ms"
+          },
+          "w_syn": {
+            "value": 1.8,
+            "evidence": "ASSUMED",
+            "source": null,
+            "rationale": "synthetic graph only: the preset 0.275 mV gives sub-mV PSPs on this graph, so nothing downstream of the stimulus spikes; 1.8 mV was picked by a coarse scan (0.8-2.5 mV) as a value where activity spreads without running away. Demonstration, not calibration",
+            "units": "mV"
+          }
+        }
+      },
+      "evidence": {
+        "dataset": "ENGINEERED",
+        "model_output": "ASSUMED",
+        "stimulus": "ENGINEERED"
+      },
+      "limitations": [
+        "Uniform LIF parameters for every neuron; not measured for MaleCNS neurons.",
+        "w_syn is ASSUMED (copied from a female-brain model's free parameter), not calibrated.",
+        "Synapse signs come from an ASSUMED transmitter mapping; see synapse_sign in this manifest.",
+        "Current-based synapses, one uniform delay, no gap junctions, neuromodulation or plasticity.",
+        "A single run is not a statistical result; replicate seeds before comparing conditions.",
+        "Engineering simulation, not validated behaviour."
+      ],
+      "gpu_verification": "UNVERIFIED by this dashboard",
+      "populations": [
+        {
+          "name": "input",
+          "n_neurons": 10
+        },
+        {
+          "name": "probe",
+          "n_neurons": 5
+        },
+        {
+          "name": "__all__",
+          "n_neurons": 2000
+        }
+      ],
+      "raster_sample": [
+        {
+          "idx": 0,
+          "population": "input"
+        },
+        {
+          "idx": 1,
+          "population": "input"
+        },
+        {
+          "idx": 2,
+          "population": "input"
+        },
+        {
+          "idx": 3,
+          "population": "input"
+        },
+        {
+          "idx": 4,
+          "population": "input"
+        },
+        {
+          "idx": 5,
+          "population": "input"
+        },
+        {
+          "idx": 6,
+          "population": "input"
+        },
+        {
+          "idx": 7,
+          "population": "input"
+        },
+        {
+          "idx": 8,
+          "population": "input"
+        },
+        {
+          "idx": 9,
+          "population": "input"
+        },
+        {
+          "idx": 100,
+          "population": "probe"
+        },
+        {
+          "idx": 101,
+          "population": "probe"
+        },
+        {
+          "idx": 102,
+          "population": "probe"
+        },
+        {
+          "idx": 103,
+          "population": "probe"
+        },
+        {
+          "idx": 104,
+          "population": "probe"
+        }
+      ],
+      "stimuli": [
+        {
+          "kind": "injected_current",
+          "population": "input",
+          "onset_ms": 20,
+          "offset_ms": 150,
+          "amplitude_mV": 20
+        },
+        {
+          "kind": "forced_spikes",
+          "population": "probe",
+          "onset_ms": 0,
+          "offset_ms": 200,
+          "rate_hz": 50
+        }
+      ],
+      "interventions": [
+        {
+          "kind": "remove_synapses",
+          "pre_population": "input",
+          "fraction": 0.5,
+          "seed": 3
+        }
+      ],
+      "preview_pace_ms_per_bin": 100
+    }
+  },
+  "screenshots": [
+    "ui-idle.png",
+    "ui-running.png",
+    "ui-finished.png"
+  ]
+}

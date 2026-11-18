@@ -1,0 +1,25 @@
+{
+ "schema_version": 1,
+ "kind": "flylab_kc_recurrence",
+ "evidence": "EMPIRICAL (connectome counts); selectors differ between datasets",
+ "malecns_v1_0_superclass_annotated": {
+  "n_kenyon_cells": 4064,
+  "kc_to_kc_synapses": 1153845,
+  "kc_to_kc_synapses_per_kc": 283.9,
+  "synapses_onto_kcs_per_kc": 512.4,
+  "fraction_of_kc_input_from_kcs": 0.554,
+  "selector": "type starts with 'KC'",
+  "consensus_nt": {
+   "acetylcholine": 4064
+  }
+ },
+ "flywire_v783_shiu_connectivity": {
+  "n_kenyon_cells": 5177,
+  "kc_to_kc_synapses": 379338,
+  "kc_to_kc_synapses_per_kc": 73.3,
+  "synapses_onto_kcs_per_kc": 182.2,
+  "fraction_of_kc_input_from_kcs": 0.402,
+  "selector": "flywire_annotations cell_class == 'Kenyon_Cell'"
+ },
+ "ratio_kc_to_kc_per_kc_malecns_over_flywire": 3.87
+}

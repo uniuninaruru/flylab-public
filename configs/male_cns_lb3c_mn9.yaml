@@ -1,0 +1,56 @@
+# MaleCNS v1.0: left labellar LB3c GRNs -> MN9. EXPLORATORY engineering run, not validation.
+#
+# Population choice (docs/OPEN_QUESTIONS.md Q8, evidence in docs/acceptance/evidence/):
+# - LB3c is the type whose FlyWire cell_sub_class is "sugar" (flyconnectome/flywire_annotations
+#   @a83b277, Supplemental_file1). MaleCNS `flywireType` only says "LB3"; the a-d letters were
+#   matched by downstream partner-type profiles (cosine 0.932 for LB3c, best of the four).
+# - body ids below = MaleCNS v1.0 annotations with type == LB3c and rootSide == L (12 bodies).
+# - MN9 (FlyWire CB0701; Shiu et al.'s MN9 id 720575940660219265 is CB0701) is the readout.
+# Needs the processed graph: flylab data fetch && flylab data prepare.
+# w_syn is NOT recalibrated for MaleCNS (Q16): read rates as relative, not absolute.
+schema_version: 1
+experiment_id: malecns_lb3c_left_mn9
+description: Forced 100 Hz Poisson spikes in the 12 left LB3c GRNs for 1 s; MN9 left/right rates.
+dataset:
+  kind: processed
+  path: data/processed/male-cns-v1.0/superclass_annotated
+  expected_dataset_id: male-cns:v1.0
+backend: numpy
+dtype: float32
+dt_ms: 0.1
+steps: 10000                     # 1 s, the trial length of Shiu et al.
+seed: 1
+model:
+  parameter_set: shiu2024_code_v1
+synapse_sign:
+  source: transmitter
+  transmitter_column: consensus_nt   # Q14: most complete; equals ground_truth where that exists
+  mapping: shiu2024_methods_v1       # the rule stated in the Shiu et al. Methods
+  unknown_sign_policy: exclude       # histamine / unclear / missing presynaptic neurons send nothing
+populations:
+  lb3c_left:
+    body_ids: [78240, 85806, 180314, 190769, 261450, 262567, 512551, 531237, 933317,
+               158893964, 349137284, 475202322]
+  lb3c_right:
+    body_ids: [72059, 92440, 101087, 120303, 140015, 142827, 202888, 215556, 516217, 942168,
+               957530]
+  mn9_left: {body_ids: [10331]}     # somaSide L
+  mn9_right: {body_ids: [16949]}    # somaSide R
+stimuli:
+  - kind: forced_spikes
+    population: lb3c_left
+    onset_ms: 0.0
+    offset_ms: 1000.0
+    rate_hz: 100.0
+interventions: []
+recording:
+  spike_events: true
+  population_rate_bin_ms: 10.0
+  populations: [lb3c_left, lb3c_right, mn9_left, mn9_right, __all__]
+sensitivity:
+  - name: fast-ionotropic-map
+    synapse_sign: {mapping: fast_ionotropic_v1}
+  - name: predicted-nt-column
+    synapse_sign: {transmitter_column: predicted_nt}
+  - name: glutamate-excitatory
+    synapse_sign: {overrides: {glutamate: 1}}

@@ -1,0 +1,55 @@
+# SYNTHETIC random graph (flylab.data.synthetic.random_graph): tests code paths, not biology.
+# Run from the repository root:  flylab run --config configs/synthetic.yaml --with-baseline
+schema_version: 1
+experiment_id: synthetic_stimulus_lesion
+description: Injected drive into 10 neurons; half of their outgoing edges removed.
+dataset:
+  kind: synthetic_random
+  n_neurons: 2000
+  mean_out_degree: 20
+  graph_seed: 7
+  inhibitory_fraction: 0.2
+backend: numpy
+dtype: float64
+dt_ms: 0.1
+steps: 2000                      # 200 ms
+seed: 42
+model:
+  parameter_set: shiu2024_code_v1
+  overrides:
+    w_syn:
+      value: 1.8
+      units: mV
+      evidence: ASSUMED
+      rationale: >-
+        synthetic graph only: the preset 0.275 mV gives sub-mV PSPs on this graph, so nothing
+        downstream of the stimulus spikes; 1.8 mV was picked by a coarse scan (0.8-2.5 mV) as a
+        value where activity spreads without running away. Demonstration, not calibration
+synapse_sign:
+  source: graph                  # random_graph assigns one sign per presynaptic neuron
+  unknown_sign_policy: error     # it has no unknown signs; fail if that ever changes
+populations:
+  input:                         # body ids of synthetic neurons 0..9
+    body_ids: [9000000000000, 9000000000001, 9000000000002, 9000000000003, 9000000000004,
+               9000000000005, 9000000000006, 9000000000007, 9000000000008, 9000000000009]
+  probe:
+    body_ids: [9000000000100, 9000000000101, 9000000000102, 9000000000103, 9000000000104]
+stimuli:
+  - kind: injected_current
+    population: input
+    onset_ms: 20.0
+    offset_ms: 150.0
+    amplitude_mV: 20.0           # R*I_ext; uncalibrated (MODEL_ASSUMPTIONS 5)
+  - kind: forced_spikes
+    population: probe
+    onset_ms: 0.0
+    offset_ms: 200.0
+    rate_hz: 50.0
+interventions:
+  - kind: remove_synapses
+    pre_population: input
+    fraction: 0.5
+    seed: 3
+recording:
+  spike_events: true
+  population_rate_bin_ms: 10.0

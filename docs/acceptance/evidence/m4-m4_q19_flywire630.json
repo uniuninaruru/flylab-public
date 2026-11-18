@@ -1,0 +1,1281 @@
+{
+ "schema_version": 1,
+ "kind": "flylab_replicate_group_stats",
+ "group_id": "m4_q19_flywire630",
+ "group_config_sha256": "93f2675f58395e10b51b6f1a112d3b7c4a811fa8b6fb6bb5991f5a485605d8e0",
+ "seeds": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10
+ ],
+ "unit_of_replication": "one stimulus seed: one realisation of the Poisson input (and of the null graph where graph_null.seed = replicate) on one fixed connectome and parameter set. Seeds are not animals; their spread is the model's sensitivity to its own input noise.",
+ "units": {
+  "mean_rate_hz": "Hz per neuron, whole run",
+  "fraction_spiking": "fraction of the population with >= 1 spike",
+  "latency_median_ms": "median over the population's neurons of the first spike at or after the earliest stimulus onset (ms); missing when no neuron spiked"
+ },
+ "evidence": {
+  "label": "ASSUMED",
+  "applies_to": "every simulated value, difference and interval in this file, read as a statement about the fly",
+  "rationale": "a model output is no stronger than the weakest label of its inputs (order weakest first: ['UNKNOWN', 'ASSUMED', 'ENGINEERED', 'LEARNED', 'LITERATURE_DERIVED', 'EMPIRICAL'])",
+  "inputs": {
+   "model.delay": [
+    "LITERATURE_DERIVED"
+   ],
+   "model.t_ref": [
+    "LITERATURE_DERIVED"
+   ],
+   "model.tau_m": [
+    "LITERATURE_DERIVED"
+   ],
+   "model.tau_syn": [
+    "LITERATURE_DERIVED"
+   ],
+   "model.v_reset": [
+    "LITERATURE_DERIVED"
+   ],
+   "model.v_rest": [
+    "LITERATURE_DERIVED"
+   ],
+   "model.v_threshold": [
+    "LITERATURE_DERIVED"
+   ],
+   "model.w_syn": [
+    "ASSUMED"
+   ],
+   "stimuli": [
+    "ENGINEERED"
+   ],
+   "time.dt": [
+    "ENGINEERED"
+   ]
+  }
+ },
+ "statistics_method": {
+  "evidence": "ENGINEERED",
+  "ci_mean": "BCa bootstrap over replicates (percentile fallback if replicates are not finite); flylab.experiments.stats",
+  "paired": "same seed in condition and reference; mean difference (BCa), Cohen's d_z (percentile), relative change mean(d)/mean(ref) (paired percentile), two-sided sign-flip permutation test (exact for <= 16 pairs)",
+  "multiple_comparisons": {
+   "method": "Holm step-down",
+   "family": "every comparison and population contrast x metric in this file with a p-value",
+   "m": 5
+  },
+  "n_boot": 10000,
+  "confidence": 0.95,
+  "seed": 0,
+  "seed_rule": "per statistic: flylab.experiments.stats.derive_seed(seed, labels)"
+ },
+ "conditions": {
+  "shiu21_r050": {
+   "description": null,
+   "n_runs": 10,
+   "all_state_finite": true,
+   "forced_spikes_dropped_by_seed": {
+    "1": 107,
+    "2": 103,
+    "3": 110,
+    "4": 93,
+    "5": 88,
+    "6": 111,
+    "7": 98,
+    "8": 82,
+    "9": 105,
+    "10": 94
+   },
+   "populations": {
+    "sugar_shiu21": {
+     "mean_rate_hz": {
+      "n": 10,
+      "mean": 44.61904761904761,
+      "sd": 1.5276077002837605,
+      "median": 44.16666666666667,
+      "min": 42.80952380952381,
+      "max": 46.904761904761905,
+      "ci_mean": {
+       "low": 43.78092068795034,
+       "high": 45.60000000000001,
+       "confidence": 0.95,
+       "method": "bca",
+       "n_boot": 10000,
+       "seed": 2716837868379321955,
+       "note": null
+      },
+      "n_missing": 0,
+      "values_by_seed": {
+       "1": 45.0,
+       "2": 46.714285714285715,
+       "3": 46.23809523809524,
+       "4": 43.904761904761905,
+       "5": 43.0,
+       "6": 46.904761904761905,
+       "7": 43.285714285714285,
+       "8": 44.04761904761905,
+       "9": 44.285714285714285,
+       "10": 42.80952380952381
+      }
+     }
+    },
+    "mn9_ipsi": {
+     "mean_rate_hz": {
+      "n": 10,
+      "mean": 7.6,
+      "sd": 1.8973665961010275,
+      "median": 7.0,
+      "min": 5.0,
+      "max": 11.0,
+      "ci_mean": {
+       "low": 6.6,
+       "high": 8.8,
+       "confidence": 0.95,
+       "method": "bca",
+       "n_boot": 10000,
+       "seed": 7702910917451553311,
+       "note": null
+      },
+      "n_missing": 0,
+      "values_by_seed": {
+       "1": 6.0,
+       "2": 11.0,
+       "3": 6.0,
+       "4": 9.0,
+       "5": 7.0,
+       "6": 7.0,
+       "7": 5.0,
+       "8": 7.0,
+       "9": 8.0,
+       "10": 10.0
+      }
+     }
+    },
+    "mn9_contra": {
+     "mean_rate_hz": {
+      "n": 10,
+      "mean": 9.6,
+      "sd": 2.836272984824353,
+      "median": 10.0,
+      "min": 5.0,
+      "max": 14.0,
+      "ci_mean": {
+       "low": 7.9,
+       "high": 11.3,
+       "confidence": 0.95,
+       "method": "bca",
+       "n_boot": 10000,
+       "seed": 7362098548680562871,
+       "note": null
+      },
+      "n_missing": 0,
+      "values_by_seed": {
+       "1": 7.0,
+       "2": 14.0,
+       "3": 7.0,
+       "4": 11.0,
+       "5": 10.0,
+       "6": 8.0,
+       "7": 5.0,
+       "8": 10.0,
+       "9": 11.0,
+       "10": 13.0
+      }
+     }
+    },
+    "__all__": {
+     "mean_rate_hz": {
+      "n": 10,
+      "mean": 0.018115384615384617,
+      "sd": 0.0017897248059916117,
+      "median": 0.0180690737833595,
+      "min": 0.015510204081632653,
+      "max": 0.021773940345368916,
+      "ci_mean": {
+       "low": 0.017217425431711144,
+       "high": 0.01938147566718995,
+       "confidence": 0.95,
+       "method": "bca",
+       "n_boot": 10000,
+       "seed": 51960089056033932,
+       "note": null
+      },
+      "n_missing": 0,
+      "values_by_seed": {
+       "1": 0.01749607535321821,
+       "2": 0.021773940345368916,
+       "3": 0.018218210361067504,
+       "4": 0.017919937205651493,
+       "5": 0.019811616954474098,
+       "6": 0.01868916797488226,
+       "7": 0.015510204081632653,
+       "8": 0.01664050235478807,
+       "9": 0.01859497645211931,
+       "10": 0.01649921507064364
+      }
+     }
+    }
+   }
+  },
+  "shiu21_r100": {
+   "description": null,
+   "n_runs": 10,
+   "all_state_finite": true,
+   "forced_spikes_dropped_by_seed": {
+    "1": 373,
+    "2": 344,
+    "3": 370,
+    "4": 364,
+    "5": 354,
+    "6": 399,
+    "7": 348,
+    "8": 319,
+    "9": 369,
+    "10": 368
+   },
+   "populations": {
+    "sugar_shiu21": {
+     "mean_rate_hz": {
+      "n": 10,
+      "mean": 81.29523809523809,
+      "sd": 1.6947445925755287,
+      "median": 80.92857142857143,
+      "min": 78.85714285714286,
+      "max": 84.0,
+      "ci_mean": {
+       "low": 80.34761904761903,
+       "high": 82.33809523809524,
+       "confidence": 0.95,
+       "method": "bca",
+       "n_boot": 10000,
+       "seed": 8544489734233631988,
+       "note": null
+      },
+      "n_missing": 0,
+      "values_by_seed": {
+       "1": 82.14285714285714,
+       "2": 83.57142857142857,
+       "3": 80.23809523809524,
+       "4": 81.23809523809524,
+       "5": 84.0,
+       "6": 82.42857142857143,
+       "7": 80.61904761904762,
+       "8": 80.14285714285714,
+       "9": 78.85714285714286,
+       "10": 79.71428571428571
+      }
+     }
+    },
+    "mn9_ipsi": {
+     "mean_rate_hz": {
+      "n": 10,
+      "mean": 43.5,
+      "sd": 3.0276503540974917,
+      "median": 42.5,
+      "min": 41.0,
+      "max": 51.0,
+      "ci_mean": {
+       "low": 42.2,
+       "high": 46.2,
+       "confidence": 0.95,
+       "method": "bca",
+       "n_boot": 10000,
+       "seed": 120978928799052633,
+       "note": null
+      },
+      "n_missing": 0,
+      "values_by_seed": {
+       "1": 43.0,
+       "2": 42.0,
+       "3": 43.0,
+       "4": 46.0,
+       "5": 51.0,
+       "6": 41.0,
+       "7": 41.0,
+       "8": 42.0,
+       "9": 42.0,
+       "10": 44.0
+      }
+     }
+    },
+    "mn9_contra": {
+     "mean_rate_hz": {
+      "n": 10,
+      "mean": 59.6,
+      "sd": 4.993328882953068,
+      "median": 59.5,
+      "min": 50.0,
+      "max": 68.0,
+      "ci_mean": {
+       "low": 56.6,
+       "high": 62.5,
+       "confidence": 0.95,
+       "method": "bca",
+       "n_boot": 10000,
+       "seed": 3361753414558459704,
+       "note": null
+      },
+      "n_missing": 0,
+      "values_by_seed": {
+       "1": 56.0,
+       "2": 60.0,
+       "3": 58.0,
+       "4": 61.0,
+       "5": 66.0,
+       "6": 68.0,
+       "7": 50.0,
+       "8": 59.0,
+       "9": 58.0,
+       "10": 60.0
+      }
+     }
+    },
+    "__all__": {
+     "mean_rate_hz": {
+      "n": 10,
+      "mean": 0.06331475667189954,
+      "sd": 0.003754094729192108,
+      "median": 0.06426216640502355,
+      "min": 0.05711930926216641,
+      "max": 0.06753532182103611,
+      "ci_mean": {
+       "low": 0.06084002046560567,
+       "high": 0.06524175824175824,
+       "confidence": 0.95,
+       "method": "bca",
+       "n_boot": 10000,
+       "seed": 8106054153865923441,
+       "note": null
+      },
+      "n_missing": 0,
+      "values_by_seed": {
+       "1": 0.06375196232339089,
+       "2": 0.06675824175824176,
+       "3": 0.06143642072213501,
+       "4": 0.0647723704866562,
+       "5": 0.06753532182103611,
+       "6": 0.06691522762951334,
+       "7": 0.05711930926216641,
+       "8": 0.06116954474097331,
+       "9": 0.05790423861852433,
+       "10": 0.06578492935635792
+      }
+     }
+    }
+   }
+  },
+  "shiu21_r150": {
+   "description": null,
+   "n_runs": 10,
+   "all_state_finite": true,
+   "forced_spikes_dropped_by_seed": {
+    "1": 774,
+    "2": 731,
+    "3": 740,
+    "4": 741,
+    "5": 709,
+    "6": 747,
+    "7": 704,
+    "8": 669,
+    "9": 752,
+    "10": 759
+   },
+   "populations": {
+    "sugar_shiu21": {
+     "mean_rate_hz": {
+      "n": 10,
+      "mean": 112.23333333333332,
+      "sd": 1.9087854329851004,
+      "median": 112.42857142857143,
+      "min": 109.52380952380952,
+      "max": 115.76190476190476,
+      "ci_mean": {
+       "low": 111.14761904761906,
+       "high": 113.41428571428573,
+       "confidence": 0.95,
+       "method": "bca",
+       "n_boot": 10000,
+       "seed": 8334963971981184122,
+       "note": null
+      },
+      "n_missing": 0,
+      "values_by_seed": {
+       "1": 113.0952380952381,
+       "2": 114.0,
+       "3": 112.66666666666667,
+       "4": 109.52380952380952,
+       "5": 115.76190476190476,
+       "6": 112.71428571428571,
+       "7": 109.57142857142857,
+       "8": 111.04761904761905,
+       "9": 112.19047619047619,
+       "10": 111.76190476190476
+      }
+     }
+    },
+    "mn9_ipsi": {
+     "mean_rate_hz": {
+      "n": 10,
+      "mean": 54.9,
+      "sd": 3.4785054261852175,
+      "median": 55.0,
+      "min": 48.0,
+      "max": 60.0,
+      "ci_mean": {
+       "low": 52.6,
+       "high": 56.8,
+       "confidence": 0.95,
+       "method": "bca",
+       "n_boot": 10000,
+       "seed": 7527316380362306616,
+       "note": null
+      },
+      "n_missing": 0,
+      "values_by_seed": {
+       "1": 59.0,
+       "2": 60.0,
+       "3": 52.0,
+       "4": 54.0,
+       "5": 53.0,
+       "6": 55.0,
+       "7": 48.0,
+       "8": 57.0,
+       "9": 55.0,
+       "10": 56.0
+      }
+     }
+    },
+    "mn9_contra": {
+     "mean_rate_hz": {
+      "n": 10,
+      "mean": 76.1,
+      "sd": 4.840798832148815,
+      "median": 75.5,
+      "min": 69.0,
+      "max": 83.0,
+      "ci_mean": {
+       "low": 73.4,
+       "high": 79.0,
+       "confidence": 0.95,
+       "method": "bca",
+       "n_boot": 10000,
+       "seed": 1018805130377652808,
+       "note": null
+      },
+      "n_missing": 0,
+      "values_by_seed": {
+       "1": 81.0,
+       "2": 83.0,
+       "3": 73.0,
+       "4": 73.0,
+       "5": 71.0,
+       "6": 74.0,
+       "7": 77.0,
+       "8": 82.0,
+       "9": 69.0,
+       "10": 78.0
+      }
+     }
+    },
+    "__all__": {
+     "mean_rate_hz": {
+      "n": 10,
+      "mean": 0.08651177394034537,
+      "sd": 0.0022196596953733753,
+      "median": 0.0864795918367347,
+      "min": 0.0839403453689168,
+      "max": 0.09038461538461538,
+      "ci_mean": {
+       "low": 0.08533197332219913,
+       "high": 0.08794398123980812,
+       "confidence": 0.95,
+       "method": "bca",
+       "n_boot": 10000,
+       "seed": 9210645749654986989,
+       "note": null
+      },
+      "n_missing": 0,
+      "values_by_seed": {
+       "1": 0.08952119309262166,
+       "2": 0.08645996860282575,
+       "3": 0.08649921507064365,
+       "4": 0.08548665620094191,
+       "5": 0.08749607535321821,
+       "6": 0.09038461538461538,
+       "7": 0.08401883830455259,
+       "8": 0.08706436420722136,
+       "9": 0.0842464678178964,
+       "10": 0.0839403453689168
+      }
+     }
+    }
+   }
+  },
+  "shiu21_r200": {
+   "description": null,
+   "n_runs": 10,
+   "all_state_finite": true,
+   "forced_spikes_dropped_by_seed": {
+    "1": 1255,
+    "2": 1176,
+    "3": 1172,
+    "4": 1193,
+    "5": 1197,
+    "6": 1222,
+    "7": 1151,
+    "8": 1108,
+    "9": 1223,
+    "10": 1207
+   },
+   "populations": {
+    "sugar_shiu21": {
+     "mean_rate_hz": {
+      "n": 10,
+      "mean": 139.10476190476192,
+      "sd": 1.4290651704085713,
+      "median": 139.02380952380952,
+      "min": 136.1904761904762,
+      "max": 141.0,
+      "ci_mean": {
+       "low": 138.11975565331625,
+       "high": 139.83333333333331,
+       "confidence": 0.95,
+       "method": "bca",
+       "n_boot": 10000,
+       "seed": 5656650851202178554,
+       "note": null
+      },
+      "n_missing": 0,
+      "values_by_seed": {
+       "1": 140.1904761904762,
+       "2": 140.33333333333334,
+       "3": 139.28571428571428,
+       "4": 136.1904761904762,
+       "5": 141.0,
+       "6": 138.66666666666666,
+       "7": 137.71428571428572,
+       "8": 138.76190476190476,
+       "9": 140.1904761904762,
+       "10": 138.71428571428572
+      }
+     }
+    },
+    "mn9_ipsi": {
+     "mean_rate_hz": {
+      "n": 10,
+      "mean": 58.6,
+      "sd": 3.835506630304673,
+      "median": 59.5,
+      "min": 51.0,
+      "max": 63.0,
+      "ci_mean": {
+       "low": 56.0,
+       "high": 60.6,
+       "confidence": 0.95,
+       "method": "bca",
+       "n_boot": 10000,
+       "seed": 334203946528489947,
+       "note": null
+      },
+      "n_missing": 0,
+      "values_by_seed": {
+       "1": 56.0,
+       "2": 62.0,
+       "3": 56.0,
+       "4": 60.0,
+       "5": 63.0,
+       "6": 56.0,
+       "7": 59.0,
+       "8": 60.0,
+       "9": 63.0,
+       "10": 51.0
+      }
+     }
+    },
+    "mn9_contra": {
+     "mean_rate_hz": {
+      "n": 10,
+      "mean": 83.4,
+      "sd": 4.526465385804788,
+      "median": 83.0,
+      "min": 77.0,
+      "max": 92.0,
+      "ci_mean": {
+       "low": 81.0,
+       "high": 86.4,
+       "confidence": 0.95,
+       "method": "bca",
+       "n_boot": 10000,
+       "seed": 8206924173287198273,
+       "note": null
+      },
+      "n_missing": 0,
+      "values_by_seed": {
+       "1": 92.0,
+       "2": 85.0,
+       "3": 77.0,
+       "4": 81.0,
+       "5": 86.0,
+       "6": 84.0,
+       "7": 88.0,
+       "8": 79.0,
+       "9": 82.0,
+       "10": 80.0
+      }
+     }
+    },
+    "__all__": {
+     "mean_rate_hz": {
+      "n": 10,
+      "mean": 0.10312872841444269,
+      "sd": 0.002217796100405711,
+      "median": 0.10294348508634223,
+      "min": 0.10015698587127159,
+      "max": 0.10849293563579278,
+      "ci_mean": {
+       "low": 0.10215926668168956,
+       "high": 0.10493956043956046,
+       "confidence": 0.95,
+       "method": "bca",
+       "n_boot": 10000,
+       "seed": 855610813996824105,
+       "note": null
+      },
+      "n_missing": 0,
+      "values_by_seed": {
+       "1": 0.10388540031397174,
+       "2": 0.10360282574568289,
+       "3": 0.10285714285714286,
+       "4": 0.10135792778649921,
+       "5": 0.10849293563579278,
+       "6": 0.1030298273155416,
+       "7": 0.10259026687598116,
+       "8": 0.10015698587127159,
+       "9": 0.10167974882260597,
+       "10": 0.10363422291993721
+      }
+     }
+    }
+   }
+  },
+  "lb3c9_r100": {
+   "description": null,
+   "n_runs": 10,
+   "all_state_finite": true,
+   "forced_spikes_dropped_by_seed": {
+    "1": 178,
+    "2": 144,
+    "3": 162,
+    "4": 155,
+    "5": 154,
+    "6": 158,
+    "7": 155,
+    "8": 148,
+    "9": 157,
+    "10": 152
+   },
+   "populations": {
+    "sugar_shiu21": {
+     "mean_rate_hz": {
+      "n": 10,
+      "mean": 34.91904761904762,
+      "sd": 1.2680642327828224,
+      "median": 34.95238095238095,
+      "min": 33.523809523809526,
+      "max": 37.76190476190476,
+      "ci_mean": {
+       "low": 34.304761904761904,
+       "high": 35.87142857142857,
+       "confidence": 0.95,
+       "method": "bca",
+       "n_boot": 10000,
+       "seed": 9002411241925964704,
+       "note": null
+      },
+      "n_missing": 0,
+      "values_by_seed": {
+       "1": 35.142857142857146,
+       "2": 34.0,
+       "3": 35.523809523809526,
+       "4": 33.523809523809526,
+       "5": 37.76190476190476,
+       "6": 35.523809523809526,
+       "7": 35.38095238095238,
+       "8": 33.714285714285715,
+       "9": 33.857142857142854,
+       "10": 34.76190476190476
+      }
+     }
+    },
+    "mn9_ipsi": {
+     "mean_rate_hz": {
+      "n": 10,
+      "mean": 10.0,
+      "sd": 2.788866755113585,
+      "median": 11.0,
+      "min": 4.0,
+      "max": 13.0,
+      "ci_mean": {
+       "low": 7.9,
+       "high": 11.3,
+       "confidence": 0.95,
+       "method": "bca",
+       "n_boot": 10000,
+       "seed": 1566536764255196149,
+       "note": null
+      },
+      "n_missing": 0,
+      "values_by_seed": {
+       "1": 13.0,
+       "2": 11.0,
+       "3": 4.0,
+       "4": 11.0,
+       "5": 12.0,
+       "6": 12.0,
+       "7": 12.0,
+       "8": 9.0,
+       "9": 9.0,
+       "10": 7.0
+      }
+     }
+    },
+    "mn9_contra": {
+     "mean_rate_hz": {
+      "n": 10,
+      "mean": 18.1,
+      "sd": 3.6040101122068022,
+      "median": 19.0,
+      "min": 11.0,
+      "max": 22.0,
+      "ci_mean": {
+       "low": 15.6,
+       "high": 19.9,
+       "confidence": 0.95,
+       "method": "bca",
+       "n_boot": 10000,
+       "seed": 6428208543888689499,
+       "note": null
+      },
+      "n_missing": 0,
+      "values_by_seed": {
+       "1": 21.0,
+       "2": 17.0,
+       "3": 11.0,
+       "4": 19.0,
+       "5": 20.0,
+       "6": 22.0,
+       "7": 22.0,
+       "8": 16.0,
+       "9": 14.0,
+       "10": 19.0
+      }
+     }
+    },
+    "__all__": {
+     "mean_rate_hz": {
+      "n": 10,
+      "mean": 0.014532182103610675,
+      "sd": 0.0013457015522050175,
+      "median": 0.014446624803767662,
+      "min": 0.01249607535321821,
+      "max": 0.017213500784929357,
+      "ci_mean": {
+       "low": 0.013843014128728414,
+       "high": 0.015430491109883678,
+       "confidence": 0.95,
+       "method": "bca",
+       "n_boot": 10000,
+       "seed": 6855080815479423369,
+       "note": null
+      },
+      "n_missing": 0,
+      "values_by_seed": {
+       "1": 0.014984301412872842,
+       "2": 0.01390894819466248,
+       "3": 0.01249607535321821,
+       "4": 0.01543956043956044,
+       "5": 0.017213500784929357,
+       "6": 0.015259026687598116,
+       "7": 0.015196232339089483,
+       "8": 0.01370486656200942,
+       "9": 0.013532182103610676,
+       "10": 0.01358712715855573
+      }
+     }
+    }
+   }
+  }
+ },
+ "comparisons": [],
+ "population_contrasts": [
+  {
+   "condition": "shiu21_r050",
+   "population": "mn9_contra",
+   "reference_population": "mn9_ipsi",
+   "metric": "mean_rate_hz",
+   "n_pairs_dropped_missing": 0,
+   "n_pairs": 10,
+   "condition_mean": 9.6,
+   "reference_mean": 7.6,
+   "mean_difference": 2.0,
+   "sd_difference": 1.1547005383792515,
+   "ci_mean_difference": {
+    "low": 1.2,
+    "high": 2.6,
+    "confidence": 0.95,
+    "method": "bca",
+    "n_boot": 10000,
+    "seed": 15081497901206107,
+    "note": null
+   },
+   "d_z": 1.7320508075688774,
+   "ci_d_z": {
+    "low": 1.1067971810589328,
+    "high": 3.7185040980578097,
+    "confidence": 0.95,
+    "method": "percentile",
+    "n_boot": 10000,
+    "seed": 15081497901206108,
+    "note": "15 of 10000 bootstrap replicates not finite; excluded"
+   },
+   "relative_change": 0.2631578947368421,
+   "ci_relative_change": {
+    "low": 0.1904440154440157,
+    "high": 0.3291139240506329,
+    "confidence": 0.95,
+    "method": "percentile",
+    "n_boot": 10000,
+    "seed": 15081497901206109,
+    "note": null
+   },
+   "sign_flip_test": {
+    "statistic": "|mean paired difference|",
+    "alternative": "two-sided",
+    "p_value": 0.00390625,
+    "method": "exact",
+    "n_resamples": 1024
+   },
+   "p_holm": 0.009765625
+  },
+  {
+   "condition": "shiu21_r100",
+   "population": "mn9_contra",
+   "reference_population": "mn9_ipsi",
+   "metric": "mean_rate_hz",
+   "n_pairs_dropped_missing": 0,
+   "n_pairs": 10,
+   "condition_mean": 59.6,
+   "reference_mean": 43.5,
+   "mean_difference": 16.1,
+   "sd_difference": 4.557045826702499,
+   "ci_mean_difference": {
+    "low": 14.1,
+    "high": 19.8,
+    "confidence": 0.95,
+    "method": "bca",
+    "n_boot": 10000,
+    "seed": 7192359179604541481,
+    "note": null
+   },
+   "d_z": 3.5329905847468823,
+   "ci_d_z": {
+    "low": 2.5424574284658337,
+    "high": 13.97258245110318,
+    "confidence": 0.95,
+    "method": "percentile",
+    "n_boot": 10000,
+    "seed": 7192359179604541482,
+    "note": null
+   },
+   "relative_change": 0.37011494252873567,
+   "ci_relative_change": {
+    "low": 0.3122139625080802,
+    "high": 0.4439140811455848,
+    "confidence": 0.95,
+    "method": "percentile",
+    "n_boot": 10000,
+    "seed": 7192359179604541483,
+    "note": null
+   },
+   "sign_flip_test": {
+    "statistic": "|mean paired difference|",
+    "alternative": "two-sided",
+    "p_value": 0.001953125,
+    "method": "exact",
+    "n_resamples": 1024
+   },
+   "p_holm": 0.009765625
+  },
+  {
+   "condition": "shiu21_r150",
+   "population": "mn9_contra",
+   "reference_population": "mn9_ipsi",
+   "metric": "mean_rate_hz",
+   "n_pairs_dropped_missing": 0,
+   "n_pairs": 10,
+   "condition_mean": 76.1,
+   "reference_mean": 54.9,
+   "mean_difference": 21.2,
+   "sd_difference": 4.1041983924323695,
+   "ci_mean_difference": {
+    "low": 18.9,
+    "high": 23.6,
+    "confidence": 0.95,
+    "method": "bca",
+    "n_boot": 10000,
+    "seed": 562193227455805106,
+    "note": null
+   },
+   "d_z": 5.165442303932032,
+   "ci_d_z": {
+    "low": 3.822283393063324,
+    "high": 11.279459809416096,
+    "confidence": 0.95,
+    "method": "percentile",
+    "n_boot": 10000,
+    "seed": 562193227455805107,
+    "note": null
+   },
+   "relative_change": 0.3861566484517304,
+   "ci_relative_change": {
+    "low": 0.34061831789023517,
+    "high": 0.44038634215500944,
+    "confidence": 0.95,
+    "method": "percentile",
+    "n_boot": 10000,
+    "seed": 562193227455805108,
+    "note": null
+   },
+   "sign_flip_test": {
+    "statistic": "|mean paired difference|",
+    "alternative": "two-sided",
+    "p_value": 0.001953125,
+    "method": "exact",
+    "n_resamples": 1024
+   },
+   "p_holm": 0.009765625
+  },
+  {
+   "condition": "shiu21_r200",
+   "population": "mn9_contra",
+   "reference_population": "mn9_ipsi",
+   "metric": "mean_rate_hz",
+   "n_pairs_dropped_missing": 0,
+   "n_pairs": 10,
+   "condition_mean": 83.4,
+   "reference_mean": 58.6,
+   "mean_difference": 24.8,
+   "sd_difference": 5.513619500836089,
+   "ci_mean_difference": {
+    "low": 22.0,
+    "high": 28.6,
+    "confidence": 0.95,
+    "method": "bca",
+    "n_boot": 10000,
+    "seed": 8023322035970023790,
+    "note": null
+   },
+   "d_z": 4.497952750682072,
+   "ci_d_z": {
+    "low": 3.6043396248899606,
+    "high": 7.812454229284476,
+    "confidence": 0.95,
+    "method": "percentile",
+    "n_boot": 10000,
+    "seed": 8023322035970023791,
+    "note": null
+   },
+   "relative_change": 0.4232081911262799,
+   "ci_relative_change": {
+    "low": 0.3634868421052632,
+    "high": 0.494757053291536,
+    "confidence": 0.95,
+    "method": "percentile",
+    "n_boot": 10000,
+    "seed": 8023322035970023792,
+    "note": null
+   },
+   "sign_flip_test": {
+    "statistic": "|mean paired difference|",
+    "alternative": "two-sided",
+    "p_value": 0.001953125,
+    "method": "exact",
+    "n_resamples": 1024
+   },
+   "p_holm": 0.009765625
+  },
+  {
+   "condition": "lb3c9_r100",
+   "population": "mn9_contra",
+   "reference_population": "mn9_ipsi",
+   "metric": "mean_rate_hz",
+   "n_pairs_dropped_missing": 0,
+   "n_pairs": 10,
+   "condition_mean": 18.1,
+   "reference_mean": 10.0,
+   "mean_difference": 8.1,
+   "sd_difference": 2.0789954839350235,
+   "ci_mean_difference": {
+    "low": 7.0,
+    "high": 9.483196376654814,
+    "confidence": 0.95,
+    "method": "bca",
+    "n_boot": 10000,
+    "seed": 2411526954331107420,
+    "note": null
+   },
+   "d_z": 3.8961123593538094,
+   "ci_d_z": {
+    "low": 3.006968650504404,
+    "high": 7.156319111513017,
+    "confidence": 0.95,
+    "method": "percentile",
+    "n_boot": 10000,
+    "seed": 2411526954331107421,
+    "note": null
+   },
+   "relative_change": 0.8099999999999999,
+   "ci_relative_change": {
+    "low": 0.6666666666666667,
+    "high": 1.0235294117647058,
+    "confidence": 0.95,
+    "method": "percentile",
+    "n_boot": 10000,
+    "seed": 2411526954331107422,
+    "note": null
+   },
+   "sign_flip_test": {
+    "statistic": "|mean paired difference|",
+    "alternative": "two-sided",
+    "p_value": 0.001953125,
+    "method": "exact",
+    "n_resamples": 1024
+   },
+   "p_holm": 0.009765625
+  }
+ ],
+ "caveats": [
+  "Uniform LIF parameters and an ASSUMED transmitter-to-sign table; rates are model outputs, not predictions validated against recordings.",
+  "No behaviour is simulated or claimed."
+ ],
+ "provenance": {
+  "group_manifest": {
+   "group_id": "m4_q19_flywire630",
+   "created_utc": "2026-11-04T12:28:04+00:00",
+   "flylab_version": "0.0.1",
+   "git": {
+    "commit": "f5f300670bfc28ae98ecd8048c5915c2ad084598",
+    "dirty": true
+   },
+   "base_config": "configs/m4/flywire630_sugar_mn9.yaml",
+   "base_config_sha256": "a9b393b0385c76926d8f89da106dc66b71c07277b3becc50f98719e3de927b4a",
+   "group_config_sha256": "93f2675f58395e10b51b6f1a112d3b7c4a811fa8b6fb6bb5991f5a485605d8e0"
+  },
+  "members": [
+   {
+    "run_id": "shiu21_r050--s1",
+    "config_sha256": "fb095dc845df7ae610e0d4e579947e283f9fc1446ce91b5d433bb467ae0c6ab5"
+   },
+   {
+    "run_id": "shiu21_r050--s2",
+    "config_sha256": "83365d7560da7c2f960dd278f1ac95e1955e5a1eb0550b18b6c4908a4f77f0ea"
+   },
+   {
+    "run_id": "shiu21_r050--s3",
+    "config_sha256": "fb3e6b894b191591ecd4d64e0b2b73ebff2ee3904a147a673eaeffcda8264564"
+   },
+   {
+    "run_id": "shiu21_r050--s4",
+    "config_sha256": "564a4d97b4662ad5e20d5db3d7066699e6a034576f3556e6bb3afa3c2c5df77a"
+   },
+   {
+    "run_id": "shiu21_r050--s5",
+    "config_sha256": "5ca034274669e6766424dbfb088bef27f39b47224228a437a119034739234165"
+   },
+   {
+    "run_id": "shiu21_r050--s6",
+    "config_sha256": "7333a418aa5f26b6fbf3521aae0bec1899f6f9942940d7cc99fac54d1aae827e"
+   },
+   {
+    "run_id": "shiu21_r050--s7",
+    "config_sha256": "942e89f508c2f9562b58f0e2205d396ad7b05a74eb8ed243fcb19029fdcae39c"
+   },
+   {
+    "run_id": "shiu21_r050--s8",
+    "config_sha256": "92c130d6b00a4badeddd01344dfffa246d547a8bfd6fbe782168c030437f6d7a"
+   },
+   {
+    "run_id": "shiu21_r050--s9",
+    "config_sha256": "aabc9166e249de5bb2eac0f353bc39cdf3aaaaff861cdfa4dcef49e945757968"
+   },
+   {
+    "run_id": "shiu21_r050--s10",
+    "config_sha256": "afb52edd64c477b05bde0c9dd1d8458b99eef920cc2dd27c535487331378b8ea"
+   },
+   {
+    "run_id": "shiu21_r100--s1",
+    "config_sha256": "b6662441f67b5bb97449d9af268d89685900f7ab269a0e21574772801b0eda78"
+   },
+   {
+    "run_id": "shiu21_r100--s2",
+    "config_sha256": "f7371af2c3ef6bd10eac7923e621850fca397aa86cf4640f967eabea14b85299"
+   },
+   {
+    "run_id": "shiu21_r100--s3",
+    "config_sha256": "d3624649137e67006e2a17dc52f78fa377f4ad059c2e3554aabf23955b343795"
+   },
+   {
+    "run_id": "shiu21_r100--s4",
+    "config_sha256": "9a1b8640c42ad1c49ec85c23e21d3c0faf24a4d7c244c74ba0f7139f6f1dc285"
+   },
+   {
+    "run_id": "shiu21_r100--s5",
+    "config_sha256": "57845aceca1db23ce2e89a34ab4c2beff21cc8247b12c37ec5d10759c9b90d05"
+   },
+   {
+    "run_id": "shiu21_r100--s6",
+    "config_sha256": "179335498c083156f5e3ebdec1634e54ca48e5ce723a7d3b8963f84c78367d3c"
+   },
+   {
+    "run_id": "shiu21_r100--s7",
+    "config_sha256": "7b28a9a59a293761f209755a1cfa0688dbc4fe1dc9b1755672ab3cd80ffd25c3"
+   },
+   {
+    "run_id": "shiu21_r100--s8",
+    "config_sha256": "7e8c27a0958cfbd5fae1db6c168308cf03d9ebc643922c000c9936df45bdf881"
+   },
+   {
+    "run_id": "shiu21_r100--s9",
+    "config_sha256": "905b2c952437b45c7d7f6321d15e4b31547e2c15060556b1da5d8d795aa7a9d6"
+   },
+   {
+    "run_id": "shiu21_r100--s10",
+    "config_sha256": "c10c2088b6b044f848f8d0c8f31a8d4593408fe1c04ecbc179dbdb2705a23dbf"
+   },
+   {
+    "run_id": "shiu21_r150--s1",
+    "config_sha256": "4f1cd20af47396b1581304b24773d8bee790a760069481fc932bc7cff1c501cf"
+   },
+   {
+    "run_id": "shiu21_r150--s2",
+    "config_sha256": "466bf58eab9f820ebb7e4a0c9c164420b1407e8bb7eed22c5499bf749e535d71"
+   },
+   {
+    "run_id": "shiu21_r150--s3",
+    "config_sha256": "09ee0cf66a00d19061440996cdbd875ae87a1377df779713cc7fcf0ace16b57c"
+   },
+   {
+    "run_id": "shiu21_r150--s4",
+    "config_sha256": "94c84de71d000a04ee0bf24319be9c19cae6c037e56d0c282a6acb18e680483b"
+   },
+   {
+    "run_id": "shiu21_r150--s5",
+    "config_sha256": "6f61b23a054f50ce276186ed71083d5784b18a62ce805a904fab9407d401bf21"
+   },
+   {
+    "run_id": "shiu21_r150--s6",
+    "config_sha256": "b265d0bc23c23f490ab54f14e12c5a12d4a42b1d9a1891f1a73f24a2a8589340"
+   },
+   {
+    "run_id": "shiu21_r150--s7",
+    "config_sha256": "ae85028d50aa062afae5276a0c75ed93fb2f3727168e703508fb0f3e3e179c27"
+   },
+   {
+    "run_id": "shiu21_r150--s8",
+    "config_sha256": "681c519014db6bd1de2a0967da0ab141f0808dd4998424b5c3976f6ac3767aca"
+   },
+   {
+    "run_id": "shiu21_r150--s9",
+    "config_sha256": "79128317f6edcb491e46e71ee0c6fa47c3323dda0dd0a17a028b3509abba4989"
+   },
+   {
+    "run_id": "shiu21_r150--s10",
+    "config_sha256": "d3a4796f6de682105aed7ccd7e44baa0cc40262ee23649329c061a48db70b901"
+   },
+   {
+    "run_id": "shiu21_r200--s1",
+    "config_sha256": "5c721dd16990773ae2d33d624acdb0a1142a850cb5041b6a499bd83aedcf264f"
+   },
+   {
+    "run_id": "shiu21_r200--s2",
+    "config_sha256": "d0f21e04916cff2de56ffdcfff0021974a2883fe9627a11babe71a41a68a652a"
+   },
+   {
+    "run_id": "shiu21_r200--s3",
+    "config_sha256": "b5c8faf2f621ece87078d1dd6f6bfd8f535820d36fa37a0fc67c48aafeaa850c"
+   },
+   {
+    "run_id": "shiu21_r200--s4",
+    "config_sha256": "ddd980fde86498aef6d46c6bf382cced4f0aab53f648a6cd12c0f9caf91512a3"
+   },
+   {
+    "run_id": "shiu21_r200--s5",
+    "config_sha256": "ebd281e7d76d5ea3d2418f12f2d34699d1365500532d23dfa7fd7bd6026da782"
+   },
+   {
+    "run_id": "shiu21_r200--s6",
+    "config_sha256": "60a7e069182bbd59a09a217d904baa0d2ba9194cfe9af9933d70706bb8d0d437"
+   },
+   {
+    "run_id": "shiu21_r200--s7",
+    "config_sha256": "2b66c7b5340dbe6b73dff804b3410a8db150242ee976acec121a5af2bba0615f"
+   },
+   {
+    "run_id": "shiu21_r200--s8",
+    "config_sha256": "c641bada854d06c6615538fca89c6ad521c90d9baf9bcecf7503ec496dcb54ac"
+   },
+   {
+    "run_id": "shiu21_r200--s9",
+    "config_sha256": "a5176bce600f6275280a0b3d51a383662e150aa755c6f54d82a1ebf0c4acec50"
+   },
+   {
+    "run_id": "shiu21_r200--s10",
+    "config_sha256": "3571f7815529bb92ff9cea9cddc8554169119ed0f3a4382b5da614a1c7f346b4"
+   },
+   {
+    "run_id": "lb3c9_r100--s1",
+    "config_sha256": "914960c31786acf46c3d3896dcd6a61b65e51691c240102770d1c2bfd68d7cc5"
+   },
+   {
+    "run_id": "lb3c9_r100--s2",
+    "config_sha256": "7b2e172c02f57bf9f137603510599ce8077acc61fe8f83623a514459788df2e9"
+   },
+   {
+    "run_id": "lb3c9_r100--s3",
+    "config_sha256": "24676bc85039890cc0cba3a18511a3d38c097e037c22b054348cc1958bf74a14"
+   },
+   {
+    "run_id": "lb3c9_r100--s4",
+    "config_sha256": "489c40876bc5fcc5e9c6a5e50a9bc31d1d3b7fdb2071bebdfe0c10a216f1b014"
+   },
+   {
+    "run_id": "lb3c9_r100--s5",
+    "config_sha256": "50e1788cff15467176f7b78f8a587d12551edb7c5e28c8de00a3de932ac2c8d0"
+   },
+   {
+    "run_id": "lb3c9_r100--s6",
+    "config_sha256": "e47dc3eb1a593bc6a5351fda973bf64e752ddc8864345d51079aad714f2fc361"
+   },
+   {
+    "run_id": "lb3c9_r100--s7",
+    "config_sha256": "ddfb57c77a28bbffa3c70a132ff3bde02ab7fbfb3072069ddc2f537fc73a8e59"
+   },
+   {
+    "run_id": "lb3c9_r100--s8",
+    "config_sha256": "1203858be1c9d297476b6153d959b8229a45d0c033acfc9f6fa19f26c184bd49"
+   },
+   {
+    "run_id": "lb3c9_r100--s9",
+    "config_sha256": "94442606a2657975676d9d67f36ca60a5627512a016c3d0d2d4035b31d7aa6a0"
+   },
+   {
+    "run_id": "lb3c9_r100--s10",
+    "config_sha256": "2ff5eefca745f9879d64bc6c51b0f0672897440f880cd6c353cd12f2c4419edd"
+   }
+  ],
+  "group_yaml": "schema_version: 1\nkind: flylab_replicate_group\ngroup_id: m4_q19_flywire630\ndescription: FlyWire v630 cross-check, Shiu sugar GRNs 50-200 Hz and the LB3c subset\n  at 100 Hz.\nbase_config: configs/m4/flywire630_sugar_mn9.yaml\nbase_config_sha256: a9b393b0385c76926d8f89da106dc66b71c07277b3becc50f98719e3de927b4a\nbase_patch: {}\nseeds:\n- 1\n- 2\n- 3\n- 4\n- 5\n- 6\n- 7\n- 8\n- 9\n- 10\nconditions:\n- name: shiu21_r050\n  patch:\n    stimuli:\n    - kind: forced_spikes\n      population: sugar_shiu21\n      onset_ms: 0.0\n      offset_ms: 1000.0\n      rate_hz: 50.0\n- name: shiu21_r100\n  patch: {}\n- name: shiu21_r150\n  patch:\n    stimuli:\n    - kind: forced_spikes\n      population: sugar_shiu21\n      onset_ms: 0.0\n      offset_ms: 1000.0\n      rate_hz: 150.0\n- name: shiu21_r200\n  patch:\n    stimuli:\n    - kind: forced_spikes\n      population: sugar_shiu21\n      onset_ms: 0.0\n      offset_ms: 1000.0\n      rate_hz: 200.0\n- name: lb3c9_r100\n  patch:\n    stimuli:\n    - kind: forced_spikes\n      population: lb3c_shiu9\n      onset_ms: 0.0\n      offset_ms: 1000.0\n      rate_hz: 100.0\ncomparisons: []\nstatistics:\n  n_boot: 10000\n  confidence: 0.95\n  seed: 0\n  psth: false\n  populations:\n  - sugar_shiu21\n  - mn9_ipsi\n  - mn9_contra\n  - __all__\n  metrics:\n  - mean_rate_hz\n  population_contrasts:\n  - population: mn9_contra\n    reference: mn9_ipsi\n"
+ }
+}

@@ -1,0 +1,745 @@
+{
+ "schema_version": 1,
+ "kind": "flylab_exploratory_runs_summary",
+ "note": "EXPLORATORY engineering runs on MaleCNS v1.0; single seeds unless stated; w_syn not recalibrated for MaleCNS; not a scientific result",
+ "runs": [
+  {
+   "run_id": "lb3c",
+   "variant": "main",
+   "git": {
+    "commit": "92b614d46e565b99c450ce61060287408f6b3ebd",
+    "dirty": false,
+    "source": "git",
+    "reason": null
+   },
+   "config_sha256": "b4657a6f39fdfc3cb9452cc6698a80e05b792013ed544d2ebbbdab9f8a97f55b",
+   "seed": 1,
+   "stimulus_rate_hz": 100.0,
+   "sign": {
+    "mapping": "shiu2024_methods_v1",
+    "transmitter_column": "consensus_nt",
+    "overrides": {},
+    "unknown_sign_policy": "exclude"
+   },
+   "network_edges": 24904953,
+   "dataset_files": [
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/graph.npz",
+     "sha256": "06e610bf4c9537b69cb244bbdbd87067000856e58e718d1ccc502f96576b9326"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/neurons.parquet",
+     "sha256": "ba315b1ae31c1c2b40935195ba8d82d5dc0d493e729d812104b1b8c7f11f4dc5"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/manifest.json",
+     "sha256": "bf3c0a131c15aae39cf560502b635f809232b4718b10c75550aebe4794e6c718"
+    }
+   ],
+   "graph_fingerprint_sha256": "4b2a5d7650e68e0c45df80c1293085aae5ceaa8c785ebc30d2092b478ebfd39e",
+   "rates_hz": {
+    "lb3c_left": 84.0,
+    "lb3c_right": 0.0,
+    "mn9_left": 46.0,
+    "mn9_right": 0.0,
+    "__all__": 3.9849
+   },
+   "fraction_spiking_all": 0.08605,
+   "n_spikes": 664276,
+   "state_finite_at_end": true,
+   "simulate_wall_time_s": 40.3
+  },
+  {
+   "run_id": "lb3c--sens-fast-ionotropic-map",
+   "variant": "sens-fast-ionotropic-map",
+   "git": {
+    "commit": "92b614d46e565b99c450ce61060287408f6b3ebd",
+    "dirty": false,
+    "source": "git",
+    "reason": null
+   },
+   "config_sha256": "a80cefaa04849d7d41c5ebe3def01c15407ef294c56d6c0b2a22a6750cfdb44a",
+   "seed": 1,
+   "stimulus_rate_hz": 100.0,
+   "sign": {
+    "mapping": "fast_ionotropic_v1",
+    "transmitter_column": "consensus_nt",
+    "overrides": {},
+    "unknown_sign_policy": "exclude"
+   },
+   "network_edges": 24559135,
+   "dataset_files": [
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/graph.npz",
+     "sha256": "06e610bf4c9537b69cb244bbdbd87067000856e58e718d1ccc502f96576b9326"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/neurons.parquet",
+     "sha256": "ba315b1ae31c1c2b40935195ba8d82d5dc0d493e729d812104b1b8c7f11f4dc5"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/manifest.json",
+     "sha256": "bf3c0a131c15aae39cf560502b635f809232b4718b10c75550aebe4794e6c718"
+    }
+   ],
+   "graph_fingerprint_sha256": "4b2a5d7650e68e0c45df80c1293085aae5ceaa8c785ebc30d2092b478ebfd39e",
+   "rates_hz": {
+    "lb3c_left": 84.0833,
+    "lb3c_right": 0.0,
+    "mn9_left": 6.0,
+    "mn9_right": 0.0,
+    "__all__": 0.1755
+   },
+   "fraction_spiking_all": 0.01562,
+   "n_spikes": 29249,
+   "state_finite_at_end": true,
+   "simulate_wall_time_s": 38.0
+  },
+  {
+   "run_id": "lb3c--sens-glutamate-excitatory",
+   "variant": "sens-glutamate-excitatory",
+   "git": {
+    "commit": "92b614d46e565b99c450ce61060287408f6b3ebd",
+    "dirty": false,
+    "source": "git",
+    "reason": null
+   },
+   "config_sha256": "c78cb97f8d4d365aca9acab2b120ada439fb79f09baa7cdd39d48160362a6e3e",
+   "seed": 1,
+   "stimulus_rate_hz": 100.0,
+   "sign": {
+    "mapping": "shiu2024_methods_v1",
+    "transmitter_column": "consensus_nt",
+    "overrides": {
+     "glutamate": 1
+    },
+    "unknown_sign_policy": "exclude"
+   },
+   "network_edges": 24904953,
+   "dataset_files": [
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/graph.npz",
+     "sha256": "06e610bf4c9537b69cb244bbdbd87067000856e58e718d1ccc502f96576b9326"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/neurons.parquet",
+     "sha256": "ba315b1ae31c1c2b40935195ba8d82d5dc0d493e729d812104b1b8c7f11f4dc5"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/manifest.json",
+     "sha256": "bf3c0a131c15aae39cf560502b635f809232b4718b10c75550aebe4794e6c718"
+    }
+   ],
+   "graph_fingerprint_sha256": "4b2a5d7650e68e0c45df80c1293085aae5ceaa8c785ebc30d2092b478ebfd39e",
+   "rates_hz": {
+    "lb3c_left": 84.0,
+    "lb3c_right": 0.0,
+    "mn9_left": 84.0,
+    "mn9_right": 0.0,
+    "__all__": 36.1553
+   },
+   "fraction_spiking_all": 0.42947,
+   "n_spikes": 6027085,
+   "state_finite_at_end": true,
+   "simulate_wall_time_s": 84.8
+  },
+  {
+   "run_id": "lb3c--sens-predicted-nt-column",
+   "variant": "sens-predicted-nt-column",
+   "git": {
+    "commit": "92b614d46e565b99c450ce61060287408f6b3ebd",
+    "dirty": false,
+    "source": "git",
+    "reason": null
+   },
+   "config_sha256": "19a61f513a737702ffd1c18ac1df683a76eae52d827441adf9feb3e0295973a5",
+   "seed": 1,
+   "stimulus_rate_hz": 100.0,
+   "sign": {
+    "mapping": "shiu2024_methods_v1",
+    "transmitter_column": "predicted_nt",
+    "overrides": {},
+    "unknown_sign_policy": "exclude"
+   },
+   "network_edges": 24821643,
+   "dataset_files": [
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/graph.npz",
+     "sha256": "06e610bf4c9537b69cb244bbdbd87067000856e58e718d1ccc502f96576b9326"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/neurons.parquet",
+     "sha256": "ba315b1ae31c1c2b40935195ba8d82d5dc0d493e729d812104b1b8c7f11f4dc5"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/manifest.json",
+     "sha256": "bf3c0a131c15aae39cf560502b635f809232b4718b10c75550aebe4794e6c718"
+    }
+   ],
+   "graph_fingerprint_sha256": "4b2a5d7650e68e0c45df80c1293085aae5ceaa8c785ebc30d2092b478ebfd39e",
+   "rates_hz": {
+    "lb3c_left": 84.0,
+    "lb3c_right": 0.0,
+    "mn9_left": 29.0,
+    "mn9_right": 0.0,
+    "__all__": 4.1345
+   },
+   "fraction_spiking_all": 0.08383,
+   "n_spikes": 689219,
+   "state_finite_at_end": true,
+   "simulate_wall_time_s": 40.6
+  },
+  {
+   "run_id": "r10",
+   "variant": "main",
+   "git": {
+    "commit": "92b614d46e565b99c450ce61060287408f6b3ebd",
+    "dirty": false,
+    "source": "git",
+    "reason": null
+   },
+   "config_sha256": "24c150ac21f586246a04565e061c75a5ed2e8deb8b1e61303b1ca204f4aae747",
+   "seed": 1,
+   "stimulus_rate_hz": 10.0,
+   "sign": {
+    "mapping": "shiu2024_methods_v1",
+    "transmitter_column": "consensus_nt",
+    "overrides": {},
+    "unknown_sign_policy": "exclude"
+   },
+   "network_edges": 24904953,
+   "dataset_files": [
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/graph.npz",
+     "sha256": "06e610bf4c9537b69cb244bbdbd87067000856e58e718d1ccc502f96576b9326"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/neurons.parquet",
+     "sha256": "ba315b1ae31c1c2b40935195ba8d82d5dc0d493e729d812104b1b8c7f11f4dc5"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/manifest.json",
+     "sha256": "bf3c0a131c15aae39cf560502b635f809232b4718b10c75550aebe4794e6c718"
+    }
+   ],
+   "graph_fingerprint_sha256": "4b2a5d7650e68e0c45df80c1293085aae5ceaa8c785ebc30d2092b478ebfd39e",
+   "rates_hz": {
+    "lb3c_left": 9.6667,
+    "lb3c_right": 0.0,
+    "mn9_left": 0.0,
+    "mn9_right": 0.0,
+    "__all__": 0.0012
+   },
+   "fraction_spiking_all": 0.00029,
+   "n_spikes": 194,
+   "state_finite_at_end": true,
+   "simulate_wall_time_s": 15.7
+  },
+  {
+   "run_id": "r100s2",
+   "variant": "main",
+   "git": {
+    "commit": "92b614d46e565b99c450ce61060287408f6b3ebd",
+    "dirty": false,
+    "source": "git",
+    "reason": null
+   },
+   "config_sha256": "ece428ff93b85245168ce2b7a8042ff80c5b11b9fbf0f904867415b8a3254d41",
+   "seed": 2,
+   "stimulus_rate_hz": 100.0,
+   "sign": {
+    "mapping": "shiu2024_methods_v1",
+    "transmitter_column": "consensus_nt",
+    "overrides": {},
+    "unknown_sign_policy": "exclude"
+   },
+   "network_edges": 24904953,
+   "dataset_files": [
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/graph.npz",
+     "sha256": "06e610bf4c9537b69cb244bbdbd87067000856e58e718d1ccc502f96576b9326"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/neurons.parquet",
+     "sha256": "ba315b1ae31c1c2b40935195ba8d82d5dc0d493e729d812104b1b8c7f11f4dc5"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/manifest.json",
+     "sha256": "bf3c0a131c15aae39cf560502b635f809232b4718b10c75550aebe4794e6c718"
+    }
+   ],
+   "graph_fingerprint_sha256": "4b2a5d7650e68e0c45df80c1293085aae5ceaa8c785ebc30d2092b478ebfd39e",
+   "rates_hz": {
+    "lb3c_left": 81.9167,
+    "lb3c_right": 0.0,
+    "mn9_left": 42.0,
+    "mn9_right": 0.0,
+    "__all__": 4.2073
+   },
+   "fraction_spiking_all": 0.08696,
+   "n_spikes": 701350,
+   "state_finite_at_end": true,
+   "simulate_wall_time_s": 35.4
+  },
+  {
+   "run_id": "r100s3",
+   "variant": "main",
+   "git": {
+    "commit": "92b614d46e565b99c450ce61060287408f6b3ebd",
+    "dirty": false,
+    "source": "git",
+    "reason": null
+   },
+   "config_sha256": "7beec0813b0cb943febe4f4601f1ab99810dca48e390d43e0ac9edf63635e0be",
+   "seed": 3,
+   "stimulus_rate_hz": 100.0,
+   "sign": {
+    "mapping": "shiu2024_methods_v1",
+    "transmitter_column": "consensus_nt",
+    "overrides": {},
+    "unknown_sign_policy": "exclude"
+   },
+   "network_edges": 24904953,
+   "dataset_files": [
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/graph.npz",
+     "sha256": "06e610bf4c9537b69cb244bbdbd87067000856e58e718d1ccc502f96576b9326"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/neurons.parquet",
+     "sha256": "ba315b1ae31c1c2b40935195ba8d82d5dc0d493e729d812104b1b8c7f11f4dc5"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/manifest.json",
+     "sha256": "bf3c0a131c15aae39cf560502b635f809232b4718b10c75550aebe4794e6c718"
+    }
+   ],
+   "graph_fingerprint_sha256": "4b2a5d7650e68e0c45df80c1293085aae5ceaa8c785ebc30d2092b478ebfd39e",
+   "rates_hz": {
+    "lb3c_left": 81.6667,
+    "lb3c_right": 0.0,
+    "mn9_left": 20.0,
+    "mn9_right": 1.0,
+    "__all__": 0.4397
+   },
+   "fraction_spiking_all": 0.03934,
+   "n_spikes": 73302,
+   "state_finite_at_end": true,
+   "simulate_wall_time_s": 28.9
+  },
+  {
+   "run_id": "r100s4",
+   "variant": "main",
+   "git": {
+    "commit": "92b614d46e565b99c450ce61060287408f6b3ebd",
+    "dirty": false,
+    "source": "git",
+    "reason": null
+   },
+   "config_sha256": "ff746c564e241ec66fa644825ad195f5520ca23b7fe71b42d1e595a84bd7d48a",
+   "seed": 4,
+   "stimulus_rate_hz": 100.0,
+   "sign": {
+    "mapping": "shiu2024_methods_v1",
+    "transmitter_column": "consensus_nt",
+    "overrides": {},
+    "unknown_sign_policy": "exclude"
+   },
+   "network_edges": 24904953,
+   "dataset_files": [
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/graph.npz",
+     "sha256": "06e610bf4c9537b69cb244bbdbd87067000856e58e718d1ccc502f96576b9326"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/neurons.parquet",
+     "sha256": "ba315b1ae31c1c2b40935195ba8d82d5dc0d493e729d812104b1b8c7f11f4dc5"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/manifest.json",
+     "sha256": "bf3c0a131c15aae39cf560502b635f809232b4718b10c75550aebe4794e6c718"
+    }
+   ],
+   "graph_fingerprint_sha256": "4b2a5d7650e68e0c45df80c1293085aae5ceaa8c785ebc30d2092b478ebfd39e",
+   "rates_hz": {
+    "lb3c_left": 77.5833,
+    "lb3c_right": 0.0,
+    "mn9_left": 33.0,
+    "mn9_right": 0.0,
+    "__all__": 4.3068
+   },
+   "fraction_spiking_all": 0.08685,
+   "n_spikes": 717948,
+   "state_finite_at_end": true,
+   "simulate_wall_time_s": 34.7
+  },
+  {
+   "run_id": "r100s5",
+   "variant": "main",
+   "git": {
+    "commit": "92b614d46e565b99c450ce61060287408f6b3ebd",
+    "dirty": false,
+    "source": "git",
+    "reason": null
+   },
+   "config_sha256": "e088b3720082320802297b01e5531b73247b6404ff4d3fdc47926524f7996dfa",
+   "seed": 5,
+   "stimulus_rate_hz": 100.0,
+   "sign": {
+    "mapping": "shiu2024_methods_v1",
+    "transmitter_column": "consensus_nt",
+    "overrides": {},
+    "unknown_sign_policy": "exclude"
+   },
+   "network_edges": 24904953,
+   "dataset_files": [
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/graph.npz",
+     "sha256": "06e610bf4c9537b69cb244bbdbd87067000856e58e718d1ccc502f96576b9326"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/neurons.parquet",
+     "sha256": "ba315b1ae31c1c2b40935195ba8d82d5dc0d493e729d812104b1b8c7f11f4dc5"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/manifest.json",
+     "sha256": "bf3c0a131c15aae39cf560502b635f809232b4718b10c75550aebe4794e6c718"
+    }
+   ],
+   "graph_fingerprint_sha256": "4b2a5d7650e68e0c45df80c1293085aae5ceaa8c785ebc30d2092b478ebfd39e",
+   "rates_hz": {
+    "lb3c_left": 85.75,
+    "lb3c_right": 0.0,
+    "mn9_left": 19.0,
+    "mn9_right": 0.0,
+    "__all__": 4.2998
+   },
+   "fraction_spiking_all": 0.08516,
+   "n_spikes": 716779,
+   "state_finite_at_end": true,
+   "simulate_wall_time_s": 30.3
+  },
+  {
+   "run_id": "r150",
+   "variant": "main",
+   "git": {
+    "commit": "92b614d46e565b99c450ce61060287408f6b3ebd",
+    "dirty": false,
+    "source": "git",
+    "reason": null
+   },
+   "config_sha256": "6e4896fddd02a6a44b49cc8473fe99c00b18bdaf7c757c4b0c3257c131feeb69",
+   "seed": 1,
+   "stimulus_rate_hz": 150.0,
+   "sign": {
+    "mapping": "shiu2024_methods_v1",
+    "transmitter_column": "consensus_nt",
+    "overrides": {},
+    "unknown_sign_policy": "exclude"
+   },
+   "network_edges": 24904953,
+   "dataset_files": [
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/graph.npz",
+     "sha256": "06e610bf4c9537b69cb244bbdbd87067000856e58e718d1ccc502f96576b9326"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/neurons.parquet",
+     "sha256": "ba315b1ae31c1c2b40935195ba8d82d5dc0d493e729d812104b1b8c7f11f4dc5"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/manifest.json",
+     "sha256": "bf3c0a131c15aae39cf560502b635f809232b4718b10c75550aebe4794e6c718"
+    }
+   ],
+   "graph_fingerprint_sha256": "4b2a5d7650e68e0c45df80c1293085aae5ceaa8c785ebc30d2092b478ebfd39e",
+   "rates_hz": {
+    "lb3c_left": 114.5833,
+    "lb3c_right": 0.0,
+    "mn9_left": 13.0,
+    "mn9_right": 0.0,
+    "__all__": 0.3492
+   },
+   "fraction_spiking_all": 0.02944,
+   "n_spikes": 58213,
+   "state_finite_at_end": true,
+   "simulate_wall_time_s": 34.9
+  },
+  {
+   "run_id": "r150s2",
+   "variant": "main",
+   "git": {
+    "commit": "92b614d46e565b99c450ce61060287408f6b3ebd",
+    "dirty": false,
+    "source": "git",
+    "reason": null
+   },
+   "config_sha256": "a55a8b014fa3c7f704b8e72f1648276f82f1c29a8ed0d2289a8b1ba5823b652e",
+   "seed": 2,
+   "stimulus_rate_hz": 150.0,
+   "sign": {
+    "mapping": "shiu2024_methods_v1",
+    "transmitter_column": "consensus_nt",
+    "overrides": {},
+    "unknown_sign_policy": "exclude"
+   },
+   "network_edges": 24904953,
+   "dataset_files": [
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/graph.npz",
+     "sha256": "06e610bf4c9537b69cb244bbdbd87067000856e58e718d1ccc502f96576b9326"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/neurons.parquet",
+     "sha256": "ba315b1ae31c1c2b40935195ba8d82d5dc0d493e729d812104b1b8c7f11f4dc5"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/manifest.json",
+     "sha256": "bf3c0a131c15aae39cf560502b635f809232b4718b10c75550aebe4794e6c718"
+    }
+   ],
+   "graph_fingerprint_sha256": "4b2a5d7650e68e0c45df80c1293085aae5ceaa8c785ebc30d2092b478ebfd39e",
+   "rates_hz": {
+    "lb3c_left": 113.0833,
+    "lb3c_right": 0.0,
+    "mn9_left": 25.0,
+    "mn9_right": 1.0,
+    "__all__": 0.2923
+   },
+   "fraction_spiking_all": 0.01771,
+   "n_spikes": 48721,
+   "state_finite_at_end": true,
+   "simulate_wall_time_s": 33.0
+  },
+  {
+   "run_id": "r150s3",
+   "variant": "main",
+   "git": {
+    "commit": "92b614d46e565b99c450ce61060287408f6b3ebd",
+    "dirty": false,
+    "source": "git",
+    "reason": null
+   },
+   "config_sha256": "3bf77a0ca3c4609c37e69d661c825d4a6675eeaf41bf4f24ed5a8fc00749dfb5",
+   "seed": 3,
+   "stimulus_rate_hz": 150.0,
+   "sign": {
+    "mapping": "shiu2024_methods_v1",
+    "transmitter_column": "consensus_nt",
+    "overrides": {},
+    "unknown_sign_policy": "exclude"
+   },
+   "network_edges": 24904953,
+   "dataset_files": [
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/graph.npz",
+     "sha256": "06e610bf4c9537b69cb244bbdbd87067000856e58e718d1ccc502f96576b9326"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/neurons.parquet",
+     "sha256": "ba315b1ae31c1c2b40935195ba8d82d5dc0d493e729d812104b1b8c7f11f4dc5"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/manifest.json",
+     "sha256": "bf3c0a131c15aae39cf560502b635f809232b4718b10c75550aebe4794e6c718"
+    }
+   ],
+   "graph_fingerprint_sha256": "4b2a5d7650e68e0c45df80c1293085aae5ceaa8c785ebc30d2092b478ebfd39e",
+   "rates_hz": {
+    "lb3c_left": 114.5,
+    "lb3c_right": 0.0,
+    "mn9_left": 21.0,
+    "mn9_right": 0.0,
+    "__all__": 0.3764
+   },
+   "fraction_spiking_all": 0.03282,
+   "n_spikes": 62749,
+   "state_finite_at_end": true,
+   "simulate_wall_time_s": 30.0
+  },
+  {
+   "run_id": "r150s4",
+   "variant": "main",
+   "git": {
+    "commit": "92b614d46e565b99c450ce61060287408f6b3ebd",
+    "dirty": false,
+    "source": "git",
+    "reason": null
+   },
+   "config_sha256": "e03bfe4d9770f80cd2d03e71ec6246d13eaf1ce3bee74ed95d4c4f76de908492",
+   "seed": 4,
+   "stimulus_rate_hz": 150.0,
+   "sign": {
+    "mapping": "shiu2024_methods_v1",
+    "transmitter_column": "consensus_nt",
+    "overrides": {},
+    "unknown_sign_policy": "exclude"
+   },
+   "network_edges": 24904953,
+   "dataset_files": [
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/graph.npz",
+     "sha256": "06e610bf4c9537b69cb244bbdbd87067000856e58e718d1ccc502f96576b9326"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/neurons.parquet",
+     "sha256": "ba315b1ae31c1c2b40935195ba8d82d5dc0d493e729d812104b1b8c7f11f4dc5"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/manifest.json",
+     "sha256": "bf3c0a131c15aae39cf560502b635f809232b4718b10c75550aebe4794e6c718"
+    }
+   ],
+   "graph_fingerprint_sha256": "4b2a5d7650e68e0c45df80c1293085aae5ceaa8c785ebc30d2092b478ebfd39e",
+   "rates_hz": {
+    "lb3c_left": 108.75,
+    "lb3c_right": 0.0,
+    "mn9_left": 21.0,
+    "mn9_right": 0.0,
+    "__all__": 0.3398
+   },
+   "fraction_spiking_all": 0.0317,
+   "n_spikes": 56649,
+   "state_finite_at_end": true,
+   "simulate_wall_time_s": 34.8
+  },
+  {
+   "run_id": "r150s5",
+   "variant": "main",
+   "git": {
+    "commit": "92b614d46e565b99c450ce61060287408f6b3ebd",
+    "dirty": false,
+    "source": "git",
+    "reason": null
+   },
+   "config_sha256": "7e7e0659bac8ae327bfa21fd83941231cc50e1256aad5a1b99baf75e2a89ee9c",
+   "seed": 5,
+   "stimulus_rate_hz": 150.0,
+   "sign": {
+    "mapping": "shiu2024_methods_v1",
+    "transmitter_column": "consensus_nt",
+    "overrides": {},
+    "unknown_sign_policy": "exclude"
+   },
+   "network_edges": 24904953,
+   "dataset_files": [
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/graph.npz",
+     "sha256": "06e610bf4c9537b69cb244bbdbd87067000856e58e718d1ccc502f96576b9326"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/neurons.parquet",
+     "sha256": "ba315b1ae31c1c2b40935195ba8d82d5dc0d493e729d812104b1b8c7f11f4dc5"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/manifest.json",
+     "sha256": "bf3c0a131c15aae39cf560502b635f809232b4718b10c75550aebe4794e6c718"
+    }
+   ],
+   "graph_fingerprint_sha256": "4b2a5d7650e68e0c45df80c1293085aae5ceaa8c785ebc30d2092b478ebfd39e",
+   "rates_hz": {
+    "lb3c_left": 116.0,
+    "lb3c_right": 0.0,
+    "mn9_left": 21.0,
+    "mn9_right": 1.0,
+    "__all__": 0.2741
+   },
+   "fraction_spiking_all": 0.01714,
+   "n_spikes": 45692,
+   "state_finite_at_end": true,
+   "simulate_wall_time_s": 31.9
+  },
+  {
+   "run_id": "r200",
+   "variant": "main",
+   "git": {
+    "commit": "92b614d46e565b99c450ce61060287408f6b3ebd",
+    "dirty": false,
+    "source": "git",
+    "reason": null
+   },
+   "config_sha256": "9c570f82db6f2d2c65ccd6f73557e146e76731111167f764ab5a7981f6b7e9ef",
+   "seed": 1,
+   "stimulus_rate_hz": 200.0,
+   "sign": {
+    "mapping": "shiu2024_methods_v1",
+    "transmitter_column": "consensus_nt",
+    "overrides": {},
+    "unknown_sign_policy": "exclude"
+   },
+   "network_edges": 24904953,
+   "dataset_files": [
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/graph.npz",
+     "sha256": "06e610bf4c9537b69cb244bbdbd87067000856e58e718d1ccc502f96576b9326"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/neurons.parquet",
+     "sha256": "ba315b1ae31c1c2b40935195ba8d82d5dc0d493e729d812104b1b8c7f11f4dc5"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/manifest.json",
+     "sha256": "bf3c0a131c15aae39cf560502b635f809232b4718b10c75550aebe4794e6c718"
+    }
+   ],
+   "graph_fingerprint_sha256": "4b2a5d7650e68e0c45df80c1293085aae5ceaa8c785ebc30d2092b478ebfd39e",
+   "rates_hz": {
+    "lb3c_left": 140.4167,
+    "lb3c_right": 0.0,
+    "mn9_left": 28.0,
+    "mn9_right": 0.0,
+    "__all__": 4.2997
+   },
+   "fraction_spiking_all": 0.08538,
+   "n_spikes": 716753,
+   "state_finite_at_end": true,
+   "simulate_wall_time_s": 37.3
+  },
+  {
+   "run_id": "r50",
+   "variant": "main",
+   "git": {
+    "commit": "92b614d46e565b99c450ce61060287408f6b3ebd",
+    "dirty": false,
+    "source": "git",
+    "reason": null
+   },
+   "config_sha256": "47b432a2e25093e934cc3c8f797155c1d5567566252365125a6e2e57a23a2cb1",
+   "seed": 1,
+   "stimulus_rate_hz": 50.0,
+   "sign": {
+    "mapping": "shiu2024_methods_v1",
+    "transmitter_column": "consensus_nt",
+    "overrides": {},
+    "unknown_sign_policy": "exclude"
+   },
+   "network_edges": 24904953,
+   "dataset_files": [
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/graph.npz",
+     "sha256": "06e610bf4c9537b69cb244bbdbd87067000856e58e718d1ccc502f96576b9326"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/neurons.parquet",
+     "sha256": "ba315b1ae31c1c2b40935195ba8d82d5dc0d493e729d812104b1b8c7f11f4dc5"
+    },
+    {
+     "path": "data/processed/male-cns-v1.0/superclass_annotated/manifest.json",
+     "sha256": "bf3c0a131c15aae39cf560502b635f809232b4718b10c75550aebe4794e6c718"
+    }
+   ],
+   "graph_fingerprint_sha256": "4b2a5d7650e68e0c45df80c1293085aae5ceaa8c785ebc30d2092b478ebfd39e",
+   "rates_hz": {
+    "lb3c_left": 45.5,
+    "lb3c_right": 0.0,
+    "mn9_left": 8.0,
+    "mn9_right": 0.0,
+    "__all__": 0.148
+   },
+   "fraction_spiking_all": 0.03049,
+   "n_spikes": 24679,
+   "state_finite_at_end": true,
+   "simulate_wall_time_s": 24.7
+  }
+ ]
+}

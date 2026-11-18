@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "what": "FlyLab NumPy LIF vs Brian2 running the Shiu et al. equations; synthetic graph",
+  "graph": {
+    "n_neurons": 500,
+    "n_edges": 12202,
+    "seed": 7,
+    "w_syn_mV": 1.0
+  },
+  "steps": 5000,
+  "dt_ms": 0.1,
+  "brian2_version": "2.10.1",
+  "n_spikes_flylab": 28851,
+  "n_spikes_brian2": 28851,
+  "n_common": 28851,
+  "n_only_flylab": 0,
+  "n_only_brian2": 0,
+  "first_difference_step_idx": null,
+  "identical_spike_trains": true,
+  "final_v_max_abs_diff_mV": 9.947598300641403e-14,
+  "wall_time_s": {
+    "flylab_numpy": 0.7,
+    "brian2_numpy_target": 2.521
+  },
+  "environment": {
+    "schema_version": 1,
+    "captured_at_utc": "2026-11-04T05:54:40+00:00",
+    "flylab_version": "0.0.1",
+    "python": {
+      "version": "3.12.3",
+      "implementation": "CPython",
+      "executable_prefix_is_venv": true
+    },
+    "os": {
+      "system": "Linux",
+      "release": "6.18.44-fc-v233",
+      "machine": "x86_64"
+    },
+    "packages": {
+      "numpy": "2.5.4",
+      "pyarrow": "26.0.1",
+      "torch": null,
+      "mujoco": null,
+      "flybody": null,
+      "flygym": null
+    },
+    "git": {
+      "commit": "fe157b90577c598f3d4929728d3e996f14411ab1",
+      "dirty": false,
+      "source": "git",
+      "reason": null
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "kind": "flylab_backend_parity",
+  "tag": "B0",
+  "started_utc": "2026-11-04T10:04:27+00:00",
+  "finished_utc": "2026-11-04T10:04:31+00:00",
+  "status": "PASS",
+  "workload": {
+    "config_path": "configs/bench/b0_synthetic_100ms.yaml",
+    "config_sha256": "14da43ecd12013de86f72277119f290f9d1bf17ccc8bfc40b34818337e165cf5",
+    "experiment_id": "bench_b0_synthetic_100ms",
+    "dtype": "float32",
+    "dt_ms": 0.1,
+    "steps": 1000,
+    "seed": 42,
+    "deterministic": true,
+    "dataset_id": "synthetic:random:v1:n=20000:k=20.0:seed=7",
+    "biological_data": false,
+    "n_neurons": 20000,
+    "n_edges": 399812,
+    "network_fingerprint_sha256": "16fa0dc8f927186753667f1d7ccf702eaa03d532d4e5a05c585f685610329c3e"
+  },
+  "policy": "docs/MODEL_ASSUMPTIONS.md section 2.3 (flylab.neural.parity)",
+  "lockstep": {
+    "status": "identical",
+    "ok": true,
+    "reference": "numpy",
+    "test": "torch-cuda",
+    "dtype": "float32",
+    "steps": 1000,
+    "steps_identical": 1000,
+    "margin_mV": 0.01,
+    "state_every": 100,
+    "state_checks": 10,
+    "max_abs_v_diff_mV": 0.0,
+    "max_abs_g_diff_mV": 0.0,
+    "state_within_margin": true,
+    "divergence": null,
+    "n_spikes_reference": 128,
+    "n_spikes_test": 128,
+    "population_spikes_reference": {
+      "input": 80,
+      "__all__": 128
+    },
+    "population_spikes_test": {
+      "input": 80,
+      "__all__": 128
+    }
+  },
+  "populations": {
+    "input": {
+      "reference": 80,
+      "test": 80,
+      "abs_diff": 0
+    },
+    "__all__": {
+      "reference": 128,
+      "test": 128,
+      "abs_diff": 0
+    }
+  },
+  "seed_control": null,
+  "engines": {
+    "reference": {
+      "backend": "numpy",
+      "dtype": "float32"
+    },
+    "test": {
+      "backend": "torch-cuda",
+      "dtype": "float32",
+      "device": "cuda:0",
+      "max_edges_per_chunk": 4194304,
+      "torch_version": "2.15.0+cu132",
+      "deterministic_algorithms": true,
+      "num_threads": 8,
+      "torch_cuda_build": "13.2",
+      "cuda_device_name": "NVIDIA GeForce RTX 5070",
+      "cuda_capability": "12.0",
+      "cuda_total_memory_bytes": 12792037376,
+      "cuda_arch_list": [
+        "sm_75",
+        "sm_80",
+        "sm_86",
+        "sm_90",
+        "sm_100",
+        "sm_120"
+      ]
+    }
+  },
+  "environment": {
+    "schema_version": 1,
+    "captured_at_utc": "2026-11-04T10:04:31+00:00",
+    "flylab_version": "0.0.1",
+    "python": {
+      "version": "3.12.3",
+      "implementation": "CPython",
+      "executable_prefix_is_venv": true
+    },
+    "os": {
+      "system": "Linux",
+      "release": "6.18.33.2-microsoft-standard-WSL2",
+      "machine": "x86_64"
+    },
+    "packages": {
+      "numpy": "2.5.4",
+      "pyarrow": "26.0.1",
+      "torch": "2.15.0",
+      "mujoco": null,
+      "flybody": null,
+      "flygym": null
+    },
+    "git": {
+      "commit": "a615f1f67c667bba4a09e8597c22fc0acf7ff3bc",
+      "dirty": null,
+      "source": "env:FLYLAB_GIT_COMMIT",
+      "reason": null
+    }
+  },
+  "hardware": {
+    "cpu_model": "AMD Ryzen 7 9700X 8-Core Processor",
+    "logical_cpus": 8,
+    "machine": "x86_64",
+    "total_ram_bytes": 16283983872,
+    "cgroup_memory_limit_bytes": 6442450944,
+    "note": "inside a WSL2 container total_ram_bytes is the WSL VM's memory, not the PC's"
+  }
+}

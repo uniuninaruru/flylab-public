@@ -1,0 +1,83 @@
+# PR-04 / M4 controls on MaleCNS v1.0, left LB3c GRNs -> MN9, at the w_syn calibrated in
+# docs/acceptance/M4.md (LEARNED; OPEN_QUESTIONS Q16). Conditions, bridge population and
+# readouts are identical to configs/m4/controls_w0225.yaml (pre-registered there).
+schema_version: 1
+kind: flylab_replicate_group
+group_id: m4_controls_wcal
+description: Controls (matched baseline, interventions, sign variants, null graph) at the calibrated w_syn 0.27 mV.
+base_config: configs/male_cns_lb3c_mn9.yaml
+base_patch:
+  sensitivity: null
+  model:
+    overrides:
+      w_syn:
+        value: 0.27
+        units: mV
+        evidence: LEARNED
+        source: >-
+          docs/acceptance/evidence/m4-calibration-wsyn.json (groups m4_calibration_wsyn_rate and
+          m4_calibration_refine, 5 seeds): swept level nearest Shiu et al.'s criterion under
+          definition D1 (MN9 L at 100 Hz requested = 0.912 of its maximum over 10-200 Hz; 95 %
+          interval 0.314-1.0; levels 0.250-0.275 mV are all compatible with the target)
+        rationale: >-
+          calibrated FOR THIS CRITERION on MaleCNS v1.0 with this model; not a physiological
+          synaptic strength (OPEN_QUESTIONS Q16)
+  populations:
+    bridge_exc: {body_ids: [512730, 12752, 514753, 12807, 15812]}
+  recording:
+    spike_events: false
+    population_rate_bin_ms: 10.0
+    populations: [lb3c_left, lb3c_right, mn9_left, mn9_right, bridge_exc, __all__]
+seeds: {first: 1, count: 16}
+conditions:
+  - name: intact
+    description: matched baseline, 100 Hz forced Poisson spikes in the 12 left LB3c
+  - name: stim_right
+    description: mirror input, 100 Hz in the 11 right LB3c (Q19)
+    patch: {stimuli: [{kind: forced_spikes, population: lb3c_right, onset_ms: 0.0, offset_ms: 1000.0, rate_hz: 100.0}]}
+  - name: no_stimulus
+    description: no input at all (the model has no noise; expected silent)
+    patch: {stimuli: []}
+  - name: silence_lb3c
+    description: positive control, output of the stimulated GRNs blocked for the whole run
+    patch: {interventions: [{kind: silence_neurons, mode: block_output, population: lb3c_left}]}
+  - name: silence_bridges
+    description: output of the 5 excitatory disynaptic LB3c_L -> MN9_L bridges blocked
+    patch: {interventions: [{kind: silence_neurons, mode: block_output, population: bridge_exc}]}
+  - name: sign_fast_ionotropic
+    description: sign table fast_ionotropic_v1 (modulatory transmitters unknown, histamine -1)
+    patch: {synapse_sign: {mapping: fast_ionotropic_v1}}
+  - name: sign_predicted_nt
+    description: per-body predicted_nt column instead of consensus_nt
+    patch: {synapse_sign: {transmitter_column: predicted_nt}}
+  - name: glutamate_excitatory
+    description: glutamate = +1 (Q17)
+    patch: {synapse_sign: {overrides: {glutamate: 1}}}
+  - name: unknown_as_excitatory
+    description: unknown-sign presynaptic neurons (histamine, unclear, missing) excitatory
+    patch: {synapse_sign: {unknown_sign_policy: as_excitatory}}
+  - name: unknown_as_inhibitory
+    description: unknown-sign presynaptic neurons inhibitory
+    patch: {synapse_sign: {unknown_sign_policy: as_inhibitory}}
+  - name: null_graph
+    description: degree-preserving shuffled graph, a new shuffle per seed
+    patch: {graph_null: {method: degree_preserving_swap, seed: replicate}}
+comparisons:
+  - {condition: stim_right, reference: intact}
+  - {condition: no_stimulus, reference: intact}
+  - {condition: silence_lb3c, reference: intact}
+  - {condition: silence_bridges, reference: intact}
+  - {condition: sign_fast_ionotropic, reference: intact}
+  - {condition: sign_predicted_nt, reference: intact}
+  - {condition: glutamate_excitatory, reference: intact}
+  - {condition: unknown_as_excitatory, reference: intact}
+  - {condition: unknown_as_inhibitory, reference: intact}
+  - {condition: null_graph, reference: intact}
+statistics:
+  n_boot: 10000
+  confidence: 0.95
+  seed: 0
+  psth: true
+  metrics: [mean_rate_hz]
+  populations: [lb3c_left, lb3c_right, mn9_left, mn9_right, bridge_exc, __all__]
+  population_contrasts: [{population: mn9_left, reference: mn9_right}]

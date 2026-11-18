@@ -1,0 +1,27 @@
+# PR-04 / Q19: does FlyLab reproduce Shiu et al.'s "contralateral MN9 > ipsilateral MN9" on
+# their own FlyWire v630 graph? If yes, the ipsilateral MN9 response seen on MaleCNS is a
+# property of the MaleCNS graph under this model; if no, it is (at least partly) the model/input.
+schema_version: 1
+kind: flylab_replicate_group
+group_id: m4_q19_flywire630
+description: FlyWire v630 cross-check, Shiu sugar GRNs 50-200 Hz and the LB3c subset at 100 Hz.
+base_config: configs/m4/flywire630_sugar_mn9.yaml
+seeds: {first: 1, count: 10}
+conditions:
+  - name: shiu21_r050
+    patch: {stimuli: [{kind: forced_spikes, population: sugar_shiu21, onset_ms: 0.0, offset_ms: 1000.0, rate_hz: 50.0}]}
+  - name: shiu21_r100
+  - name: shiu21_r150
+    patch: {stimuli: [{kind: forced_spikes, population: sugar_shiu21, onset_ms: 0.0, offset_ms: 1000.0, rate_hz: 150.0}]}
+  - name: shiu21_r200
+    patch: {stimuli: [{kind: forced_spikes, population: sugar_shiu21, onset_ms: 0.0, offset_ms: 1000.0, rate_hz: 200.0}]}
+  - name: lb3c9_r100
+    patch: {stimuli: [{kind: forced_spikes, population: lb3c_shiu9, onset_ms: 0.0, offset_ms: 1000.0, rate_hz: 100.0}]}
+statistics:
+  n_boot: 10000
+  confidence: 0.95
+  seed: 0
+  psth: false
+  metrics: [mean_rate_hz]          # primary family: rates only (Holm over the 5 contrasts below)
+  populations: [sugar_shiu21, mn9_ipsi, mn9_contra, __all__]
+  population_contrasts: [{population: mn9_contra, reference: mn9_ipsi}]

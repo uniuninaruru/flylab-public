@@ -1,0 +1,89 @@
+# PR-04 / M4: refinement of configs/m4/calibration_wsyn_rate.yaml between 0.250 and 0.275 mV,
+# where the coarse sweep's criterion value (D1: MN9 L at 100 Hz / maximal MN9) crosses 0.8:
+# 0.589 at 0.250 mV, 1.0 at 0.275 mV (linear interpolation 0.263 mV); the whole-brain rate also
+# starts switching to a high regime in some seeds there. Same base config, rates, seeds and
+# duration as the coarse sweep, so the two groups are analysed as one grid
+# (flylab.experiments.calibration.calibrate with both groups).
+schema_version: 1
+kind: flylab_replicate_group
+group_id: m4_calibration_refine
+description: w_syn 0.255-0.270 mV x LB3c-left forced Poisson rate, 5 seeds, 1 s.
+base_config: configs/male_cns_lb3c_mn9.yaml
+base_patch:
+  sensitivity: null
+  recording: {spike_events: false}
+seeds: {first: 1, count: 5}
+sweep:
+  - axis: w_syn
+    levels:
+      - label: w0.255
+        patch:
+          model:
+            overrides:
+              w_syn:
+                value: 0.255
+                units: mV
+                evidence: ASSUMED
+                rationale: calibration sweep level (PR-04, OPEN_QUESTIONS Q16); not physiology
+      - label: w0.260
+        patch:
+          model:
+            overrides:
+              w_syn:
+                value: 0.26
+                units: mV
+                evidence: ASSUMED
+                rationale: calibration sweep level (PR-04, OPEN_QUESTIONS Q16); not physiology
+      - label: w0.265
+        patch:
+          model:
+            overrides:
+              w_syn:
+                value: 0.265
+                units: mV
+                evidence: ASSUMED
+                rationale: calibration sweep level (PR-04, OPEN_QUESTIONS Q16); not physiology
+      - label: w0.270
+        patch:
+          model:
+            overrides:
+              w_syn:
+                value: 0.27
+                units: mV
+                evidence: ASSUMED
+                rationale: calibration sweep level (PR-04, OPEN_QUESTIONS Q16); not physiology
+  - axis: rate
+    levels:
+      - label: r010
+        patch:
+          stimuli:
+            - {kind: forced_spikes, population: lb3c_left, onset_ms: 0.0, offset_ms: 1000.0, rate_hz: 10.0}
+      - label: r025
+        patch:
+          stimuli:
+            - {kind: forced_spikes, population: lb3c_left, onset_ms: 0.0, offset_ms: 1000.0, rate_hz: 25.0}
+      - label: r050
+        patch:
+          stimuli:
+            - {kind: forced_spikes, population: lb3c_left, onset_ms: 0.0, offset_ms: 1000.0, rate_hz: 50.0}
+      - label: r075
+        patch:
+          stimuli:
+            - {kind: forced_spikes, population: lb3c_left, onset_ms: 0.0, offset_ms: 1000.0, rate_hz: 75.0}
+      - label: r100
+        patch:
+          stimuli:
+            - {kind: forced_spikes, population: lb3c_left, onset_ms: 0.0, offset_ms: 1000.0, rate_hz: 100.0}
+      - label: r125
+        patch:
+          stimuli:
+            - {kind: forced_spikes, population: lb3c_left, onset_ms: 0.0, offset_ms: 1000.0, rate_hz: 125.0}
+      - label: r150
+        patch:
+          stimuli:
+            - {kind: forced_spikes, population: lb3c_left, onset_ms: 0.0, offset_ms: 1000.0, rate_hz: 150.0}
+      - label: r200
+        patch:
+          stimuli:
+            - {kind: forced_spikes, population: lb3c_left, onset_ms: 0.0, offset_ms: 1000.0, rate_hz: 200.0}
+statistics: {n_boot: 10000, confidence: 0.95, seed: 0, psth: false}

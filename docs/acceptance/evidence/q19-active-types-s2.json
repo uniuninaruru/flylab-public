@@ -1,0 +1,1325 @@
+{
+ "schema_version": 1,
+ "kind": "flylab_q19_active_types",
+ "evidence": "ASSUMED (model output, one seed per dataset; exploratory)",
+ "malecns_run": {
+  "run_id": "intact--s2",
+  "config_sha256": "2b9837f7fcc51bded2c83b902b0912164ee2f9bce11775e55676df5c3266cf77",
+  "seed": 2,
+  "dataset_id": "male-cns:v1.0",
+  "w_syn_mV": 0.27,
+  "simulated_ms": 1000.0,
+  "stimuli": [
+   {
+    "kind": "forced_spikes",
+    "population": "lb3c_left",
+    "onset_ms": 0.0,
+    "offset_ms": 1000.0,
+    "rate_hz": 100.0,
+    "evidence": "ENGINEERED"
+   }
+  ]
+ },
+ "flywire_run": {
+  "run_id": "intact--s1",
+  "config_sha256": "4bca1e1e9da2b09fe323379091d63e687fc1b278ec9ae3e0b4dc1f3567a12ff2",
+  "seed": 1,
+  "dataset_id": "flywire:v630:shiu2024-repo",
+  "w_syn_mV": 0.275,
+  "simulated_ms": 1000.0,
+  "stimuli": [
+   {
+    "kind": "forced_spikes",
+    "population": "sugar_shiu21",
+    "onset_ms": 0.0,
+    "offset_ms": 1000.0,
+    "rate_hz": 100.0,
+    "evidence": "ENGINEERED"
+   }
+  ]
+ },
+ "n_neurons_spiking": {
+  "malecns": 2320,
+  "flywire": 362
+ },
+ "flywire_pathway_types": [
+  {
+   "type": "CB0248",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 83.0,
+    "R": 83.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 91.0,
+    "R": 103.0
+   },
+   "malecns_laterality_L_minus_R": 0.0,
+   "flywire_laterality_L_minus_R": -0.062
+  },
+  {
+   "type": "CB0700",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 75.0,
+    "R": 72.0
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 0.02
+  },
+  {
+   "type": "CB0118",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 81.0,
+    "R": 39.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 85.0,
+    "R": 57.0
+   },
+   "malecns_laterality_L_minus_R": 0.35,
+   "flywire_laterality_L_minus_R": 0.197
+  },
+  {
+   "type": "CB4055",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 85.0,
+    "R": 44.0
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 0.318
+  },
+  {
+   "type": "CB0762",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 2.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 109.0,
+    "R": 15.0
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 0.758
+  },
+  {
+   "type": "CB0055",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 12.0,
+    "R": 15.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 61.0,
+    "R": 49.0
+   },
+   "malecns_laterality_L_minus_R": -0.111,
+   "flywire_laterality_L_minus_R": 0.109
+  },
+  {
+   "type": "CB0480",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 49.0,
+    "R": 49.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 53.0,
+    "R": 54.0
+   },
+   "malecns_laterality_L_minus_R": 0.0,
+   "flywire_laterality_L_minus_R": -0.009
+  },
+  {
+   "type": "DNge059",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 9.0,
+    "R": 6.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 52.0,
+    "R": 51.0
+   },
+   "malecns_laterality_L_minus_R": 0.2,
+   "flywire_laterality_L_minus_R": 0.01
+  },
+  {
+   "type": "CB0192",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 69.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 95.0
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "CB0008",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 44.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 64.0,
+    "R": 31.0
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 0.347
+  },
+  {
+   "type": "MNx01",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "R": 94.0
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": -1.0
+  },
+  {
+   "type": "CB0910",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 41.0,
+    "R": 47.0
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": -0.068
+  },
+  {
+   "type": "DNg103",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 5.0,
+    "R": 4.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 38.0,
+    "R": 44.0
+   },
+   "malecns_laterality_L_minus_R": 0.111,
+   "flywire_laterality_L_minus_R": -0.073
+  },
+  {
+   "type": "CB0724",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 43.0,
+    "R": 37.0
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 0.075
+  },
+  {
+   "type": "CB0484",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 50.0,
+    "R": 49.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 41.0,
+    "R": 37.0
+   },
+   "malecns_laterality_L_minus_R": 0.01,
+   "flywire_laterality_L_minus_R": 0.051
+  },
+  {
+   "type": "CB0911",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 1.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 60.0,
+    "R": 16.0
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 0.579
+  },
+  {
+   "type": "CB0871",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 2.0,
+    "R": 14.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 39.0,
+    "R": 34.0
+   },
+   "malecns_laterality_L_minus_R": -0.75,
+   "flywire_laterality_L_minus_R": 0.068
+  },
+  {
+   "type": "CB0020",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 50.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 73.0
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "CB0553",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 27.0,
+    "R": 26.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 35.0,
+    "R": 36.0
+   },
+   "malecns_laterality_L_minus_R": 0.019,
+   "flywire_laterality_L_minus_R": -0.014
+  },
+  {
+   "type": "CB0445",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 70.0
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "CB0499",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 51.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 65.0
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "CB0616",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 20.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 64.0
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "CB0889",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 50.0,
+    "R": 13.0
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 0.587
+  },
+  {
+   "type": "CB0573",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 6.0,
+    "R": 20.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 29.0,
+    "R": 33.0
+   },
+   "malecns_laterality_L_minus_R": -0.538,
+   "flywire_laterality_L_minus_R": -0.065
+  },
+  {
+   "type": "CB0419",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 43.0,
+    "R": 8.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 46.0,
+    "R": 16.0
+   },
+   "malecns_laterality_L_minus_R": 0.686,
+   "flywire_laterality_L_minus_R": 0.484
+  },
+  {
+   "type": "CB0393",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 3.0,
+    "R": 1.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 53.0,
+    "R": 7.0
+   },
+   "malecns_laterality_L_minus_R": 0.5,
+   "flywire_laterality_L_minus_R": 0.767
+  },
+  {
+   "type": "DNge042",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 5.0,
+    "R": 2.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 41.0,
+    "R": 18.0
+   },
+   "malecns_laterality_L_minus_R": 0.429,
+   "flywire_laterality_L_minus_R": 0.39
+  },
+  {
+   "type": "CB0832",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 14.0,
+    "R": 15.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 30.0,
+    "R": 28.0
+   },
+   "malecns_laterality_L_minus_R": -0.034,
+   "flywire_laterality_L_minus_R": 0.034
+  },
+  {
+   "type": "CB0821",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 21.0,
+    "R": 23.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 29.0,
+    "R": 29.0
+   },
+   "malecns_laterality_L_minus_R": -0.045,
+   "flywire_laterality_L_minus_R": 0.0
+  },
+  {
+   "type": "CB0890",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 37.0,
+    "R": 20.0
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 0.298
+  },
+  {
+   "type": "DNg31",
+   "malecns_summed_rate_hz_by_side": {
+    "R": 23.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 34.0,
+    "R": 23.0
+   },
+   "malecns_laterality_L_minus_R": -1.0,
+   "flywire_laterality_L_minus_R": 0.193
+  },
+  {
+   "type": "DNge080",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 6.0,
+    "R": 16.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 28.0,
+    "R": 28.0
+   },
+   "malecns_laterality_L_minus_R": -0.455,
+   "flywire_laterality_L_minus_R": 0.0
+  },
+  {
+   "type": "CB0493",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 4.0,
+    "R": 4.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 36.0,
+    "R": 20.0
+   },
+   "malecns_laterality_L_minus_R": 0.0,
+   "flywire_laterality_L_minus_R": 0.286
+  },
+  {
+   "type": "CB0701",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 6.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "R": 56.0
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": -1.0
+  },
+  {
+   "type": "CB0568",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 2.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 47.0,
+    "R": 8.0
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 0.709
+  }
+ ],
+ "malecns_top_types": [
+  {
+   "type": "<untyped>",
+   "malecns_summed_rate_hz_by_side": {
+    "?": 18.0,
+    "L": 97.0,
+    "M": 1823.0,
+    "R": 104.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "R": 34.0
+   },
+   "malecns_laterality_L_minus_R": -0.035,
+   "flywire_laterality_L_minus_R": -1.0
+  },
+  {
+   "type": "AN_multi_124",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 871.0,
+    "R": 971.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": -0.054,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "LB3",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 983.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "DLMn c-f",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 397.0,
+    "R": 396.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": 0.001,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "INXXX149",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 366.0,
+    "R": 356.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": 0.014,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "IN09A005",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 330.0,
+    "R": 286.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": 0.071,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "INXXX287",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 286.0,
+    "R": 299.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": -0.022,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "EN00B010",
+   "malecns_summed_rate_hz_by_side": {
+    "M": 536.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "MNad06",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 260.0,
+    "R": 237.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": 0.046,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "INXXX283",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 205.0,
+    "R": 292.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": -0.175,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "INXXX217",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 229.0,
+    "R": 266.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": -0.075,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "DVMn 1a-c",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 232.0,
+    "R": 242.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": -0.021,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "INXXX293",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 252.0,
+    "R": 218.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": 0.072,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "AN_FLA_SMP_2",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 233.0,
+    "R": 224.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": 0.02,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "INXXX197",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 226.0,
+    "R": 218.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": 0.018,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "MNad16",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 212.0,
+    "R": 213.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": -0.002,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "MNad08",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 189.0,
+    "R": 197.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": -0.021,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "MNad14",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 166.0,
+    "R": 217.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": -0.133,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "INXXX348",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 162.0,
+    "R": 198.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": -0.1,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "INXXX137",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 191.0,
+    "R": 168.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": 0.064,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "MNad11",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 184.0,
+    "R": 175.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": 0.025,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "IN19B040",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 178.0,
+    "R": 176.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": 0.006,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "MNad07",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 169.0,
+    "R": 180.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": -0.032,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "MNad64",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 169.0,
+    "R": 174.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": -0.015,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "INXXX181",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 170.0,
+    "R": 171.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": -0.003,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "DNg33",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 165.0,
+    "R": 165.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": 0.0,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "INXXX126",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 154.0,
+    "R": 148.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": 0.02,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "INXXX263",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 148.0,
+    "R": 146.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": 0.007,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "EN00B016",
+   "malecns_summed_rate_hz_by_side": {
+    "M": 285.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "INXXX350",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 150.0,
+    "R": 127.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": 0.083,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "INXXX212",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 110.0,
+    "R": 163.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": -0.194,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "AN_multi_34,AN_multi_35",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 131.0,
+    "R": 131.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": 0.0,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "INXXX352",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 141.0,
+    "R": 120.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": 0.08,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "MNad19",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 128.0,
+    "R": 129.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": -0.004,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "INXXX315",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 152.0,
+    "R": 98.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": 0.216,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "INXXX262",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 134.0,
+    "R": 111.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": 0.094,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "MNad61",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 121.0,
+    "R": 120.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": 0.004,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "DVMn 2a, b",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 120.0,
+    "R": 121.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": -0.004,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "EN00B013",
+   "malecns_summed_rate_hz_by_side": {
+    "M": 240.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "DVMn 3a, b",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 124.0,
+    "R": 114.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_laterality_L_minus_R": 0.042,
+   "flywire_laterality_L_minus_R": null
+  }
+ ],
+ "flywire_top_types": [
+  {
+   "type": "LB3c",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 757.0
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "<not in annotations>",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "?": 696.0
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "LB3d",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 430.0
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "LB4b",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 326.0
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "CB0248",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 83.0,
+    "R": 83.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 91.0,
+    "R": 103.0
+   },
+   "malecns_laterality_L_minus_R": 0.0,
+   "flywire_laterality_L_minus_R": -0.062
+  },
+  {
+   "type": "LB3b",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 148.0
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "CB0700",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 75.0,
+    "R": 72.0
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 0.02
+  },
+  {
+   "type": "CB0118",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 81.0,
+    "R": 39.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 85.0,
+    "R": 57.0
+   },
+   "malecns_laterality_L_minus_R": 0.35,
+   "flywire_laterality_L_minus_R": 0.197
+  },
+  {
+   "type": "CB4055",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 85.0,
+    "R": 44.0
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 0.318
+  },
+  {
+   "type": "CB0762",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 2.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 109.0,
+    "R": 15.0
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 0.758
+  },
+  {
+   "type": "CB0055",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 12.0,
+    "R": 15.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 61.0,
+    "R": 49.0
+   },
+   "malecns_laterality_L_minus_R": -0.111,
+   "flywire_laterality_L_minus_R": 0.109
+  },
+  {
+   "type": "CB0480",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 49.0,
+    "R": 49.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 53.0,
+    "R": 54.0
+   },
+   "malecns_laterality_L_minus_R": 0.0,
+   "flywire_laterality_L_minus_R": -0.009
+  },
+  {
+   "type": "DNge059",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 9.0,
+    "R": 6.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 52.0,
+    "R": 51.0
+   },
+   "malecns_laterality_L_minus_R": 0.2,
+   "flywire_laterality_L_minus_R": 0.01
+  },
+  {
+   "type": "CB0192",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 69.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 95.0
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "CB0008",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 44.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 64.0,
+    "R": 31.0
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 0.347
+  },
+  {
+   "type": "MNx01",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "R": 94.0
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": -1.0
+  },
+  {
+   "type": "CB0910",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 41.0,
+    "R": 47.0
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": -0.068
+  },
+  {
+   "type": "DNg103",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 5.0,
+    "R": 4.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 38.0,
+    "R": 44.0
+   },
+   "malecns_laterality_L_minus_R": 0.111,
+   "flywire_laterality_L_minus_R": -0.073
+  },
+  {
+   "type": "CB0724",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 43.0,
+    "R": 37.0
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 0.075
+  },
+  {
+   "type": "CB0484",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 50.0,
+    "R": 49.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 41.0,
+    "R": 37.0
+   },
+   "malecns_laterality_L_minus_R": 0.01,
+   "flywire_laterality_L_minus_R": 0.051
+  },
+  {
+   "type": "CB0911",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 1.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 60.0,
+    "R": 16.0
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 0.579
+  },
+  {
+   "type": "CB0871",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 2.0,
+    "R": 14.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 39.0,
+    "R": 34.0
+   },
+   "malecns_laterality_L_minus_R": -0.75,
+   "flywire_laterality_L_minus_R": 0.068
+  },
+  {
+   "type": "CB0020",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 50.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 73.0
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "CB0553",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 27.0,
+    "R": 26.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 35.0,
+    "R": 36.0
+   },
+   "malecns_laterality_L_minus_R": 0.019,
+   "flywire_laterality_L_minus_R": -0.014
+  },
+  {
+   "type": "CB0445",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 70.0
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "CB0499",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 51.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 65.0
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "CB0616",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 20.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 64.0
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "CB0889",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 50.0,
+    "R": 13.0
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 0.587
+  },
+  {
+   "type": "CB0573",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 6.0,
+    "R": 20.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 29.0,
+    "R": 33.0
+   },
+   "malecns_laterality_L_minus_R": -0.538,
+   "flywire_laterality_L_minus_R": -0.065
+  },
+  {
+   "type": "CB0419",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 43.0,
+    "R": 8.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 46.0,
+    "R": 16.0
+   },
+   "malecns_laterality_L_minus_R": 0.686,
+   "flywire_laterality_L_minus_R": 0.484
+  },
+  {
+   "type": "CB0393",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 3.0,
+    "R": 1.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 53.0,
+    "R": 7.0
+   },
+   "malecns_laterality_L_minus_R": 0.5,
+   "flywire_laterality_L_minus_R": 0.767
+  },
+  {
+   "type": "DNge042",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 5.0,
+    "R": 2.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 41.0,
+    "R": 18.0
+   },
+   "malecns_laterality_L_minus_R": 0.429,
+   "flywire_laterality_L_minus_R": 0.39
+  },
+  {
+   "type": "CB0832",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 14.0,
+    "R": 15.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 30.0,
+    "R": 28.0
+   },
+   "malecns_laterality_L_minus_R": -0.034,
+   "flywire_laterality_L_minus_R": 0.034
+  },
+  {
+   "type": "CB0821",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 21.0,
+    "R": 23.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 29.0,
+    "R": 29.0
+   },
+   "malecns_laterality_L_minus_R": -0.045,
+   "flywire_laterality_L_minus_R": 0.0
+  },
+  {
+   "type": "CB0890",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 37.0,
+    "R": 20.0
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 0.298
+  },
+  {
+   "type": "DNg31",
+   "malecns_summed_rate_hz_by_side": {
+    "R": 23.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 34.0,
+    "R": 23.0
+   },
+   "malecns_laterality_L_minus_R": -1.0,
+   "flywire_laterality_L_minus_R": 0.193
+  },
+  {
+   "type": "DNge080",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 6.0,
+    "R": 16.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 28.0,
+    "R": 28.0
+   },
+   "malecns_laterality_L_minus_R": -0.455,
+   "flywire_laterality_L_minus_R": 0.0
+  },
+  {
+   "type": "CB0493",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 4.0,
+    "R": 4.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 36.0,
+    "R": 20.0
+   },
+   "malecns_laterality_L_minus_R": 0.0,
+   "flywire_laterality_L_minus_R": 0.286
+  },
+  {
+   "type": "CB0701",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 6.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "R": 56.0
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": -1.0
+  },
+  {
+   "type": "CB0568",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 2.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 47.0,
+    "R": 8.0
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 0.709
+  }
+ ],
+ "note": "summed rate = spikes of all neurons of the type on that side / simulated s; laterality = (L - R) / (L + R); stimulated GRNs are on side L in both runs. flywire_pathway_types = the most active FlyWire types (excluding LB3*/LB4* GRNs and untyped) with the same types' activity in MaleCNS"
+}

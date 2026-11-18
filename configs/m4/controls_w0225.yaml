@@ -1,0 +1,89 @@
+# PR-04 / M4 controls on MaleCNS v1.0, left LB3c GRNs -> MN9, at w_syn = 0.225 mV: a REGIME
+# SENSITIVITY set. In the calibration grid (docs/acceptance/M4.md) 0.225 mV is the largest swept
+# level below the range where the whole-brain rate switches between a low (~0.1-0.3 Hz) and a high
+# (~3-4 Hz) regime across seeds; MN9 L rises monotonically with input there (criterion F = 0.18).
+# The primary set is configs/m4/controls_wcal.yaml (calibrated 0.270 mV). Shiu et al.'s literal
+# 0.275 mV was not given its own control set: it lies inside the calibration window (its interval
+# contains the target) and differs from the selected level by 2 %.
+#
+# Pre-registered before any of these runs (connectivity only, no simulation output used):
+# - bridge_exc = every excitatory neuron X (consensus_nt + Shiu Methods rule) with synapses
+#   LB3c_left -> X and X -> MN9_L: GNG089_L 512730 (48 x 7 synapses), DNge080_L 12752 (1 x 101),
+#   GNG568_L 514753 (5 x 12), GNG029_L 12807 (32 x 1), GNG176_L 15812 (2 x 3). There is no
+#   direct LB3c -> MN9 synapse (docs/acceptance/evidence/q19-mn9-laterality.json).
+# - primary readouts: MN9 L, MN9 R, whole brain; primary metric: whole-run mean rate.
+schema_version: 1
+kind: flylab_replicate_group
+group_id: m4_controls_w0225
+description: Controls (matched baseline, interventions, sign variants, null graph) at w_syn 0.225 mV (regime sensitivity).
+base_config: configs/male_cns_lb3c_mn9.yaml
+base_patch:
+  sensitivity: null
+  model:
+    overrides:
+      w_syn:
+        value: 0.225
+        units: mV
+        evidence: ASSUMED
+        rationale: >-
+          regime sensitivity for the M4 controls: largest calibration level below the whole-brain
+          regime switching (docs/acceptance/M4.md); not calibrated, not physiology
+  populations:
+    bridge_exc: {body_ids: [512730, 12752, 514753, 12807, 15812]}
+  recording:
+    spike_events: false
+    population_rate_bin_ms: 10.0
+    populations: [lb3c_left, lb3c_right, mn9_left, mn9_right, bridge_exc, __all__]
+seeds: {first: 1, count: 16}
+conditions:
+  - name: intact
+    description: matched baseline, 100 Hz forced Poisson spikes in the 12 left LB3c
+  - name: stim_right
+    description: mirror input, 100 Hz in the 11 right LB3c (Q19)
+    patch: {stimuli: [{kind: forced_spikes, population: lb3c_right, onset_ms: 0.0, offset_ms: 1000.0, rate_hz: 100.0}]}
+  - name: no_stimulus
+    description: no input at all (the model has no noise; expected silent)
+    patch: {stimuli: []}
+  - name: silence_lb3c
+    description: positive control, output of the stimulated GRNs blocked for the whole run
+    patch: {interventions: [{kind: silence_neurons, mode: block_output, population: lb3c_left}]}
+  - name: silence_bridges
+    description: output of the 5 excitatory disynaptic LB3c_L -> MN9_L bridges blocked
+    patch: {interventions: [{kind: silence_neurons, mode: block_output, population: bridge_exc}]}
+  - name: sign_fast_ionotropic
+    description: sign table fast_ionotropic_v1 (modulatory transmitters unknown, histamine -1)
+    patch: {synapse_sign: {mapping: fast_ionotropic_v1}}
+  - name: sign_predicted_nt
+    description: per-body predicted_nt column instead of consensus_nt
+    patch: {synapse_sign: {transmitter_column: predicted_nt}}
+  - name: glutamate_excitatory
+    description: glutamate = +1 (Q17)
+    patch: {synapse_sign: {overrides: {glutamate: 1}}}
+  - name: unknown_as_excitatory
+    description: unknown-sign presynaptic neurons (histamine, unclear, missing) excitatory
+    patch: {synapse_sign: {unknown_sign_policy: as_excitatory}}
+  - name: unknown_as_inhibitory
+    description: unknown-sign presynaptic neurons inhibitory
+    patch: {synapse_sign: {unknown_sign_policy: as_inhibitory}}
+  - name: null_graph
+    description: degree-preserving shuffled graph, a new shuffle per seed
+    patch: {graph_null: {method: degree_preserving_swap, seed: replicate}}
+comparisons:
+  - {condition: stim_right, reference: intact}
+  - {condition: no_stimulus, reference: intact}
+  - {condition: silence_lb3c, reference: intact}
+  - {condition: silence_bridges, reference: intact}
+  - {condition: sign_fast_ionotropic, reference: intact}
+  - {condition: sign_predicted_nt, reference: intact}
+  - {condition: glutamate_excitatory, reference: intact}
+  - {condition: unknown_as_excitatory, reference: intact}
+  - {condition: unknown_as_inhibitory, reference: intact}
+  - {condition: null_graph, reference: intact}
+statistics:
+  n_boot: 10000
+  confidence: 0.95
+  seed: 0
+  psth: true
+  metrics: [mean_rate_hz]
+  populations: [lb3c_left, lb3c_right, mn9_left, mn9_right, bridge_exc, __all__]
+  population_contrasts: [{population: mn9_left, reference: mn9_right}]

@@ -1,0 +1,14 @@
+# PR-04 / Q19 diagnostic: spike events of the intact condition, for
+# scripts/analysis/q19_active_types.py (which cell types fire on which side). Exploratory: one or
+# two seeds; MaleCNS seed 1 is in the high whole-brain regime at 0.270 mV, seed 2 in the low one
+# (calibration grid). Statistics of the rates are in the controls and cross-check groups.
+schema_version: 1
+kind: flylab_replicate_group
+group_id: m4_q19_spikes_flywire630
+base_config: configs/m4/flywire630_sugar_mn9.yaml
+base_patch:
+  recording: {spike_events: true}
+seeds: [1]
+conditions:
+  - name: intact
+statistics: {n_boot: 1000, psth: false, metrics: [mean_rate_hz]}

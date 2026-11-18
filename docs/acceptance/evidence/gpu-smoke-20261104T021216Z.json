@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "kind": "flylab_gpu_smoke",
+  "started_utc": "2026-11-04T02:12:11+00:00",
+  "environment": {
+    "schema_version": 1,
+    "captured_at_utc": "2026-11-04T02:12:11+00:00",
+    "flylab_version": "0.0.1",
+    "python": {
+      "version": "3.12.3",
+      "implementation": "CPython",
+      "executable_prefix_is_venv": true
+    },
+    "os": {
+      "system": "Linux",
+      "release": "6.18.33.2-microsoft-standard-WSL2",
+      "machine": "x86_64"
+    },
+    "packages": {
+      "numpy": "2.5.4",
+      "pyarrow": null,
+      "torch": "2.15.0",
+      "mujoco": null,
+      "flybody": null,
+      "flygym": null
+    },
+    "git": {
+      "commit": "2d4bc9a8cc2eb1120dd15b38c59b128969959d3e",
+      "dirty": null,
+      "source": "env:FLYLAB_GIT_COMMIT",
+      "reason": null
+    }
+  },
+  "nvidia_smi": {
+    "name": "NVIDIA GeForce RTX 5070",
+    "driver_version": "616.92",
+    "memory.total": "12227 MiB",
+    "compute_cap": "12.0"
+  },
+  "checks": {
+    "cuda_available": true,
+    "capability_is_12_0": true,
+    "arch_list_has_sm_120": true,
+    "matmul_finite": true,
+    "sparse_matches_cpu": true
+  },
+  "status": "PASS",
+  "torch_version": "2.15.0+cu132",
+  "torch_cuda_build": "13.2",
+  "gpu_name": "NVIDIA GeForce RTX 5070",
+  "capability": [
+    12,
+    0
+  ],
+  "arch_list": [
+    "sm_75",
+    "sm_80",
+    "sm_86",
+    "sm_90",
+    "sm_100",
+    "sm_120"
+  ],
+  "sparse_propagation": {
+    "graph": "synthetic:random:v1:n=20000:k=20:seed=0",
+    "n_edges": 399800,
+    "max_abs_diff": 0.0,
+    "max_abs_input": 42.0,
+    "pass": true
+  },
+  "max_memory_allocated_bytes": 41943040,
+  "max_memory_reserved_bytes": 58720256
+}

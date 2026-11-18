@@ -1,0 +1,629 @@
+{
+  "schema_version": 1,
+  "kind": "flylab_raw_data_audit",
+  "raw_dir": "male-cns-v1.0",
+  "source": {
+    "schema_version": 1,
+    "dataset_id": "male-cns:v1.0",
+    "release_date": "2026-06-08",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "attribution": "Male CNS connectome v1.0: FlyEM (HHMI Janelia), University of Cambridge (Dept. of Zoology), MRC Laboratory of Molecular Biology and Google Research. https://male-cns.janelia.org/ . Licensed CC-BY 4.0.",
+    "download_page": "https://male-cns.janelia.org/download/",
+    "fetched_with": "flylab 0.0.1",
+    "files": {
+      "body-annotations-male-cns-v1.0-minconf-0.5.feather": {
+        "name": "body-annotations-male-cns-v1.0-minconf-0.5.feather",
+        "url": "https://storage.googleapis.com/flyem-male-cns/v1.0/connectome-data/flat-connectome/body-annotations-male-cns-v1.0-minconf-0.5.feather",
+        "path": "body-annotations-male-cns-v1.0-minconf-0.5.feather",
+        "size_bytes": 14483314,
+        "md5_base64": "UKdxh3DFciDxYLpPQxq4ng==",
+        "sha256": "2177e246113e4cfbf1e7772ec37c6da1955ff22e8063d0b1f833101f99a9a3b2",
+        "status": "downloaded",
+        "checked_utc": "2026-11-04T03:33:04+00:00"
+      },
+      "body-neurotransmitters-male-cns-v1.0.feather": {
+        "name": "body-neurotransmitters-male-cns-v1.0.feather",
+        "url": "https://storage.googleapis.com/flyem-male-cns/v1.0/connectome-data/flat-connectome/body-neurotransmitters-male-cns-v1.0.feather",
+        "path": "body-neurotransmitters-male-cns-v1.0.feather",
+        "size_bytes": 43282834,
+        "md5_base64": "PYQrEv5cSe763lKNfdJKHw==",
+        "sha256": "95c9289220663abeb3409f3ad9e5a7f8a53f8093f5139d15502cd08da8879621",
+        "status": "downloaded",
+        "checked_utc": "2026-11-04T03:33:04+00:00"
+      },
+      "connectome-weights-male-cns-v1.0-minconf-0.5.feather": {
+        "name": "connectome-weights-male-cns-v1.0-minconf-0.5.feather",
+        "url": "https://storage.googleapis.com/flyem-male-cns/v1.0/connectome-data/flat-connectome/connectome-weights-male-cns-v1.0-minconf-0.5.feather",
+        "path": "connectome-weights-male-cns-v1.0-minconf-0.5.feather",
+        "size_bytes": 1051241946,
+        "md5_base64": "8w6dzKJc/QIb8eez2XVZng==",
+        "sha256": "e35da783d1c686b2b58b3b87cd6a403ae43bfcfba8bff28e08ef752c1a56afc1",
+        "status": "downloaded",
+        "checked_utc": "2026-11-04T03:33:04+00:00"
+      }
+    }
+  },
+  "files": [
+    {
+      "file": "body-annotations-male-cns-v1.0-minconf-0.5.feather",
+      "size_bytes": 14483314,
+      "num_record_batches": 4,
+      "num_rows": 211577,
+      "schema_metadata_keys": [
+        "pandas"
+      ],
+      "columns": {
+        "assignedOlHex1": {
+          "type": "double",
+          "nulls": 187857,
+          "min": 1.0,
+          "max": 36.0
+        },
+        "assignedOlHex2": {
+          "type": "double",
+          "nulls": 187857,
+          "min": 1.0,
+          "max": 39.0
+        },
+        "bodyId": {
+          "type": "int64",
+          "nulls": 0,
+          "min": 10001,
+          "max": 1571825087
+        },
+        "flywireType": {
+          "type": "string",
+          "nulls": 68421,
+          "value_counts": "high cardinality (> 64 distinct)"
+        },
+        "group": {
+          "type": "double",
+          "nulls": 64063,
+          "min": 10001.0,
+          "max": 1051058853.0
+        },
+        "instance": {
+          "type": "string",
+          "nulls": 50071,
+          "value_counts": "high cardinality (> 64 distinct)"
+        },
+        "somaSide": {
+          "type": "string",
+          "nulls": 60851,
+          "value_counts": {
+            "L": 75215,
+            "R": 75119,
+            "null": 60851,
+            "M": 392
+          }
+        },
+        "statusLabel": {
+          "type": "dictionary<values=string, indices=int8, ordered=1>",
+          "nulls": 887,
+          "value_counts": {
+            "Roughly traced": 71979,
+            "Reviewed": 54066,
+            "Prelim Roughly traced": 36387,
+            "Orphan": 12075,
+            "Glia": 11864,
+            "Unimportant": 10751,
+            "Out of scope": 4585,
+            "Orphan-artifact": 2318,
+            "RT Hard to trace": 2019,
+            "0.5assign": 1832,
+            "Orphan hotknife": 1428,
+            "null": 887,
+            "Leaves": 528,
+            "Anchor": 283,
+            "Soma Anchor": 201,
+            "PRT Orphan": 140,
+            "Hard to trace": 104,
+            "Sensory Anchor": 101,
+            "Partially traced": 26,
+            "RT Orphan": 3
+          }
+        },
+        "superclass": {
+          "type": "string",
+          "nulls": 44877,
+          "value_counts": {
+            "ol_intrinsic": 89403,
+            "null": 44877,
+            "cb_intrinsic": 32164,
+            "vnc_intrinsic": 13161,
+            "visual_projection": 9201,
+            "vnc_sensory": 6370,
+            "ol_sensory": 6098,
+            "cb_sensory": 4868,
+            "ascending_neuron": 1846,
+            "descending_neuron": 1314,
+            "vnc_motor": 708,
+            "visual_centrifugal": 563,
+            "sensory_ascending": 537,
+            "cb_motor": 107,
+            "vnc_efferent": 94,
+            "cb_endocrine": 72,
+            "ENS": 50,
+            "vnc_tbc": 38,
+            "vnc_sensory_tbc": 36,
+            "vnc_endocrine": 22,
+            "cb_sensory_tbc": 14,
+            "sensory_descending": 12,
+            "efferent_ascending": 8,
+            "efferent_descending": 4,
+            "cb_efferent": 4,
+            "visual_projection_tbc": 2,
+            "sensory_ascending_tbc": 2,
+            "descending_neuron_tbc": 2
+          }
+        },
+        "type": {
+          "type": "string",
+          "nulls": 47071,
+          "value_counts": "high cardinality (> 64 distinct)"
+        },
+        "vfbId": {
+          "type": "string",
+          "nulls": 44891,
+          "value_counts": "high cardinality (> 64 distinct)"
+        },
+        "hemibrainType": {
+          "type": "string",
+          "nulls": 178658,
+          "value_counts": "high cardinality (> 64 distinct)"
+        },
+        "itoleeHl": {
+          "type": "string",
+          "nulls": 173823,
+          "value_counts": "high cardinality (> 64 distinct)"
+        },
+        "supertype": {
+          "type": "string",
+          "nulls": 177481,
+          "value_counts": "high cardinality (> 64 distinct)"
+        },
+        "birthtime": {
+          "type": "string",
+          "nulls": 203673,
+          "value_counts": {
+            "null": 203673,
+            "early": 7891,
+            "late": 13
+          }
+        },
+        "mancBodyid": {
+          "type": "double",
+          "nulls": 192862,
+          "min": 10000.0,
+          "max": 53613193093.0
+        },
+        "mancGroup": {
+          "type": "double",
+          "nulls": 197023,
+          "min": 10000.0,
+          "max": 228406.0
+        },
+        "mancType": {
+          "type": "string",
+          "nulls": 188833,
+          "value_counts": "high cardinality (> 64 distinct)"
+        },
+        "subclass": {
+          "type": "string",
+          "nulls": 189647,
+          "value_counts": {
+            "null": 189647,
+            "BI": 3336,
+            "IR": 3048,
+            "mechanosensory bristle": 2206,
+            "BR": 1883,
+            "BA": 1336,
+            "abdomen": 1145,
+            "CR": 1039,
+            "leg": 873,
+            "II": 838,
+            "leg bristle": 768,
+            "wind_gravity": 475,
+            "xn": 441,
+            "campaniform sensilla": 426,
+            "chordotonal organ": 425,
+            "wing bristle": 385,
+            "ut": 276,
+            "xl": 275,
+            "fl": 250,
+            "ad": 241,
+            "notum": 230,
+            "haltere": 205,
+            "labellar bristle": 163,
+            "CA": 160,
+            "CI": 134,
+            "hl": 132,
+            "IA": 129,
+            "ml": 118,
+            "auditory": 115,
+            "hair plate": 113,
+            "nt": 108,
+            "pharyngeal sensillum": 87,
+            "taste bristle": 70,
+            "pm": 67,
+            "wm": 67,
+            "grooming": 65,
+            "taste peg": 60,
+            "wing": 46,
+            "nm": 44,
+            "lt": 31,
+            "XA": 28,
+            "ht": 26,
+            "it": 18,
+            "hm": 16,
+            "am": 13,
+            "rm": 7,
+            "xm": 6,
+            "wt": 2,
+            "neck": 2,
+            "strand receptor": 2
+          }
+        },
+        "synonyms": {
+          "type": "string",
+          "nulls": 207622,
+          "value_counts": "high cardinality (> 64 distinct)"
+        },
+        "class": {
+          "type": "string",
+          "nulls": 185064,
+          "value_counts": {
+            "null": 185064,
+            "visual": 6091,
+            "Kenyon_Cell": 4064,
+            "CX": 2950,
+            "olfactory": 2639,
+            "mechanosensory_tactile": 2558,
+            "mechanosensory": 1733,
+            "unknown_sensory": 1712,
+            "mechanosensory_proprioceptive": 1454,
+            "gustatory": 1428,
+            "ALPN": 686,
+            "ALLN": 420,
+            "DAN": 340,
+            "ol_bilateral": 116,
+            "MBON": 97,
+            "hygrosensory": 66,
+            "chemosensory": 58,
+            "SEZPN": 27,
+            "thermosensory": 25,
+            "ALIN": 24,
+            "ALON": 14,
+            "mechanosensory_tbc": 11
+          }
+        },
+        "rootSide": {
+          "type": "string",
+          "nulls": 193638,
+          "value_counts": {
+            "null": 193638,
+            "R": 9723,
+            "L": 7802,
+            "unknown": 414
+          }
+        },
+        "somaNeuromere": {
+          "type": "string",
+          "nulls": 189757,
+          "value_counts": {
+            "null": 189757,
+            "T2": 5076,
+            "T1": 4296,
+            "T3": 3976,
+            "CG": 2401,
+            "LB": 1313,
+            "A1": 933,
+            "TC": 729,
+            "DC": 568,
+            "MX": 500,
+            "MD": 372,
+            "A2": 273,
+            "A3": 241,
+            "A4": 212,
+            "A8": 198,
+            "A5": 179,
+            "A6": 164,
+            "A9": 143,
+            "A7": 116,
+            "GNG": 89,
+            "A10": 39,
+            "NA": 2
+          }
+        },
+        "trumanHl": {
+          "type": "string",
+          "nulls": 191824,
+          "value_counts": "high cardinality (> 64 distinct)"
+        },
+        "dimorphism": {
+          "type": "string",
+          "nulls": 209209,
+          "value_counts": {
+            "null": 209209,
+            "male-specific": 1258,
+            "sexually dimorphic": 771,
+            "potentially sexually dimorphic": 177,
+            "potentially male-specific": 162
+          }
+        },
+        "matchingNotes": {
+          "type": "string",
+          "nulls": 208152,
+          "value_counts": "high cardinality (> 64 distinct)"
+        },
+        "entryNerve": {
+          "type": "string",
+          "nulls": 199742,
+          "value_counts": {
+            "null": 199742,
+            "AN": 3332,
+            "MetaLN": 1522,
+            "MxLbN": 1410,
+            "MesoLN": 1403,
+            "ADMN": 1000,
+            "ProLN": 992,
+            "AbN4": 617,
+            "DMetaN": 439,
+            "PDMN": 282,
+            "AbN3": 234,
+            "AbNT": 213,
+            "AbN2": 88,
+            "aPhN": 80,
+            "PhN": 47,
+            "ON": 39,
+            "PrN": 37,
+            "ProCN": 37,
+            "DProN": 32,
+            "VProN": 19,
+            "ProAN": 10,
+            "AbN1": 2
+          }
+        },
+        "mancSerial": {
+          "type": "double",
+          "nulls": 206155,
+          "min": 10004.0,
+          "max": 31250.0
+        },
+        "mcnsSerial": {
+          "type": "double",
+          "nulls": 207632,
+          "min": 10041.0,
+          "max": 909045.0
+        },
+        "serialMotif": {
+          "type": "string",
+          "nulls": 210675,
+          "value_counts": {
+            "null": 210675,
+            "cns convergent": 341,
+            "cns tiling": 240,
+            "vnc convergent": 180,
+            "independent": 44,
+            "brain convergent": 42,
+            "sequential": 38,
+            "complex": 11,
+            "centripetal": 6
+          }
+        },
+        "fruDsx": {
+          "type": "string",
+          "nulls": 206565,
+          "value_counts": {
+            "null": 206565,
+            "fru_high": 2611,
+            "fru_low": 1989,
+            "coexpress_high": 193,
+            "dsx_high": 138,
+            "coexpress_low": 65,
+            "dsx_low": 16
+          }
+        },
+        "exitNerve": {
+          "type": "string",
+          "nulls": 210572,
+          "value_counts": {
+            "null": 210572,
+            "MetaLN": 123,
+            "MesoLN": 117,
+            "AbNT": 102,
+            "AbN4": 98,
+            "ProLN": 82,
+            "NCC": 71,
+            "AbN2": 53,
+            "PhN": 42,
+            "AbN3": 35,
+            "DProN": 33,
+            "ADMN": 32,
+            "AbN1": 31,
+            "MxLbN": 26,
+            "CvN": 25,
+            "ProAN": 24,
+            "VProN": 22,
+            "MesoAN": 19,
+            "PDMNa": 18,
+            "AN": 15,
+            "ON": 9,
+            "PDMNp": 6,
+            "DMetaN": 6,
+            "TBD": 6,
+            "PDMN": 3,
+            "ADMN,MesoAN": 3,
+            "ADMN,DMetaN": 2,
+            "AbNT_L,AbNT": 1,
+            "AbNT,AbN4": 1
+          }
+        },
+        "receptorType": {
+          "type": "string",
+          "nulls": 210825,
+          "value_counts": {
+            "null": 210825,
+            "putative_ppk23": 269,
+            "putative_ppk25": 257,
+            "putative_IR52b": 226
+          }
+        },
+        "somaLocation": {
+          "type": "list<item: int64>",
+          "nulls": 69796
+        },
+        "tosomaLocation": {
+          "type": "list<item: int64>",
+          "nulls": 210582
+        },
+        "status": {
+          "type": "string",
+          "nulls": 5472,
+          "value_counts": {
+            "Traced": 165122,
+            "Orphan": 15925,
+            "Glia": 11864,
+            "Unimportant": 10751,
+            "null": 5472,
+            "Assign": 1832,
+            "Anchor": 611
+          }
+        }
+      }
+    },
+    {
+      "file": "body-neurotransmitters-male-cns-v1.0.feather",
+      "size_bytes": 43282834,
+      "num_record_batches": 29,
+      "num_rows": 1835518,
+      "schema_metadata_keys": [
+        "pandas"
+      ],
+      "columns": {
+        "body": {
+          "type": "int64",
+          "nulls": 0,
+          "min": 10001,
+          "max": 1571862184
+        },
+        "cell_type": {
+          "type": "string",
+          "nulls": 1671072,
+          "value_counts": "high cardinality (> 64 distinct)"
+        },
+        "total_nt_predictions": {
+          "type": "int32",
+          "nulls": 0,
+          "min": 0,
+          "max": 31347
+        },
+        "predicted_nt_confidence": {
+          "type": "double",
+          "nulls": 857,
+          "min": 0.1868583281637717,
+          "max": 0.9753679521334674
+        },
+        "predicted_nt": {
+          "type": "string",
+          "nulls": 0,
+          "value_counts": {
+            "unclear": 1684226,
+            "acetylcholine": 95420,
+            "glutamate": 28199,
+            "gaba": 20358,
+            "dopamine": 4447,
+            "histamine": 2259,
+            "serotonin": 483,
+            "octopamine": 126
+          }
+        },
+        "ground_truth": {
+          "type": "string",
+          "nulls": 1750034,
+          "value_counts": {
+            "null": 1750034,
+            "acetylcholine": 52779,
+            "glutamate": 14397,
+            "gaba": 13150,
+            "histamine": 4683,
+            "dopamine": 380,
+            "octopamine": 51,
+            "serotonin": 44
+          }
+        },
+        "celltype_total_nt_predictions": {
+          "type": "int32",
+          "nulls": 0,
+          "min": 0,
+          "max": 564852
+        },
+        "celltype_predicted_nt": {
+          "type": "string",
+          "nulls": 0,
+          "value_counts": {
+            "unclear": 1673617,
+            "acetylcholine": 98512,
+            "glutamate": 29016,
+            "gaba": 21483,
+            "histamine": 7969,
+            "dopamine": 4448,
+            "serotonin": 386,
+            "octopamine": 87
+          }
+        },
+        "celltype_predicted_nt_confidence": {
+          "type": "double",
+          "nulls": 1671073,
+          "min": 0.19569200741553083,
+          "max": 0.9753679521334673
+        },
+        "consensus_nt": {
+          "type": "string",
+          "nulls": 0,
+          "value_counts": {
+            "unclear": 1671117,
+            "acetylcholine": 104193,
+            "glutamate": 29443,
+            "gaba": 22196,
+            "histamine": 8024,
+            "dopamine": 396,
+            "octopamine": 101,
+            "serotonin": 48
+          }
+        }
+      }
+    },
+    {
+      "file": "connectome-weights-male-cns-v1.0-minconf-0.5.feather",
+      "size_bytes": 1051241946,
+      "num_record_batches": 2318,
+      "num_rows": 151856684,
+      "schema_metadata_keys": [
+        "pandas"
+      ],
+      "columns": {
+        "body_pre": {
+          "type": "int64",
+          "nulls": 0,
+          "min": 10001,
+          "max": 1571862184
+        },
+        "body_post": {
+          "type": "int64",
+          "nulls": 0,
+          "min": 10001,
+          "max": 1571863634
+        },
+        "weight": {
+          "type": "int64",
+          "nulls": 0,
+          "min": 1,
+          "max": 2591
+        }
+      }
+    }
+  ],
+  "peak_rss_bytes": 1265893376
+}

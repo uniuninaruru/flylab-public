@@ -1,0 +1,50 @@
+# SYNTHETIC fixture run (tests/fixtures/tiny_graph): tests code paths, not biology.
+# Run from the repository root:  flylab run --config configs/tiny_fixture.yaml --with-baseline
+schema_version: 1
+experiment_id: tiny_fixture_forced_spikes
+description: >-
+  Forced spikes in syn_a drive syn_b (inhibitory onto syn_d) and syn_c (excitatory onto
+  syn_d). Blocking syn_b's output disinhibits syn_d; compare with the --with-baseline run.
+dataset:
+  kind: csv_fixture
+  neurons: tests/fixtures/tiny_graph/neurons.csv
+  edges: tests/fixtures/tiny_graph/edges.csv
+  duplicate_rule: sum            # 900002->900004 appears twice in edges.csv
+  dataset_id: synthetic:tiny:v1
+backend: numpy                   # or torch-cpu (needs `uv sync --extra gpu`)
+dtype: float64
+dt_ms: 0.1
+steps: 1000                      # 100 ms
+seed: 42
+model:
+  parameter_set: shiu2024_code_v1
+  overrides:
+    w_syn:
+      value: 25.0
+      units: mV
+      evidence: ASSUMED
+      rationale: >-
+        fixture only: large enough that one presynaptic spike through the 2-synapse edge
+        900001->900003 drives 900003 over threshold, so propagation is visible
+synapse_sign:
+  source: graph                  # the fixture's edges.csv carries hand-chosen signs
+  unknown_sign_policy: exclude   # drops the one unknown-sign edge 900006->900001
+populations:
+  source_a: {body_ids: [900001]}
+  relay_b: {column: label, values: [syn_b]}
+  downstream: {column: label, values: [syn_c, syn_d, syn_e]}
+stimuli:
+  - kind: forced_spikes
+    population: source_a
+    onset_ms: 10.0
+    offset_ms: 60.0
+    times_ms: [10.0, 30.0, 50.0]
+interventions:
+  - kind: silence_neurons
+    mode: block_output
+    population: relay_b
+    onset_ms: 0.0
+    offset_ms: 100.0
+recording:
+  spike_events: true
+  population_rate_bin_ms: 10.0

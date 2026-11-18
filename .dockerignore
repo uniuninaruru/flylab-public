@@ -1,0 +1,16 @@
+.git
+.venv
+.venv-*
+**/__pycache__
+**/*.pyc
+.mypy_cache
+.ruff_cache
+.pytest_cache
+artifacts
+data
+runs
+.env
+.env.*
+!.env.example
+*.feather
+*.parquet

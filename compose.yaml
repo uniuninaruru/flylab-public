@@ -1,0 +1,79 @@
+# FlyLab services. Run from inside WSL2 Ubuntu (or native Linux) on the GPU host:
+#   docker compose build
+#   docker compose run --rm gpu-smoke     # needs the NVIDIA GPU
+#   docker compose run --rm gpu-tests     # CUDA engine tests (needs the GPU)
+#   docker compose run --rm gpu flylab bench --config configs/bench/b1_male_cns_100ms.yaml
+#   docker compose run --rm cpu-tests     # no GPU needed
+#
+# Hardening defaults (spec section 10.2): no privileged mode, no Docker socket mount,
+# no host networking, all capabilities dropped, no network at all for test jobs.
+# When the API service arrives (PR-06) it must publish on 127.0.0.1 only, e.g.
+#   ports: ["127.0.0.1:8765:8765"]
+
+name: flylab
+
+x-common: &common
+  image: flylab:dev
+  build:
+    context: .
+    dockerfile: Dockerfile
+    args:
+      FLYLAB_GIT_COMMIT: ${FLYLAB_GIT_COMMIT:-unknown}
+  init: true
+  # Guest on a shared host: bounded memory and process count (override FLYLAB_MEM_LIMIT if a
+  # measured job needs more; the real-data import peaked at 2.2 GiB).
+  mem_limit: ${FLYLAB_MEM_LIMIT:-6g}
+  pids_limit: 512
+  network_mode: none
+  cap_drop: [ALL]
+  security_opt: ["no-new-privileges:true"]
+  volumes:
+    - ./artifacts:/opt/flylab/artifacts
+    - ./data:/opt/flylab/data:ro
+
+services:
+  gpu-smoke:
+    <<: *common
+    command: ["python", "scripts/gpu_smoke.py", "--out", "artifacts/gpu"]
+    deploy: &gpu
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  cpu-tests:
+    <<: *common
+    command: ["pytest", "-q", "-p", "no:cacheprovider"]
+
+  # CUDA engine tests (tests/gpu) on the local RTX host.
+  gpu-tests:
+    <<: *common
+    command: ["pytest", "-q", "-p", "no:cacheprovider", "tests/gpu", "--run-gpu", "-rA"]
+    deploy: *gpu
+
+  # General GPU job runner: `flylab bench ...`, `flylab parity ...`, `flylab run ...`.
+  # Processed data read-only; results go to ./artifacts.
+  gpu:
+    <<: *common
+    command: ["flylab", "--help"]
+    deploy: *gpu
+
+  # The only service with network access: downloads registered upstream files over HTTPS
+  # (flylab.data.sources) into ./data/raw, verified against upstream size + MD5.
+  data-fetch:
+    <<: *common
+    network_mode: bridge
+    volumes:
+      - ./data/raw:/opt/flylab/data/raw
+    command: ["flylab", "data", "fetch", "--dest", "data/raw"]
+
+  # Offline import: raw files read-only, writes only ./data/processed and ./artifacts.
+  data:
+    <<: *common
+    volumes:
+      - ./data/raw:/opt/flylab/data/raw:ro
+      - ./data/processed:/opt/flylab/data/processed
+      - ./artifacts:/opt/flylab/artifacts
+    command: ["flylab", "data", "--help"]

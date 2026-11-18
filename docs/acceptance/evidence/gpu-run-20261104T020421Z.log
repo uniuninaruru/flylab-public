@@ -1,0 +1,494 @@
+# FlyLab local GPU smoke run
+started_utc=20261104T020421Z
+git_commit=2d4bc9a8cc2eb1120dd15b38c59b128969959d3e
+deployed_without_git=yes (exact copy of the commit above, via git archive)
+wsl2=yes
+gpu_memory_used_total_before=2374 MiB, 12227 MiB
+
+## passthrough
+$ docker run --rm --gpus all nvidia/cuda:13.0.2-base-ubuntu24.04@sha256:2ab6381d970b211fb93853796dc6707eb8a72575a375c422b17cf4d8b2641701 nvidia-smi
+Unable to find image 'nvidia/cuda:13.0.2-base-ubuntu24.04@sha256:2ab6381d970b211fb93853796dc6707eb8a72575a375c422b17cf4d8b2641701' locally
+docker.io/nvidia/cuda@sha256:2ab6381d970b211fb93853796dc6707eb8a72575a375c422b17cf4d8b2641701: Pulling from nvidia/cuda
+526d5438c009: Pulling fs layer
+4b3ffd8ccb52: Pulling fs layer
+0b3b5bd92824: Pulling fs layer
+c567a87f21d2: Pulling fs layer
+70f87b6ed43e: Pulling fs layer
+526d5438c009: Download complete
+70f87b6ed43e: Download complete
+4b3ffd8ccb52: Download complete
+c567a87f21d2: Download complete
+4b3ffd8ccb52: Pull complete
+c567a87f21d2: Pull complete
+0b3b5bd92824: Download complete
+70f87b6ed43e: Pull complete
+0b3b5bd92824: Pull complete
+526d5438c009: Pull complete
+Digest: sha256:2ab6381d970b211fb93853796dc6707eb8a72575a375c422b17cf4d8b2641701
+Status: Downloaded newer image for nvidia/cuda@sha256:2ab6381d970b211fb93853796dc6707eb8a72575a375c422b17cf4d8b2641701
+Wed Nov  4 02:04:41 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 615.71.08              KMD Version: 616.92        CUDA UMD Version: 13.4     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 5070        On  |   00000000:01:00.0 Off |                  N/A |
+|  0%   40C    P1             33W /  275W |    2374MiB /  12227MiB |      1%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+## build
+$ docker compose build
+ Image flylab:dev Building 
+ Image flylab:dev Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.10kB done
+#1 DONE 0.0s
+
+#2 [gpu-smoke internal] load build definition from Dockerfile
+#2 transferring dockerfile: 2.36kB done
+#2 DONE 0.0s
+
+#3 [cpu-tests] resolve image config for docker-image://docker.io/docker/dockerfile:1
+#3 DONE 1.9s
+
+#4 [gpu-smoke] docker-image://docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e
+#4 resolve docker.io/docker/dockerfile:1@sha256:4edf897a3ffa55b89f906fc8cc78afdb3f1834cc9c7083565e611a8a7d5fe99e 0.0s done
+#4 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 0B / 14.28MB 0.2s
+#4 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 2.10MB / 14.28MB 0.5s
+#4 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 3.15MB / 14.28MB 0.6s
+#4 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 5.24MB / 14.28MB 0.8s
+#4 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 6.29MB / 14.28MB 0.9s
+#4 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 8.39MB / 14.28MB 1.1s
+#4 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 9.44MB / 14.28MB 1.2s
+#4 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 10.49MB / 14.28MB 1.4s
+#4 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 12.58MB / 14.28MB 1.5s
+#4 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 14.28MB / 14.28MB 1.6s done
+#4 sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 14.28MB / 14.28MB 1.6s done
+#4 extracting sha256:9d2b4f57f9e20f33279375ce25c6ff14f30f64270ed5c7b613b2b30256754f62 0.1s done
+#4 DONE 1.8s
+
+#5 [cpu-tests internal] load metadata for docker.io/library/ubuntu:24.04@sha256:fe81560990fae86dc4743202b2cb4d3df98d0bcf949173cecef15ce1127ef852
+#5 DONE 1.0s
+
+#6 [gpu-smoke internal] load metadata for ghcr.io/astral-sh/uv:0.12.17@sha256:10787c682e4184e4f290de1171fd4703dc63de99221f10fe1c99002ce7fa9acc
+#6 DONE 1.5s
+
+#7 [gpu-smoke internal] load .dockerignore
+#7 transferring context: 189B done
+#7 DONE 0.0s
+
+#8 [cpu-tests stage-1  1/12] FROM docker.io/library/ubuntu:24.04@sha256:fe81560990fae86dc4743202b2cb4d3df98d0bcf949173cecef15ce1127ef852
+#8 resolve docker.io/library/ubuntu:24.04@sha256:fe81560990fae86dc4743202b2cb4d3df98d0bcf949173cecef15ce1127ef852 0.0s done
+#8 extracting sha256:7a48b8f0e5c73d0cc2a85b008978396aa19d253dc1b96fdb0b769ee6dcbeca4a
+#8 ...
+
+#9 [gpu-smoke internal] load build context
+#9 transferring context: 374.90kB 0.0s done
+#9 DONE 0.1s
+
+#10 [gpu-smoke uv 1/1] FROM ghcr.io/astral-sh/uv:0.12.17@sha256:10787c682e4184e4f290de1171fd4703dc63de99221f10fe1c99002ce7fa9acc
+#10 resolve ghcr.io/astral-sh/uv:0.12.17@sha256:10787c682e4184e4f290de1171fd4703dc63de99221f10fe1c99002ce7fa9acc 0.0s done
+#10 sha256:8f02ace339f3b629967ce63fce6a69668edf19373e340d7a4568cbe0bdde6b59 0B / 98B 0.3s
+#10 sha256:c0e23073289ce84b0354f1ef327bc139e81436aa1a33880e206e32f63a13831a 0B / 23.39MB 0.2s
+#10 sha256:8f02ace339f3b629967ce63fce6a69668edf19373e340d7a4568cbe0bdde6b59 98B / 98B 0.4s done
+#10 ...
+
+#8 [gpu-smoke stage-1  1/12] FROM docker.io/library/ubuntu:24.04@sha256:fe81560990fae86dc4743202b2cb4d3df98d0bcf949173cecef15ce1127ef852
+#8 extracting sha256:7a48b8f0e5c73d0cc2a85b008978396aa19d253dc1b96fdb0b769ee6dcbeca4a 0.8s done
+#8 DONE 0.9s
+
+#10 [gpu-smoke uv 1/1] FROM ghcr.io/astral-sh/uv:0.12.17@sha256:10787c682e4184e4f290de1171fd4703dc63de99221f10fe1c99002ce7fa9acc
+#10 sha256:c0e23073289ce84b0354f1ef327bc139e81436aa1a33880e206e32f63a13831a 3.15MB / 23.39MB 0.9s
+#10 sha256:c0e23073289ce84b0354f1ef327bc139e81436aa1a33880e206e32f63a13831a 6.29MB / 23.39MB 1.2s
+#10 sha256:c0e23073289ce84b0354f1ef327bc139e81436aa1a33880e206e32f63a13831a 9.44MB / 23.39MB 1.5s
+#10 sha256:c0e23073289ce84b0354f1ef327bc139e81436aa1a33880e206e32f63a13831a 13.63MB / 23.39MB 2.0s
+#10 sha256:c0e23073289ce84b0354f1ef327bc139e81436aa1a33880e206e32f63a13831a 15.73MB / 23.39MB 2.1s
+#10 sha256:c0e23073289ce84b0354f1ef327bc139e81436aa1a33880e206e32f63a13831a 18.87MB / 23.39MB 2.4s
+#10 sha256:c0e23073289ce84b0354f1ef327bc139e81436aa1a33880e206e32f63a13831a 22.02MB / 23.39MB 2.7s
+#10 sha256:c0e23073289ce84b0354f1ef327bc139e81436aa1a33880e206e32f63a13831a 23.39MB / 23.39MB 2.8s done
+#10 sha256:c0e23073289ce84b0354f1ef327bc139e81436aa1a33880e206e32f63a13831a 23.39MB / 23.39MB 2.8s done
+#10 extracting sha256:c0e23073289ce84b0354f1ef327bc139e81436aa1a33880e206e32f63a13831a
+#10 extracting sha256:c0e23073289ce84b0354f1ef327bc139e81436aa1a33880e206e32f63a13831a 0.2s done
+#10 extracting sha256:8f02ace339f3b629967ce63fce6a69668edf19373e340d7a4568cbe0bdde6b59
+#10 extracting sha256:c0e23073289ce84b0354f1ef327bc139e81436aa1a33880e206e32f63a13831a 0.2s done
+#10 extracting sha256:8f02ace339f3b629967ce63fce6a69668edf19373e340d7a4568cbe0bdde6b59 0.0s done
+#10 DONE 3.1s
+
+#11 [cpu-tests stage-1  2/12] RUN apt-get update     && apt-get install -y --no-install-recommends ca-certificates python3.12 python3.12-venv     && rm -rf /var/lib/apt/lists/*
+#11 0.963 Get:1 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+#11 1.161 Get:2 http://archive.ubuntu.com/ubuntu noble InRelease [256 kB]
+#11 2.449 Get:3 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [2132 kB]
+#11 2.706 Get:4 http://archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+#11 3.013 Get:5 http://archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+#11 3.329 Get:6 http://archive.ubuntu.com/ubuntu noble/universe amd64 Packages [19.3 MB]
+#11 3.984 Get:7 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1552 kB]
+#11 4.212 Get:8 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [55.6 kB]
+#11 4.222 Get:9 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1422 kB]
+#11 5.961 Get:10 http://archive.ubuntu.com/ubuntu noble/main amd64 Packages [1808 kB]
+#11 6.133 Get:11 http://archive.ubuntu.com/ubuntu noble/multiverse amd64 Packages [331 kB]
+#11 6.162 Get:12 http://archive.ubuntu.com/ubuntu noble/restricted amd64 Packages [117 kB]
+#11 6.172 Get:13 http://archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [2240 kB]
+#11 6.385 Get:14 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [2172 kB]
+#11 6.584 Get:15 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1741 kB]
+#11 6.748 Get:16 http://archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [61.7 kB]
+#11 6.752 Get:17 http://archive.ubuntu.com/ubuntu noble-backports/main amd64 Packages [49.0 kB]
+#11 6.756 Get:18 http://archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Packages [669 B]
+#11 6.757 Get:19 http://archive.ubuntu.com/ubuntu noble-backports/universe amd64 Packages [36.0 kB]
+#11 6.799 Fetched 33.7 MB in 7s (5141 kB/s)
+#11 6.799 Reading package lists...
+#11 7.273 Reading package lists...
+#11 7.774 Building dependency tree...
+#11 7.895 Reading state information...
+#11 7.998 The following additional packages will be installed:
+#11 7.999   libexpat1 libpython3.12-minimal libpython3.12-stdlib libreadline8t64
+#11 7.999   libsqlite3-0 media-types netbase openssl python3-pip-whl
+#11 7.999   python3-setuptools-whl python3.12-minimal readline-common tzdata
+#11 8.000 Suggested packages:
+#11 8.000   python3.12-doc binutils binfmt-support readline-doc
+#11 8.042 The following NEW packages will be installed:
+#11 8.042   ca-certificates libexpat1 libpython3.12-minimal libpython3.12-stdlib
+#11 8.043   libreadline8t64 libsqlite3-0 media-types netbase openssl python3-pip-whl
+#11 8.043   python3-setuptools-whl python3.12 python3.12-minimal python3.12-venv
+#11 8.043   readline-common tzdata
+#11 8.555 0 upgraded, 16 newly installed, 0 to remove and 1 not upgraded.
+#11 8.555 Need to get 10.8 MB of archives.
+#11 8.555 After this operation, 32.8 MB of additional disk space will be used.
+#11 8.555 Get:1 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libpython3.12-minimal amd64 3.12.3-1ubuntu0.17 [839 kB]
+#11 10.35 Get:2 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libexpat1 amd64 2.6.1-2ubuntu0.6 [98.9 kB]
+#11 10.37 Get:3 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 python3.12-minimal amd64 3.12.3-1ubuntu0.17 [2335 kB]
+#11 10.89 Get:4 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 openssl amd64 3.0.13-0ubuntu3.16 [1004 kB]
+#11 10.98 Get:5 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 ca-certificates all 20260816ubuntu<ipv4> [139 kB]
+#11 10.99 Get:6 http://archive.ubuntu.com/ubuntu noble/main amd64 media-types all 10.1.0 [27.5 kB]
+#11 10.99 Get:7 http://archive.ubuntu.com/ubuntu noble/main amd64 netbase all 6.4 [13.1 kB]
+#11 10.99 Get:8 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 tzdata all 2026e-0ubuntu<ipv4> [282 kB]
+#11 11.02 Get:9 http://archive.ubuntu.com/ubuntu noble/main amd64 readline-common all 8.2-4build1 [56.5 kB]
+#11 11.02 Get:10 http://archive.ubuntu.com/ubuntu noble/main amd64 libreadline8t64 amd64 8.2-4build1 [153 kB]
+#11 11.04 Get:11 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libsqlite3-0 amd64 3.45.1-1ubuntu2.8 [702 kB]
+#11 11.10 Get:12 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 libpython3.12-stdlib amd64 3.12.3-1ubuntu0.17 [2071 kB]
+#11 11.73 Get:13 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 python3.12 amd64 3.12.3-1ubuntu0.17 [651 kB]
+#11 13.29 Get:14 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 python3-pip-whl all 24.0+dfsg-1ubuntu1.3 [1707 kB]
+#11 13.73 Get:15 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 python3-setuptools-whl all 68.1.2-2ubuntu1.2 [716 kB]
+#11 13.81 Get:16 http://archive.ubuntu.com/ubuntu noble-updates/universe amd64 python3.12-venv amd64 3.12.3-1ubuntu0.17 [5684 B]
+#11 13.89 debconf: delaying package configuration, since apt-utils is not installed
+#11 13.92 Fetched 10.8 MB in 6s (1874 kB/s)
+#11 13.94 Selecting previously unselected package libpython3.12-minimal:amd64.
+#11 13.94 (Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 4381 files and directories currently installed.)
+#11 13.95 Preparing to unpack .../00-libpython3.12-minimal_3.12.3-1ubuntu0.17_amd64.deb ...
+#11 13.95 Unpacking libpython3.12-minimal:amd64 (3.12.3-1ubuntu0.17) ...
+#11 14.02 Selecting previously unselected package libexpat1:amd64.
+#11 14.02 Preparing to unpack .../01-libexpat1_2.6.1-2ubuntu0.6_amd64.deb ...
+#11 14.03 Unpacking libexpat1:amd64 (2.6.1-2ubuntu0.6) ...
+#11 14.05 Selecting previously unselected package python3.12-minimal.
+#11 14.05 Preparing to unpack .../02-python3.12-minimal_3.12.3-1ubuntu0.17_amd64.deb ...
+#11 14.06 Unpacking python3.12-minimal (3.12.3-1ubuntu0.17) ...
+#11 14.11 Selecting previously unselected package openssl.
+#11 14.11 Preparing to unpack .../03-openssl_3.0.13-0ubuntu3.16_amd64.deb ...
+#11 14.11 Unpacking openssl (3.0.13-0ubuntu3.16) ...
+#11 14.15 Selecting previously unselected package ca-certificates.
+#11 14.15 Preparing to unpack .../04-ca-certificates_20260816ubuntu<ipv4>_all.deb ...
+#11 14.16 Unpacking ca-certificates (20260816ubuntu<ipv4>) ...
+#11 14.20 Selecting previously unselected package media-types.
+#11 14.20 Preparing to unpack .../05-media-types_10.1.0_all.deb ...
+#11 14.20 Unpacking media-types (10.1.0) ...
+#11 14.22 Selecting previously unselected package netbase.
+#11 14.22 Preparing to unpack .../06-netbase_6.4_all.deb ...
+#11 14.22 Unpacking netbase (6.4) ...
+#11 14.25 Selecting previously unselected package tzdata.
+#11 14.25 Preparing to unpack .../07-tzdata_2026e-0ubuntu<ipv4>_all.deb ...
+#11 14.25 Unpacking tzdata (2026e-0ubuntu<ipv4>) ...
+#11 14.32 Selecting previously unselected package readline-common.
+#11 14.33 Preparing to unpack .../08-readline-common_8.2-4build1_all.deb ...
+#11 14.33 Unpacking readline-common (8.2-4build1) ...
+#11 14.35 Selecting previously unselected package libreadline8t64:amd64.
+#11 14.35 Preparing to unpack .../09-libreadline8t64_8.2-4build1_amd64.deb ...
+#11 14.36 Adding 'diversion of /lib/x86_64-linux-gnu/libhistory.so.8 to /lib/x86_64-linux-gnu/libhistory.so.8.usr-is-merged by libreadline8t64'
+#11 14.36 Adding 'diversion of /lib/x86_64-linux-gnu/libhistory.so.8.2 to /lib/x86_64-linux-gnu/libhistory.so.8.2.usr-is-merged by libreadline8t64'
+#11 14.37 Adding 'diversion of /lib/x86_64-linux-gnu/libreadline.so.8 to /lib/x86_64-linux-gnu/libreadline.so.8.usr-is-merged by libreadline8t64'
+#11 14.37 Adding 'diversion of /lib/x86_64-linux-gnu/libreadline.so.8.2 to /lib/x86_64-linux-gnu/libreadline.so.8.2.usr-is-merged by libreadline8t64'
+#11 14.37 Unpacking libreadline8t64:amd64 (8.2-4build1) ...
+#11 14.40 Selecting previously unselected package libsqlite3-0:amd64.
+#11 14.40 Preparing to unpack .../10-libsqlite3-0_3.45.1-1ubuntu2.8_amd64.deb ...
+#11 14.40 Unpacking libsqlite3-0:amd64 (3.45.1-1ubuntu2.8) ...
+#11 14.42 Selecting previously unselected package libpython3.12-stdlib:amd64.
+#11 14.42 Preparing to unpack .../11-libpython3.12-stdlib_3.12.3-1ubuntu0.17_amd64.deb ...
+#11 14.43 Unpacking libpython3.12-stdlib:amd64 (3.12.3-1ubuntu0.17) ...
+#11 14.53 Selecting previously unselected package python3.12.
+#11 14.53 Preparing to unpack .../12-python3.12_3.12.3-1ubuntu0.17_amd64.deb ...
+#11 14.53 Unpacking python3.12 (3.12.3-1ubuntu0.17) ...
+#11 14.55 Selecting previously unselected package python3-pip-whl.
+#11 14.55 Preparing to unpack .../13-python3-pip-whl_24.0+dfsg-1ubuntu1.3_all.deb ...
+#11 14.56 Unpacking python3-pip-whl (24.0+dfsg-1ubuntu1.3) ...
+#11 14.58 Selecting previously unselected package python3-setuptools-whl.
+#11 14.58 Preparing to unpack .../14-python3-setuptools-whl_68.1.2-2ubuntu1.2_all.deb ...
+#11 14.58 Unpacking python3-setuptools-whl (68.1.2-2ubuntu1.2) ...
+#11 14.61 Selecting previously unselected package python3.12-venv.
+#11 14.61 Preparing to unpack .../15-python3.12-venv_3.12.3-1ubuntu0.17_amd64.deb ...
+#11 14.61 Unpacking python3.12-venv (3.12.3-1ubuntu0.17) ...
+#11 14.64 Setting up libexpat1:amd64 (2.6.1-2ubuntu0.6) ...
+#11 14.64 Setting up media-types (10.1.0) ...
+#11 14.65 Setting up python3-setuptools-whl (68.1.2-2ubuntu1.2) ...
+#11 14.66 Setting up libsqlite3-0:amd64 (3.45.1-1ubuntu2.8) ...
+#11 14.66 Setting up libpython3.12-minimal:amd64 (3.12.3-1ubuntu0.17) ...
+#11 14.67 Setting up tzdata (2026e-0ubuntu<ipv4>) ...
+#11 14.72 
+#11 14.72 Current default time zone: 'Etc/UTC'
+#11 14.72 Local time is now:      Wed Nov  4 02:05:02 UTC 2026.
+#11 14.72 Universal Time is now:  Wed Nov  4 02:05:02 UTC 2026.
+#11 14.72 Run 'dpkg-reconfigure tzdata' if you wish to change it.
+#11 14.72 
+#11 14.73 Setting up netbase (6.4) ...
+#11 14.75 Setting up openssl (3.0.13-0ubuntu3.16) ...
+#11 14.76 Setting up readline-common (8.2-4build1) ...
+#11 14.77 Setting up python3.12-minimal (3.12.3-1ubuntu0.17) ...
+#11 15.17 Setting up ca-certificates (20260816ubuntu<ipv4>) ...
+#11 15.47 Updating certificates in /etc/ssl/certs...
+#11 15.88 120 added, 0 removed; done.
+#11 15.90 Setting up libreadline8t64:amd64 (8.2-4build1) ...
+#11 15.91 Setting up libpython3.12-stdlib:amd64 (3.12.3-1ubuntu0.17) ...
+#11 15.91 Setting up python3-pip-whl (24.0+dfsg-1ubuntu1.3) ...
+#11 15.92 Setting up python3.12 (3.12.3-1ubuntu0.17) ...
+#11 16.37 Setting up python3.12-venv (3.12.3-1ubuntu0.17) ...
+#11 16.41 Processing triggers for libc-bin (2.39-0ubuntu8.9) ...
+#11 16.42 Processing triggers for ca-certificates (20260816ubuntu<ipv4>) ...
+#11 16.42 Updating certificates in /etc/ssl/certs...
+#11 16.73 0 added, 0 removed; done.
+#11 16.73 Running hooks in /etc/ca-certificates/update.d...
+#11 16.73 done.
+#11 DONE 16.9s
+
+#12 [cpu-tests stage-1  3/12] COPY --from=uv /uv /uvx /usr/local/bin/
+#12 DONE 0.1s
+
+#13 [gpu-smoke stage-1  4/12] WORKDIR /opt/flylab
+#13 DONE 0.0s
+
+#14 [cpu-tests stage-1  5/12] COPY pyproject.toml uv.lock .python-version README.md LICENSE NOTICE ./
+#14 DONE 0.0s
+
+#15 [cpu-tests stage-1  6/12] RUN --mount=type=cache,target=/root/.cache/uv     uv sync --locked --no-install-project --group dev --extra gpu
+#15 0.173 Using CPython 3.12.3 interpreter at: /usr/bin/python3.12
+#15 0.173 Creating virtual environment at: /opt/venv
+#15 0.177 Resolved 44 packages in 0.79ms
+#15 0.306 Downloading sympy (6.0MiB)
+#15 0.311 Downloading pygments (1.2MiB)
+#15 0.393 Downloading shellcheck-py (3.6MiB)
+#15 0.395 Downloading numpy (16.0MiB)
+#15 0.395 Downloading cuda-bindings (6.8MiB)
+#15 0.397 Downloading nvidia-cuda-cupti (11.4MiB)
+#15 0.397 Downloading nvidia-cuda-runtime (2.2MiB)
+#15 0.398 Downloading nvidia-cusparselt-cu13 (162.3MiB)
+#15 0.398 Downloading nvidia-cusolver (217.4MiB)
+#15 0.399 Downloading nvidia-cufft (208.1MiB)
+#15 0.400 Downloading networkx (2.0MiB)
+#15 0.400 Downloading ast-serialize (1.3MiB)
+#15 0.401 Downloading nvidia-cuda-nvrtc (44.8MiB)
+#15 0.401 Downloading nvidia-cublas (386.1MiB)
+#15 0.402 Downloading nvidia-nccl-cu13 (206.0MiB)
+#15 0.402 Downloading nvidia-nvshmem-cu13 (129.1MiB)
+#15 0.403 Downloading nvidia-cudnn-cu13 (495.1MiB)
+#15 0.403 Downloading nvidia-cuda-cccl (3.7MiB)
+#15 0.404 Downloading nvidia-nvjitlink (40.5MiB)
+#15 0.404 Downloading ruff (10.1MiB)
+#15 0.405 Downloading mypy (14.8MiB)
+#15 0.405 Downloading nvidia-cusparse (144.0MiB)
+#15 0.405 Downloading triton (272.4MiB)
+#15 0.406 Downloading nvidia-cufile (1.3MiB)
+#15 0.406 Downloading torch (514.2MiB)
+#15 5.780  Downloaded pygments
+#15 5.864  Downloaded ast-serialize
+#15 6.179  Downloaded nvidia-cufile
+#15 7.685  Downloaded networkx
+#15 7.927  Downloaded nvidia-cuda-runtime
+#15 11.02  Downloaded nvidia-cuda-cccl
+#15 11.14  Downloaded shellcheck-py
+#15 15.31  Downloaded sympy
+#15 16.66  Downloaded cuda-bindings
+#15 21.75  Downloaded ruff
+#15 23.49  Downloaded nvidia-cuda-cupti
+#15 28.56  Downloaded mypy
+#15 29.76  Downloaded numpy
+#15 60.09  Downloaded nvidia-nvjitlink
+#15 64.14  Downloaded nvidia-cuda-nvrtc
+#15 149.8  Downloaded nvidia-nvshmem-cu13
+#15 165.1  Downloaded nvidia-cusparse
+#15 179.1  Downloaded nvidia-cusparselt-cu13
+#15 210.8  Downloaded nvidia-nccl-cu13
+#15 211.3  Downloaded nvidia-cufft
+#15 215.7  Downloaded nvidia-cusolver
+#15 238.2  Downloaded triton
+#15 272.7  Downloaded nvidia-cublas
+#15 296.2  Downloaded nvidia-cudnn-cu13
+#15 297.7  Downloaded torch
+#15 297.7 Prepared 42 packages in 4m 40s
+#15 301.7 Installed 42 packages in 3.94s
+#15 303.5 Bytecode compiled 6547 files in 1.84s
+#15 303.5  + ast-serialize==0.13.1
+#15 303.5  + cuda-bindings==13.4.4
+#15 303.5  + cuda-pathfinder==1.8.5
+#15 303.5  + cuda-toolkit==13.2.2
+#15 303.5  + filelock==4.2.7
+#15 303.5  + fsspec==2026.9.0
+#15 303.5  + iniconfig==2.3.1
+#15 303.5  + jinja2==3.1.6
+#15 303.5  + librt==0.16.0
+#15 303.5  + markupsafe==3.0.4
+#15 303.5  + mpmath==1.3.0
+#15 303.5  + mypy==2.4.1
+#15 303.5  + mypy-extensions==1.2.0
+#15 303.5  + networkx==3.7
+#15 303.5  + numpy==2.5.4
+#15 303.5  + nvidia-cublas==<ipv4>
+#15 303.5  + nvidia-cuda-cccl==<ipv4>.1
+#15 303.5  + nvidia-cuda-cupti==13.2.86
+#15 303.5  + nvidia-cuda-nvrtc==13.2.86
+#15 303.5  + nvidia-cuda-runtime==13.2.86
+#15 303.5  + nvidia-cudnn-cu13==<ipv4>
+#15 303.5  + nvidia-cufft==<ipv4>
+#15 303.5  + nvidia-cufile==<ipv4>
+#15 303.5  + nvidia-cusolver==<ipv4>
+#15 303.5  + nvidia-cusparse==<ipv4>
+#15 303.5  + nvidia-cusparselt-cu13==0.8.1
+#15 303.5  + nvidia-nccl-cu13==2.30.7
+#15 303.5  + nvidia-nvjitlink==13.4.92
+#15 303.5  + nvidia-nvshmem-cu13==3.7.2
+#15 303.5  + nvidia-nvtx==13.2.86
+#15 303.5  + packaging==26.3
+#15 303.5  + pathspec==1.1.1
+#15 303.5  + pluggy==1.7.0
+#15 303.5  + pygments==2.21.0
+#15 303.5  + pytest==9.2.0
+#15 303.5  + ruff==0.17.3
+#15 303.5  + setuptools==84.2.1
+#15 303.5  + shellcheck-py==<ipv4>
+#15 303.5  + sympy==1.14.0
+#15 303.5  + torch==2.15.0
+#15 303.5  + triton==3.9.0
+#15 303.5  + typing-extensions==4.16.0
+#15 DONE 303.7s
+
+#16 [cpu-tests stage-1  7/12] COPY src ./src
+#16 DONE 0.2s
+
+#17 [gpu-smoke stage-1  8/12] COPY scripts ./scripts
+#17 DONE 0.3s
+
+#18 [cpu-tests stage-1  9/12] COPY tests ./tests
+#18 DONE 0.0s
+
+#19 [cpu-tests stage-1 10/12] COPY docs ./docs
+#19 DONE 0.0s
+
+#20 [cpu-tests stage-1 11/12] RUN --mount=type=cache,target=/root/.cache/uv     uv sync --locked --group dev --extra gpu
+#20 0.194 Resolved 44 packages in 1ms
+#20 0.203    Building flylab @ file:///opt/flylab
+#20 0.206       Built flylab @ file:///opt/flylab
+#20 0.209 Prepared 1 package in 6ms
+#20 0.212 Installed 1 package in 3ms
+#20 0.325 Bytecode compiled 6547 files in 113ms
+#20 0.325  + flylab==0.0.1 (from file:///opt/flylab)
+#20 DONE 0.4s
+
+#21 [cpu-tests stage-1 12/12] RUN mkdir -p /opt/flylab/artifacts && chown ubuntu:ubuntu /opt/flylab/artifacts
+#21 DONE 0.2s
+
+#22 [cpu-tests] exporting to image
+#22 exporting layers
+#22 ...
+
+#23 [gpu-smoke] exporting to image
+#23 exporting layers 92.4s done
+#23 exporting manifest sha256:9232b5561f9fd8a5053ccd7d92a38734761317cadfa1c6cfd35cd21d761be75a 0.0s done
+#23 exporting config sha256:7db515ea19876ada99115d89448452d353abfa83183734203b2595c660666431 0.0s done
+#23 exporting attestation manifest sha256:3a07119dd3fbc1509bc3db210b73892dc114703466b772857a894c4a22b5cd3c 0.0s done
+#23 exporting manifest list sha256:a160c825b06d650cf756442f6faeba18dbd1a31e7b673ccc50fe52304e6b79f7 0.0s done
+#23 naming to docker.io/library/flylab:dev done
+#23 unpacking to docker.io/library/flylab:dev
+#23 ...
+
+#22 [cpu-tests] exporting to image
+#22 exporting layers 92.4s done
+#22 exporting manifest sha256:5b48f50b0f810b4530793762f12e1313b9867c7668aed0e4a5263ed362c6c9a1 0.0s done
+#22 exporting config sha256:8740bc9338582090a5ddb92e654f7f673e9688055513054c8313ac364ca2d986 0.0s done
+#22 exporting attestation manifest sha256:0bb99684479766bd8088ebfc52aea83c2da25d37a8a31e55bf01cedd00148162 0.0s done
+#22 exporting manifest list sha256:55d5056f64b95055229885206d59d63553c6a970a5a5a425be5ed13e44e36611 0.0s done
+#22 naming to docker.io/library/flylab:dev done
+#22 unpacking to docker.io/library/flylab:dev 27.8s done
+#22 DONE 120.3s
+
+#23 [gpu-smoke] exporting to image
+#23 unpacking to docker.io/library/flylab:dev 27.8s done
+#23 DONE 120.3s
+
+#24 [cpu-tests] resolving provenance for metadata file
+#24 DONE 0.0s
+
+#25 [gpu-smoke] resolving provenance for metadata file
+#25 DONE 0.0s
+ Image flylab:dev Built 
+ Image flylab:dev Built 
+
+## gpu_smoke
+$ docker compose run --rm gpu-smoke
+ Container flylab-gpu-smoke-run-787be0c9cca1 Creating 
+ Container flylab-gpu-smoke-run-787be0c9cca1 Created 
+torch_version=2.15.0+cu132
+torch_cuda_build=13.2
+gpu_name=NVIDIA GeForce RTX 5070
+capability=[12, 0]
+check.cuda_available=True
+check.capability_is_12_0=True
+check.arch_list_has_sm_120=True
+check.matmul_finite=True
+check.sparse_matches_cpu=True
+smoke_test=PASS
+log=artifacts/gpu/smoke-20261104T021216Z.json
+
+## cpu_tests
+$ docker compose run --rm cpu-tests
+ Container flylab-cpu-tests-run-9a269692b58d Creating 
+ Container flylab-cpu-tests-run-9a269692b58d Created 
+s....................................................................... [ 70%]
+..............................                                           [100%]
+=========================== short test summary info ============================
+SKIPPED [1] tests/gpu/test_cuda_smoke.py: GPU test: run with --run-gpu on the local RTX host
+101 passed, 1 skipped in 0.29s
+
+## Summary
+passthrough=PASS
+build=PASS
+gpu_smoke=PASS
+cpu_tests=PASS
+overall=PASS
+log: artifacts/gpu/run-20261104T020421Z.log

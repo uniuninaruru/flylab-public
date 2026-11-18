@@ -1,0 +1,130 @@
+[project]
+name = "flylab"
+version = "0.0.1"
+description = "Reproducible, inspectable spiking simulation on the Drosophila MaleCNS v1.0 connectome (milestone M1: dataset import)."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+requires-python = ">=3.12"
+# Core stays small on purpose. Heavy stacks arrive with the PR that needs them:
+#   torch (PR-02 CPU / PR-03 CUDA), mujoco/flybody (PR-05, separate env).
+dependencies = [
+    "numpy>=2.0",
+    "pyarrow>=26.0",  # Feather (Arrow IPC) input, Parquet output; streamed by record batch
+    "pyyaml>=6.0.3",  # experiment configs (safe_load only)
+]
+
+[project.optional-dependencies]
+# GPU stack for the RTX 5070 (sm_120) container. On Linux x86_64 the PyPI torch 2.15.0 wheel is
+# built against CUDA 13.2 (it depends on cuda-toolkit==13.2.2) and needs NVIDIA driver >= 580.
+# Exact pin + uv.lock hashes make the container reproducible. sm_120 support was VERIFIED on the
+# RTX host on 2026-11-04 by scripts/gpu_smoke.py (docs/acceptance/evidence/).
+#
+# The Linux CPU extra uses the explicit PyTorch CPU index below. macOS uses the locked PyPI
+# CPU wheel for either extra; GPU containers keep their existing PyPI CUDA resolution.
+gpu = [
+    "torch==2.15.0",
+]
+# PR-04 figures (scripts/m4/plots.py). Optional: nothing under src/ imports matplotlib.
+plots = [
+    "matplotlib==3.11.2",
+]
+api = [
+    "starlette>=1.10.0",
+    "uvicorn>=0.54.0",
+    "websockets>=17.4",
+]
+cpu = [
+    "torch==2.15.0",
+]
+
+[project.scripts]
+flylab = "flylab.cli.main:main"
+
+[tool.uv]
+conflicts = [
+    [{ extra = "cpu" }, { extra = "gpu" }],
+]
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cpu", extra = "cpu", marker = "sys_platform == 'linux'" },
+    { index = "pypi", extra = "gpu" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[[tool.uv.index]]
+name = "pypi"
+url = "https://pypi.org/simple"
+default = true
+
+[dependency-groups]
+api-test = [
+    "httpx>=0.28.1",
+]
+dev = [
+    "mypy>=2.4",
+    "pytest>=9.2",
+    "ruff>=0.17",
+    "shellcheck-py>=0.11",
+    "types-pyyaml>=6.0.12",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.17,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "UP", "SIM", "PT", "NPY", "RUF", "S", "PTH"]
+ignore = [
+    "S101",   # assert is how pytest works
+    "S603",   # subprocess without shell=True is what we want; inputs are fixed
+    "S607",   # partial executable paths (git, bash) are intentional
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S108"]
+
+[tool.mypy]
+strict = true
+files = ["src", "tests", "scripts"]
+python_version = "3.12"
+
+[[tool.mypy.overrides]]
+# no type stubs shipped (torch, pyarrow, brian2, triton), or an optional extra CI does not install (matplotlib)
+module = [
+    "torch", "torch.*", "pyarrow", "pyarrow.*", "brian2", "brian2.*", "triton", "triton.*",
+    "matplotlib", "matplotlib.*",
+]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+# Optional dashboard dependencies are absent in core-only lint/type CI.
+module = ["starlette", "starlette.*", "uvicorn", "uvicorn.*", "httpx", "httpx.*"]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+# The base branch profiler's attr-defined ignore is needed with torch's stubs, but redundant
+# when the optional torch import is Any. Both core-only and torch CI must type-check.
+module = "profile_step"
+warn_unused_ignores = false
+
+[[tool.mypy.overrides]]
+module = ["flylab.neural._fused_kernels"]  # Triton kernels are untyped by construction
+ignore_errors = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = ["-ra", "--strict-markers"]
+markers = [
+    "gpu: needs a local CUDA GPU; skipped unless --run-gpu is passed",
+]

@@ -1,0 +1,48 @@
+name: body
+
+# Isolated body stack (envs/body: flybody + dm_control + MuJoCo, numpy 1.26.4 pinned by flybody).
+# CPU physics only; never installs torch or the main FlyLab lock. Main checks live in ci.yml.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: body-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  flybody-cpu:
+    name: flybody headless smoke (ubuntu-24.04, py3.12, CPU)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      # flylab is not installed into the body env (its numpy>=2 conflicts with flybody's pin);
+      # the embodiment code is imported from the checkout instead.
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          python-version: "3.12"
+      - name: Install the isolated body env from its lock
+        run: uv sync --locked --project envs/body
+      # Probes EGL/OSMesa in child processes and renders only with one that works; otherwise
+      # MUJOCO_GL=disable (physics only). Rendering is not required to pass.
+      - name: Body smoke test (reset, action spec, 200 zero-action steps)
+        run: uv run --locked --project envs/body python scripts/body_smoke.py --out artifacts/body
+      - name: Show smoke log
+        if: always()
+        run: cat artifacts/body/smoke-*.json || true
+      - name: Body tests (+ embodiment unit tests under numpy 1.26)
+        env:
+          MUJOCO_GL: disable
+        run: >-
+          uv run --locked --project envs/body pytest
+          tests/body tests/unit/test_embodiment.py tests/unit/test_embodiment_gl.py

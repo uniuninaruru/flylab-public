@@ -1,0 +1,297 @@
+{
+ "schema_version": 1,
+ "kind": "flylab_q19_mn9_laterality",
+ "evidence": "EMPIRICAL (connectome counts and annotations); the input-normalised excitatory path strength is an ENGINEERED summary, not a dynamics prediction",
+ "inputs": {
+  "malecns_processed_graph": "data/processed/male-cns-v1.0/superclass_annotated",
+  "malecns_annotations_sha256": "2177e246113e4cfbf1e7772ec37c6da1955ff22e8063d0b1f833101f99a9a3b2",
+  "shiu_connectivity_783_sha256": "efeb23fb99098e9c390f6869969b2a121a2ee92c833cfc45ecb2c1d8e1af0347",
+  "flywire_annotations_tsv_sha256": "b214970b55d2fbe0853bba536fdcb9e28730f4eb7ab06f600491df795da683cd"
+ },
+ "malecns": {
+  "meta": {
+   "graph_fingerprint_sha256": "4b2a5d7650e68e0c45df80c1293085aae5ceaa8c785ebc30d2092b478ebfd39e",
+   "n_neurons": 166700,
+   "n_edges": 25582938,
+   "side_rule": "somaSide, else rootSide (sensory neurons have rootSide only)",
+   "sign_rule": "consensus_nt -> shiu2024_methods_v1 (histamine/unclear/missing = 0)",
+   "grn_body_ids": {
+    "L": [
+     78240,
+     85806,
+     180314,
+     190769,
+     261450,
+     262567,
+     512551,
+     531237,
+     933317,
+     158893964,
+     349137284,
+     475202322
+    ],
+    "R": [
+     72059,
+     92440,
+     101087,
+     120303,
+     140015,
+     142827,
+     202888,
+     215556,
+     516217,
+     942168,
+     957530
+    ]
+   },
+   "mn9": {
+    "L": [
+     {
+      "instance": "MN9_L",
+      "somaSide": "L",
+      "somaLocation": [
+       55365,
+       36271,
+       15889
+      ],
+      "exitNerve": "PhN",
+      "statusLabel": "Roughly traced",
+      "status": "Traced",
+      "body_id": 10331
+     }
+    ],
+    "R": [
+     {
+      "instance": "MN9_R",
+      "somaSide": "R",
+      "somaLocation": [
+       41546,
+       38775,
+       15447
+      ],
+      "exitNerve": "PhN",
+      "statusLabel": "RT Hard to trace",
+      "status": "Traced",
+      "body_id": 16949
+     }
+    ]
+   },
+   "mn9_input_synapses_all_segments": {
+    "10331": 6358,
+    "16949": 633
+   },
+   "mn9_input_synapses_all_segments_note": "raw weights file, every presynaptic segment including fragments outside the node set"
+  },
+  "results": {
+   "GRN_L->MN9_L": {
+    "direct_synapses": 0.0,
+    "two_hop_synapse_products": {
+     "via_excitatory": 535.0,
+     "via_inhibitory": 113.0,
+     "via_unknown_sign": 267.0
+    },
+    "excitatory_input_fraction_by_hop": [
+     0.0,
+     2.4753285013854303e-05,
+     0.0002448459418076197,
+     0.00028646502864375503
+    ]
+   },
+   "GRN_L->MN9_R": {
+    "direct_synapses": 0.0,
+    "two_hop_synapse_products": {
+     "via_excitatory": 61.0,
+     "via_inhibitory": 35.0,
+     "via_unknown_sign": 35.0
+    },
+    "excitatory_input_fraction_by_hop": [
+     0.0,
+     3.2346040885847596e-05,
+     0.0003765863104717816,
+     0.0003522398639715515
+    ]
+   },
+   "GRN_L_output_partner_side": {
+    "L": 0.7712,
+    "M": 0.0014,
+    "R": 0.2274
+   },
+   "GRN_R->MN9_L": {
+    "direct_synapses": 0.0,
+    "two_hop_synapse_products": {
+     "via_excitatory": 128.0,
+     "via_inhibitory": 109.0,
+     "via_unknown_sign": 439.0
+    },
+    "excitatory_input_fraction_by_hop": [
+     0.0,
+     6.244911480569449e-06,
+     0.00035055033538383635,
+     0.0003876826348216353
+    ]
+   },
+   "GRN_R->MN9_R": {
+    "direct_synapses": 0.0,
+    "two_hop_synapse_products": {
+     "via_excitatory": 96.0,
+     "via_inhibitory": 32.0,
+     "via_unknown_sign": 38.0
+    },
+    "excitatory_input_fraction_by_hop": [
+     0.0,
+     3.8252648073905764e-05,
+     0.00026872532579966517,
+     0.0002814392421625382
+    ]
+   },
+   "GRN_R_output_partner_side": {
+    "L": 0.1912,
+    "M": 0.0008,
+    "R": 0.808
+   },
+   "MN9_L_input_partner_side": {
+    "?": 0.0002,
+    "L": 0.577,
+    "M": 0.0018,
+    "R": 0.421
+   },
+   "MN9_L_inputs": {
+    "input_partners": 278,
+    "input_synapses": 6012,
+    "from_excitatory": 2956,
+    "from_inhibitory": 2910,
+    "from_unknown_sign": 146
+   },
+   "MN9_R_input_partner_side": {
+    "L": 0.4191,
+    "R": 0.5809
+   },
+   "MN9_R_inputs": {
+    "input_partners": 137,
+    "input_synapses": 556,
+    "from_excitatory": 257,
+    "from_inhibitory": 264,
+    "from_unknown_sign": 35
+   }
+  }
+ },
+ "flywire_783": {
+  "meta": {
+   "connectivity": "Connectivity_783.parquet (Shiu et al. reference repository)",
+   "n_neurons_in_connectivity": 138639,
+   "n_rows": 15091983,
+   "side_rule": "flywire_annotations `side` (left/right/center -> L/R/M)",
+   "sign_rule": "Shiu et al. `Excitatory` column (their Methods rule on FlyWire)",
+   "grn_counts": {
+    "L": 20,
+    "R": 12
+   },
+   "mn9_root_ids": {
+    "L": [
+     720575940618238523
+    ],
+    "R": [
+     720575940660219265
+    ]
+   },
+   "shiu_mn9_root_id": 720575940660219265,
+   "shiu_mn9_side": "R",
+   "shiu_sugar_v630_ids_side_in_current_annotations": {
+    "left": 20,
+    "not found": 1
+   }
+  },
+  "results": {
+   "GRN_L->MN9_L": {
+    "direct_synapses": 0.0,
+    "two_hop_synapse_products": {
+     "via_excitatory": 687.0,
+     "via_inhibitory": 343.0,
+     "via_unknown_sign": 0.0
+    },
+    "excitatory_input_fraction_by_hop": [
+     0.0,
+     6.116152355876273e-05,
+     0.0003565496649412417,
+     0.0003382933284613564
+    ]
+   },
+   "GRN_L->MN9_R": {
+    "direct_synapses": 0.0,
+    "two_hop_synapse_products": {
+     "via_excitatory": 198.0,
+     "via_inhibitory": 89.0,
+     "via_unknown_sign": 0.0
+    },
+    "excitatory_input_fraction_by_hop": [
+     0.0,
+     1.9742692935161346e-05,
+     0.0004244166176345454,
+     0.00041942497027520263
+    ]
+   },
+   "GRN_L_output_partner_side": {
+    "L": 0.7988,
+    "M": 0.0019,
+    "R": 0.1993
+   },
+   "GRN_R->MN9_L": {
+    "direct_synapses": 0.0,
+    "two_hop_synapse_products": {
+     "via_excitatory": 138.0,
+     "via_inhibitory": 104.0,
+     "via_unknown_sign": 0.0
+    },
+    "excitatory_input_fraction_by_hop": [
+     0.0,
+     9.728987725739956e-06,
+     0.00024144594275645083,
+     0.00016813747563246511
+    ]
+   },
+   "GRN_R->MN9_R": {
+    "direct_synapses": 0.0,
+    "two_hop_synapse_products": {
+     "via_excitatory": 61.0,
+     "via_inhibitory": 27.0,
+     "via_unknown_sign": 0.0
+    },
+    "excitatory_input_fraction_by_hop": [
+     0.0,
+     7.173715192895553e-06,
+     0.00010802900968263081,
+     0.00011985982024601551
+    ]
+   },
+   "GRN_R_output_partner_side": {
+    "L": 0.206,
+    "M": 0.0009,
+    "R": 0.7931
+   },
+   "MN9_L_input_partner_side": {
+    "L": 0.5678,
+    "M": 0.0126,
+    "R": 0.4196
+   },
+   "MN9_L_inputs": {
+    "input_partners": 241,
+    "input_synapses": 5886,
+    "from_excitatory": 2798,
+    "from_inhibitory": 3088,
+    "from_unknown_sign": 0
+   },
+   "MN9_R_input_partner_side": {
+    "L": 0.4139,
+    "M": 0.009,
+    "R": 0.5772
+   },
+   "MN9_R_inputs": {
+    "input_partners": 227,
+    "input_synapses": 5579,
+    "from_excitatory": 2449,
+    "from_inhibitory": 3130,
+    "from_unknown_sign": 0
+   }
+  }
+ }
+}

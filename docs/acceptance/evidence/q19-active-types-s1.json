@@ -1,0 +1,2238 @@
+{
+ "schema_version": 1,
+ "kind": "flylab_q19_active_types",
+ "evidence": "ASSUMED (model output, one seed per dataset; exploratory)",
+ "malecns_run": {
+  "run_id": "intact--s1",
+  "config_sha256": "5bbc72f950565b14a762068bb2e31300c2a4f8d65cc687444436c31118b8493d",
+  "seed": 1,
+  "dataset_id": "male-cns:v1.0",
+  "w_syn_mV": 0.27,
+  "simulated_ms": 1000.0,
+  "stimuli": [
+   {
+    "kind": "forced_spikes",
+    "population": "lb3c_left",
+    "onset_ms": 0.0,
+    "offset_ms": 1000.0,
+    "rate_hz": 100.0,
+    "evidence": "ENGINEERED"
+   }
+  ]
+ },
+ "flywire_run": {
+  "run_id": "intact--s1",
+  "config_sha256": "4bca1e1e9da2b09fe323379091d63e687fc1b278ec9ae3e0b4dc1f3567a12ff2",
+  "seed": 1,
+  "dataset_id": "flywire:v630:shiu2024-repo",
+  "w_syn_mV": 0.275,
+  "simulated_ms": 1000.0,
+  "stimuli": [
+   {
+    "kind": "forced_spikes",
+    "population": "sugar_shiu21",
+    "onset_ms": 0.0,
+    "offset_ms": 1000.0,
+    "rate_hz": 100.0,
+    "evidence": "ENGINEERED"
+   }
+  ]
+ },
+ "n_neurons_spiking": {
+  "malecns": 13757,
+  "flywire": 362
+ },
+ "flywire_pathway_types": [
+  {
+   "type": "CB0248",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 91.0,
+    "R": 92.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 91.0,
+    "R": 103.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": -0.005,
+   "flywire_laterality_L_minus_R": -0.062
+  },
+  {
+   "type": "CB0700",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 75.0,
+    "R": 72.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 2
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 0.02
+  },
+  {
+   "type": "CB0118",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 82.0,
+    "R": 43.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 85.0,
+    "R": 57.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 0.312,
+   "flywire_laterality_L_minus_R": 0.197
+  },
+  {
+   "type": "CB4055",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 85.0,
+    "R": 44.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 2
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 2,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 0.318
+  },
+  {
+   "type": "CB0762",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 21.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 109.0,
+    "R": 15.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 2,
+    "R": 2
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 2,
+    "R": 2
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 0.758
+  },
+  {
+   "type": "CB0055",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 35.0,
+    "R": 39.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 61.0,
+    "R": 49.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": -0.054,
+   "flywire_laterality_L_minus_R": 0.109
+  },
+  {
+   "type": "CB0480",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 46.0,
+    "R": 47.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 53.0,
+    "R": 54.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": -0.011,
+   "flywire_laterality_L_minus_R": -0.009
+  },
+  {
+   "type": "DNge059",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 9.0,
+    "R": 5.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 52.0,
+    "R": 51.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 0.286,
+   "flywire_laterality_L_minus_R": 0.01
+  },
+  {
+   "type": "CB0192",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 68.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 95.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "CB0008",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 47.0,
+    "R": 22.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 64.0,
+    "R": 31.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 0.362,
+   "flywire_laterality_L_minus_R": 0.347
+  },
+  {
+   "type": "MNx01",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 16.0,
+    "R": 1.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "R": 94.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 3,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "R": 3
+   },
+   "malecns_laterality_L_minus_R": 0.882,
+   "flywire_laterality_L_minus_R": -1.0
+  },
+  {
+   "type": "CB0910",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 41.0,
+    "R": 47.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": -0.068
+  },
+  {
+   "type": "DNg103",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 23.0,
+    "R": 21.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 38.0,
+    "R": 44.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 0.045,
+   "flywire_laterality_L_minus_R": -0.073
+  },
+  {
+   "type": "CB0724",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 43.0,
+    "R": 37.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 0.075
+  },
+  {
+   "type": "CB0484",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 57.0,
+    "R": 55.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 41.0,
+    "R": 37.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 0.018,
+   "flywire_laterality_L_minus_R": 0.051
+  },
+  {
+   "type": "CB0911",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 1.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 60.0,
+    "R": 16.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 0.579
+  },
+  {
+   "type": "CB0871",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 1.0,
+    "R": 5.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 39.0,
+    "R": 34.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": -0.667,
+   "flywire_laterality_L_minus_R": 0.068
+  },
+  {
+   "type": "CB0020",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 53.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 73.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "CB0553",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 10.0,
+    "R": 12.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 35.0,
+    "R": 36.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": -0.091,
+   "flywire_laterality_L_minus_R": -0.014
+  },
+  {
+   "type": "CB0445",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 70.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "CB0499",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 49.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 65.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "CB0616",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 21.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 64.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "CB0889",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 13.0,
+    "R": 24.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 50.0,
+    "R": 13.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": -0.297,
+   "flywire_laterality_L_minus_R": 0.587
+  },
+  {
+   "type": "CB0573",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 18.0,
+    "R": 21.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 29.0,
+    "R": 33.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": -0.077,
+   "flywire_laterality_L_minus_R": -0.065
+  },
+  {
+   "type": "CB0419",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 31.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 46.0,
+    "R": 16.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 0.484
+  },
+  {
+   "type": "CB0393",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 2.0,
+    "R": 1.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 53.0,
+    "R": 7.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 0.333,
+   "flywire_laterality_L_minus_R": 0.767
+  },
+  {
+   "type": "DNge042",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 1.0,
+    "R": 4.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 41.0,
+    "R": 18.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": -0.6,
+   "flywire_laterality_L_minus_R": 0.39
+  },
+  {
+   "type": "CB0832",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 22.0,
+    "R": 9.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 30.0,
+    "R": 28.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 0.419,
+   "flywire_laterality_L_minus_R": 0.034
+  },
+  {
+   "type": "CB0821",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 7.0,
+    "R": 14.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 29.0,
+    "R": 29.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": -0.333,
+   "flywire_laterality_L_minus_R": 0.0
+  },
+  {
+   "type": "CB0890",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 37.0,
+    "R": 20.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 0.298
+  },
+  {
+   "type": "DNg31",
+   "malecns_summed_rate_hz_by_side": {
+    "R": 35.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 34.0,
+    "R": 23.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": -1.0,
+   "flywire_laterality_L_minus_R": 0.193
+  },
+  {
+   "type": "DNge080",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 14.0,
+    "R": 15.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 28.0,
+    "R": 28.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": -0.034,
+   "flywire_laterality_L_minus_R": 0.0
+  },
+  {
+   "type": "CB0493",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 1.0,
+    "R": 49.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 36.0,
+    "R": 20.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": -0.96,
+   "flywire_laterality_L_minus_R": 0.286
+  },
+  {
+   "type": "CB0701",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 16.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "R": 56.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": -1.0
+  },
+  {
+   "type": "CB0568",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 1.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 47.0,
+    "R": 8.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 0.709
+  }
+ ],
+ "malecns_top_types": [
+  {
+   "type": "KCg-m",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 68487.0,
+    "R": 63826.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 691,
+    "R": 655
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1069,
+    "R": 1120
+   },
+   "malecns_laterality_L_minus_R": 0.035,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "KCab",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 55942.0,
+    "R": 61690.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 821,
+    "R": 860
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 844,
+    "R": 799
+   },
+   "malecns_laterality_L_minus_R": -0.049,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "KCg-d",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 7016.0,
+    "R": 8720.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 99,
+    "R": 107
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 147,
+    "R": 148
+   },
+   "malecns_laterality_L_minus_R": -0.108,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "KCapbp-ap1",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 7279.0,
+    "R": 7267.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 96,
+    "R": 101
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 148,
+    "R": 132
+   },
+   "malecns_laterality_L_minus_R": 0.001,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "KCab-p",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 5063.0,
+    "R": 5462.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 64,
+    "R": 65
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 67,
+    "R": 61
+   },
+   "malecns_laterality_L_minus_R": -0.038,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "lLN1_bc",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 3761.0,
+    "R": 3710.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 15,
+    "R": 15
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 14,
+    "R": 16
+   },
+   "malecns_laterality_L_minus_R": 0.007,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "PAM08",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 3036.0,
+    "R": 2937.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 25,
+    "R": 25
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 23,
+    "R": 22
+   },
+   "malecns_laterality_L_minus_R": 0.017,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "PAM01",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 2789.0,
+    "R": 2504.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 23,
+    "R": 21
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 21,
+    "R": 20
+   },
+   "malecns_laterality_L_minus_R": 0.054,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "PAM04",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 1722.0,
+    "R": 1651.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 16,
+    "R": 16
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 17,
+    "R": 15
+   },
+   "malecns_laterality_L_minus_R": 0.021,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "lLN2X12",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 1280.0,
+    "R": 1449.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 6,
+    "R": 7
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 8,
+    "R": 5
+   },
+   "malecns_laterality_L_minus_R": -0.062,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "lLN2P_b",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 1136.0,
+    "R": 1477.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 5,
+    "R": 7
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 6,
+    "R": 6
+   },
+   "malecns_laterality_L_minus_R": -0.131,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "PAM12",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 1274.0,
+    "R": 1207.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 11,
+    "R": 11
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 11,
+    "R": 12
+   },
+   "malecns_laterality_L_minus_R": 0.027,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "PAM10",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 1053.0,
+    "R": 1199.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 7,
+    "R": 8
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 8,
+    "R": 7
+   },
+   "malecns_laterality_L_minus_R": -0.065,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "<untyped>",
+   "malecns_summed_rate_hz_by_side": {
+    "?": 26.0,
+    "L": 97.0,
+    "M": 1763.0,
+    "R": 354.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "R": 34.0
+   },
+   "malecns_n_neurons_by_side": {
+    "?": 42949,
+    "L": 1787,
+    "M": 17,
+    "R": 1477,
+    "unknown": 3
+   },
+   "flywire_n_neurons_by_side": {
+    "?": 1,
+    "L": 942,
+    "M": 84,
+    "R": 501
+   },
+   "malecns_laterality_L_minus_R": -0.57,
+   "flywire_laterality_L_minus_R": -1.0
+  },
+  {
+   "type": "FR1",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 1084.0,
+    "R": 1114.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 9,
+    "R": 9
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 10,
+    "R": 10
+   },
+   "malecns_laterality_L_minus_R": -0.014,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "lLN2P_c",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 1127.0,
+    "R": 889.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 5,
+    "R": 4
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 4,
+    "R": 5
+   },
+   "malecns_laterality_L_minus_R": 0.118,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "PAM05",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 889.0,
+    "R": 968.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 9,
+    "R": 11
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 11,
+    "R": 10
+   },
+   "malecns_laterality_L_minus_R": -0.043,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "PAM07",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 903.0,
+    "R": 873.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 7,
+    "R": 7
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 8,
+    "R": 10
+   },
+   "malecns_laterality_L_minus_R": 0.017,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "AN_multi_124",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 804.0,
+    "R": 915.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 8,
+    "R": 9
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 3,
+    "R": 7
+   },
+   "malecns_laterality_L_minus_R": -0.065,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "M_lPNm11D",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 849.0,
+    "R": 831.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 6,
+    "R": 6
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 5,
+    "R": 6
+   },
+   "malecns_laterality_L_minus_R": 0.011,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "KCapbp-ap2",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 457.0,
+    "R": 1212.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 133,
+    "R": 158
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 138,
+    "R": 160
+   },
+   "malecns_laterality_L_minus_R": -0.452,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "HRN_VP1d",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 851.0,
+    "R": 807.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 10,
+    "R": 8
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 9,
+    "R": 7
+   },
+   "malecns_laterality_L_minus_R": 0.027,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "lLN2P_a",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 910.0,
+    "R": 699.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 4,
+    "R": 3
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 7,
+    "R": 6
+   },
+   "malecns_laterality_L_minus_R": 0.131,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "PAM11",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 849.0,
+    "R": 699.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 8,
+    "R": 7
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 8,
+    "R": 8
+   },
+   "malecns_laterality_L_minus_R": 0.097,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "CB3417",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 709.0,
+    "R": 749.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 5,
+    "R": 5
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 3,
+    "R": 4
+   },
+   "malecns_laterality_L_minus_R": -0.027,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "VC5_lvPN",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 655.0,
+    "R": 694.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 6,
+    "R": 6
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 3,
+    "R": 2
+   },
+   "malecns_laterality_L_minus_R": -0.029,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "Lawf2",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 468.0,
+    "R": 814.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 195,
+    "R": 188
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 151,
+    "R": 170
+   },
+   "malecns_laterality_L_minus_R": -0.27,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "lLN2X03",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 746.0,
+    "R": 498.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 3,
+    "R": 2
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 3,
+    "R": 3
+   },
+   "malecns_laterality_L_minus_R": 0.199,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "lLN2X09,lLN2X10",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 578.0,
+    "R": 508.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 3,
+    "R": 3
+   },
+   "flywire_n_neurons_by_side": {},
+   "malecns_laterality_L_minus_R": 0.064,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "PAM09",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 461.0,
+    "R": 576.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 4,
+    "R": 5
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 4,
+    "R": 5
+   },
+   "malecns_laterality_L_minus_R": -0.111,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "lLN2X06,lLN2X07",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 549.0,
+    "R": 485.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 3,
+    "R": 3
+   },
+   "flywire_n_neurons_by_side": {},
+   "malecns_laterality_L_minus_R": 0.062,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "LHPV2a1_c",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 538.0,
+    "R": 491.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 6,
+    "R": 5
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 5,
+    "R": 5
+   },
+   "malecns_laterality_L_minus_R": 0.046,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "MBON09",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 517.0,
+    "R": 499.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 2,
+    "R": 2
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 2,
+    "R": 2
+   },
+   "malecns_laterality_L_minus_R": 0.018,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "LB3",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 1008.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 42,
+    "R": 45
+   },
+   "flywire_n_neurons_by_side": {
+    "R": 3
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "PAM02",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 492.0,
+    "R": 508.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 9,
+    "R": 8
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 8,
+    "R": 8
+   },
+   "malecns_laterality_L_minus_R": -0.016,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "KCapbp-m",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 715.0,
+    "R": 266.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 110,
+    "R": 95
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 164,
+    "R": 174
+   },
+   "malecns_laterality_L_minus_R": 0.458,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "LHPV4g1",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 457.0,
+    "R": 513.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 6,
+    "R": 6
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 5,
+    "R": 6
+   },
+   "malecns_laterality_L_minus_R": -0.058,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "lLN2X04",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 485.0,
+    "R": 479.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 2,
+    "R": 2
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 2,
+    "R": 2
+   },
+   "malecns_laterality_L_minus_R": 0.006,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "Dm18",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 389.0,
+    "R": 563.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 31,
+    "R": 27
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 24,
+    "R": 25
+   },
+   "malecns_laterality_L_minus_R": -0.183,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "lLN2X05",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 476.0,
+    "R": 472.0
+   },
+   "flywire_summed_rate_hz_by_side": {},
+   "malecns_n_neurons_by_side": {
+    "L": 2,
+    "R": 2
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 2,
+    "R": 2
+   },
+   "malecns_laterality_L_minus_R": 0.004,
+   "flywire_laterality_L_minus_R": null
+  }
+ ],
+ "flywire_top_types": [
+  {
+   "type": "LB3c",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 757.0
+   },
+   "malecns_n_neurons_by_side": {},
+   "flywire_n_neurons_by_side": {
+    "L": 20,
+    "R": 12
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "<not in annotations>",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "?": 696.0
+   },
+   "malecns_n_neurons_by_side": {},
+   "flywire_n_neurons_by_side": {},
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": null
+  },
+  {
+   "type": "LB3d",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 430.0
+   },
+   "malecns_n_neurons_by_side": {},
+   "flywire_n_neurons_by_side": {
+    "L": 15,
+    "R": 14
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "LB4b",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 326.0
+   },
+   "malecns_n_neurons_by_side": {},
+   "flywire_n_neurons_by_side": {
+    "L": 4,
+    "R": 6
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "CB0248",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 91.0,
+    "R": 92.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 91.0,
+    "R": 103.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": -0.005,
+   "flywire_laterality_L_minus_R": -0.062
+  },
+  {
+   "type": "LB3b",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 148.0
+   },
+   "malecns_n_neurons_by_side": {},
+   "flywire_n_neurons_by_side": {
+    "L": 13,
+    "R": 12
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "CB0700",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 75.0,
+    "R": 72.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 2
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 0.02
+  },
+  {
+   "type": "CB0118",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 82.0,
+    "R": 43.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 85.0,
+    "R": 57.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 0.312,
+   "flywire_laterality_L_minus_R": 0.197
+  },
+  {
+   "type": "CB4055",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 85.0,
+    "R": 44.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 2
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 2,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 0.318
+  },
+  {
+   "type": "CB0762",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 21.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 109.0,
+    "R": 15.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 2,
+    "R": 2
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 2,
+    "R": 2
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 0.758
+  },
+  {
+   "type": "CB0055",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 35.0,
+    "R": 39.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 61.0,
+    "R": 49.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": -0.054,
+   "flywire_laterality_L_minus_R": 0.109
+  },
+  {
+   "type": "CB0480",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 46.0,
+    "R": 47.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 53.0,
+    "R": 54.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": -0.011,
+   "flywire_laterality_L_minus_R": -0.009
+  },
+  {
+   "type": "DNge059",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 9.0,
+    "R": 5.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 52.0,
+    "R": 51.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 0.286,
+   "flywire_laterality_L_minus_R": 0.01
+  },
+  {
+   "type": "CB0192",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 68.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 95.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "CB0008",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 47.0,
+    "R": 22.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 64.0,
+    "R": 31.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 0.362,
+   "flywire_laterality_L_minus_R": 0.347
+  },
+  {
+   "type": "MNx01",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 16.0,
+    "R": 1.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "R": 94.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 3,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "R": 3
+   },
+   "malecns_laterality_L_minus_R": 0.882,
+   "flywire_laterality_L_minus_R": -1.0
+  },
+  {
+   "type": "CB0910",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 41.0,
+    "R": 47.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": -0.068
+  },
+  {
+   "type": "DNg103",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 23.0,
+    "R": 21.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 38.0,
+    "R": 44.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 0.045,
+   "flywire_laterality_L_minus_R": -0.073
+  },
+  {
+   "type": "CB0724",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 43.0,
+    "R": 37.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 0.075
+  },
+  {
+   "type": "CB0484",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 57.0,
+    "R": 55.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 41.0,
+    "R": 37.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 0.018,
+   "flywire_laterality_L_minus_R": 0.051
+  },
+  {
+   "type": "CB0911",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 1.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 60.0,
+    "R": 16.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 0.579
+  },
+  {
+   "type": "CB0871",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 1.0,
+    "R": 5.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 39.0,
+    "R": 34.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": -0.667,
+   "flywire_laterality_L_minus_R": 0.068
+  },
+  {
+   "type": "CB0020",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 53.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 73.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "CB0553",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 10.0,
+    "R": 12.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 35.0,
+    "R": 36.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": -0.091,
+   "flywire_laterality_L_minus_R": -0.014
+  },
+  {
+   "type": "CB0445",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 70.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "CB0499",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 49.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 65.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "CB0616",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 21.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 64.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 1.0
+  },
+  {
+   "type": "CB0889",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 13.0,
+    "R": 24.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 50.0,
+    "R": 13.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": -0.297,
+   "flywire_laterality_L_minus_R": 0.587
+  },
+  {
+   "type": "CB0573",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 18.0,
+    "R": 21.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 29.0,
+    "R": 33.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": -0.077,
+   "flywire_laterality_L_minus_R": -0.065
+  },
+  {
+   "type": "CB0419",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 31.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 46.0,
+    "R": 16.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 0.484
+  },
+  {
+   "type": "CB0393",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 2.0,
+    "R": 1.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 53.0,
+    "R": 7.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 0.333,
+   "flywire_laterality_L_minus_R": 0.767
+  },
+  {
+   "type": "DNge042",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 1.0,
+    "R": 4.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 41.0,
+    "R": 18.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": -0.6,
+   "flywire_laterality_L_minus_R": 0.39
+  },
+  {
+   "type": "CB0832",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 22.0,
+    "R": 9.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 30.0,
+    "R": 28.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 0.419,
+   "flywire_laterality_L_minus_R": 0.034
+  },
+  {
+   "type": "CB0821",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 7.0,
+    "R": 14.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 29.0,
+    "R": 29.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": -0.333,
+   "flywire_laterality_L_minus_R": 0.0
+  },
+  {
+   "type": "CB0890",
+   "malecns_summed_rate_hz_by_side": {},
+   "flywire_summed_rate_hz_by_side": {
+    "L": 37.0,
+    "R": 20.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": null,
+   "flywire_laterality_L_minus_R": 0.298
+  },
+  {
+   "type": "DNg31",
+   "malecns_summed_rate_hz_by_side": {
+    "R": 35.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 34.0,
+    "R": 23.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": -1.0,
+   "flywire_laterality_L_minus_R": 0.193
+  },
+  {
+   "type": "DNge080",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 14.0,
+    "R": 15.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 28.0,
+    "R": 28.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": -0.034,
+   "flywire_laterality_L_minus_R": 0.0
+  },
+  {
+   "type": "CB0493",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 1.0,
+    "R": 49.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 36.0,
+    "R": 20.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": -0.96,
+   "flywire_laterality_L_minus_R": 0.286
+  },
+  {
+   "type": "CB0701",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 16.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "R": 56.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": -1.0
+  },
+  {
+   "type": "CB0568",
+   "malecns_summed_rate_hz_by_side": {
+    "L": 1.0
+   },
+   "flywire_summed_rate_hz_by_side": {
+    "L": 47.0,
+    "R": 8.0
+   },
+   "malecns_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "flywire_n_neurons_by_side": {
+    "L": 1,
+    "R": 1
+   },
+   "malecns_laterality_L_minus_R": 1.0,
+   "flywire_laterality_L_minus_R": 0.709
+  }
+ ],
+ "note": "summed rate = spikes of all neurons of the type on that side / simulated s; laterality = (L - R) / (L + R); stimulated GRNs are on side L in both runs. n_neurons_by_side counts annotation rows of the type (MaleCNS v1.0 annotations; FlyWire current annotations, i.e. v783 ids, while the run used v630). flywire_pathway_types = the most active FlyWire types (excluding LB3*/LB4* GRNs and untyped) with the same types' activity in MaleCNS"
+}

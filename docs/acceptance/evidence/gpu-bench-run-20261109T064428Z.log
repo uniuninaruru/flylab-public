@@ -1,0 +1,635 @@
+# FlyLab local GPU benchmark run (M3)
+started_utc=20261109T064428Z
+git_commit=8507026ee591cc5176c71e0812f1d5d767a751ea
+warmup=3 repeats=10
+gpu_before=NVIDIA GeForce RTX 5070, 616.92, 109 MiB, 12227 MiB
+
+## build
+$ docker compose build --quiet
+ Image flylab:dev Building 
+ Image flylab:dev Building 
+ Image flylab:dev Building 
+ Image flylab:dev Building 
+ Image flylab:dev Building 
+ Image flylab:dev Building 
+ Image flylab:dev Built 
+ Image flylab:dev Built 
+ Image flylab:dev Built 
+ Image flylab:dev Built 
+ Image flylab:dev Built 
+ Image flylab:dev Built 
+
+## gpu_tests
+$ docker compose run --rm gpu-tests
+ Container flylab-gpu-tests-run-8eaea6eb64a7 Creating 
+ Container flylab-gpu-tests-run-8eaea6eb64a7 Created 
+................                                                         [100%]
+==================================== PASSES ====================================
+______________ test_cuda_matches_numpy_in_lockstep[True-float64] _______________
+----------------------------- Captured stdout call -----------------------------
+{'status': 'identical', 'ok': True, 'reference': 'numpy', 'test': 'torch-cuda', 'dtype': 'float64', 'steps': 1500, 'steps_identical': 1500, 'steps_compared': 1500, 'justified_flips': 0, 'resyncs': 0, 'margin_mV': 2e-06, 'state_every': 50, 'state_checks': 31, 'max_abs_v_diff_mV': 0.0, 'max_abs_g_diff_mV': 0.0, 'state_within_margin': True, 'state_finite': True, 'divergence': None, 'n_spikes_reference': 33853, 'n_spikes_test': 33853, 'population_spikes_reference': {'all': 33853, 'first100': 1615}, 'population_spikes_test': {'all': 33853, 'first100': 1615}}
+______________ test_cuda_matches_numpy_in_lockstep[True-float32] _______________
+----------------------------- Captured stdout call -----------------------------
+{'status': 'identical', 'ok': True, 'reference': 'numpy', 'test': 'torch-cuda', 'dtype': 'float32', 'steps': 1500, 'steps_identical': 1500, 'steps_compared': 1500, 'justified_flips': 0, 'resyncs': 0, 'margin_mV': 0.01, 'state_every': 50, 'state_checks': 31, 'max_abs_v_diff_mV': 0.0, 'max_abs_g_diff_mV': 0.0, 'state_within_margin': True, 'state_finite': True, 'divergence': None, 'n_spikes_reference': 33888, 'n_spikes_test': 33888, 'population_spikes_reference': {'all': 33888, 'first100': 1616}, 'population_spikes_test': {'all': 33888, 'first100': 1616}}
+______________ test_cuda_matches_numpy_in_lockstep[False-float64] ______________
+----------------------------- Captured stdout call -----------------------------
+{'status': 'identical', 'ok': True, 'reference': 'numpy', 'test': 'torch-cuda', 'dtype': 'float64', 'steps': 1500, 'steps_identical': 1500, 'steps_compared': 1500, 'justified_flips': 0, 'resyncs': 0, 'margin_mV': 2e-06, 'state_every': 50, 'state_checks': 31, 'max_abs_v_diff_mV': 1.4210854715202004e-14, 'max_abs_g_diff_mV': 1.4210854715202004e-14, 'state_within_margin': True, 'state_finite': True, 'divergence': None, 'n_spikes_reference': 33853, 'n_spikes_test': 33853, 'population_spikes_reference': {'all': 33853, 'first100': 1615}, 'population_spikes_test': {'all': 33853, 'first100': 1615}}
+______________ test_cuda_matches_numpy_in_lockstep[False-float32] ______________
+----------------------------- Captured stdout call -----------------------------
+{'status': 'identical', 'ok': True, 'reference': 'numpy', 'test': 'torch-cuda', 'dtype': 'float32', 'steps': 1500, 'steps_identical': 1500, 'steps_compared': 1500, 'justified_flips': 0, 'resyncs': 0, 'margin_mV': 0.01, 'state_every': 50, 'state_checks': 31, 'max_abs_v_diff_mV': 0.0, 'max_abs_g_diff_mV': 0.0, 'state_within_margin': True, 'state_finite': True, 'divergence': None, 'n_spikes_reference': 33888, 'n_spikes_test': 33888, 'population_spikes_reference': {'all': 33888, 'first100': 1616}, 'population_spikes_test': {'all': 33888, 'first100': 1616}}
+________________ test_fused_matches_numpy_in_lockstep[float64] _________________
+----------------------------- Captured stdout call -----------------------------
+{'status': 'identical', 'ok': True, 'reference': 'numpy', 'test': 'torch-cuda', 'dtype': 'float64', 'steps': 1500, 'steps_identical': 1500, 'steps_compared': 1500, 'justified_flips': 0, 'resyncs': 0, 'margin_mV': 2e-06, 'state_every': 50, 'state_checks': 31, 'max_abs_v_diff_mV': 2.1316282072803006e-14, 'max_abs_g_diff_mV': 1.4210854715202004e-14, 'state_within_margin': True, 'state_finite': True, 'divergence': None, 'n_spikes_reference': 32375, 'n_spikes_test': 32375, 'population_spikes_reference': {'all': 32375, 'first100': 1574}, 'population_spikes_test': {'all': 32375, 'first100': 1574}}
+________________ test_fused_matches_numpy_in_lockstep[float32] _________________
+----------------------------- Captured stdout call -----------------------------
+{'status': 'identical', 'ok': True, 'reference': 'numpy', 'test': 'torch-cuda', 'dtype': 'float32', 'steps': 1500, 'steps_identical': 1500, 'steps_compared': 1500, 'justified_flips': 0, 'resyncs': 0, 'margin_mV': 0.01, 'state_every': 50, 'state_checks': 31, 'max_abs_v_diff_mV': 0.0, 'max_abs_g_diff_mV': 4.182274675555963e-16, 'state_within_margin': True, 'state_finite': True, 'divergence': None, 'n_spikes_reference': 32375, 'n_spikes_test': 32375, 'population_spikes_reference': {'all': 32375, 'first100': 1574}, 'population_spikes_test': {'all': 32375, 'first100': 1574}}
+=========================== short test summary info ============================
+PASSED tests/gpu/test_cuda_engine.py::test_cuda_matches_numpy_in_lockstep[True-float64]
+PASSED tests/gpu/test_cuda_engine.py::test_cuda_matches_numpy_in_lockstep[True-float32]
+PASSED tests/gpu/test_cuda_engine.py::test_cuda_matches_numpy_in_lockstep[False-float64]
+PASSED tests/gpu/test_cuda_engine.py::test_cuda_matches_numpy_in_lockstep[False-float32]
+PASSED tests/gpu/test_cuda_engine.py::test_deterministic_mode_repeats_bitwise
+PASSED tests/gpu/test_cuda_engine.py::test_chunked_arrivals_match_on_cuda
+PASSED tests/gpu/test_cuda_engine.py::test_cuda_checkpoint_resumes_on_numpy
+PASSED tests/gpu/test_cuda_engine.py::test_device_memory_and_settings_are_reported
+PASSED tests/gpu/test_cuda_smoke.py::test_cuda_device_is_sm120_and_computes
+PASSED tests/gpu/test_fused_engine.py::test_fused_matches_numpy_in_lockstep[float64]
+PASSED tests/gpu/test_fused_engine.py::test_fused_matches_numpy_in_lockstep[float32]
+PASSED tests/gpu/test_fused_engine.py::test_batched_simulate_equals_single_steps[float64]
+PASSED tests/gpu/test_fused_engine.py::test_batched_simulate_equals_single_steps[float32]
+PASSED tests/gpu/test_fused_engine.py::test_fused_is_deterministic_and_close_to_eager_cuda
+PASSED tests/gpu/test_fused_engine.py::test_checkpoints_move_between_fused_and_numpy
+PASSED tests/gpu/test_fused_engine.py::test_description_and_memory
+16 passed in 75.32s (0:01:15)
+
+## parity_B0
+$ gpu parity --config configs/bench/b0_synthetic_100ms.yaml --tag B0
+ Container flylab-gpu-run-6523c26b52ee Creating 
+ Container flylab-gpu-run-6523c26b52ee Created 
+[parity] torch-cuda vs numpy (float32), 1000 steps, 20,000 neurons, 399,812 edges
+[parity] step 100/1000
+[parity] step 200/1000
+[parity] step 300/1000
+[parity] step 400/1000
+[parity] step 500/1000
+[parity] step 600/1000
+[parity] step 700/1000
+[parity] step 800/1000
+[parity] step 900/1000
+[parity] step 1000/1000
+{
+  "status": "PASS",
+  "record": "artifacts/parity/parity-B0-20261109T064552Z.json",
+  "lockstep": {
+    "status": "identical",
+    "steps": 1000,
+    "steps_identical": 1000,
+    "steps_compared": 1000,
+    "resyncs": 0,
+    "max_abs_v_diff_mV": 0.0,
+    "max_abs_g_diff_mV": 0.0,
+    "divergence": null
+  }
+}
+
+## parity_B1
+$ gpu parity --config configs/bench/b1_male_cns_100ms.yaml --tag B1
+ Container flylab-gpu-run-b96703ff1c59 Creating 
+ Container flylab-gpu-run-b96703ff1c59 Created 
+[parity] torch-cuda vs numpy (float32), 1000 steps, 166,700 neurons, 24,559,135 edges
+[parity] step 100/1000
+[parity] step 200/1000
+[parity] step 300/1000
+[parity] step 400/1000
+[parity] step 500/1000
+[parity] step 600/1000
+[parity] step 700/1000
+[parity] step 800/1000
+[parity] step 900/1000
+[parity] step 1000/1000
+{
+  "status": "PASS",
+  "record": "artifacts/parity/parity-B1-20261109T064602Z.json",
+  "lockstep": {
+    "status": "identical",
+    "steps": 1000,
+    "steps_identical": 1000,
+    "steps_compared": 1000,
+    "resyncs": 0,
+    "max_abs_v_diff_mV": 0.0,
+    "max_abs_g_diff_mV": 0.0,
+    "divergence": null
+  }
+}
+
+## bench_B0
+$ gpu bench --config configs/bench/b0_synthetic_100ms.yaml --tag B0 --warmup 3 --repeats 10
+ Container flylab-gpu-run-917407984126 Creating 
+ Container flylab-gpu-run-917407984126 Created 
+[bench] bench_b0_synthetic_100ms: torch-cuda float32, 1000 steps x 0.1 ms, 20,000 neurons, 399,812 edges
+[bench] warm-up 1: 1.017 s, 128 spikes, finite=True
+[bench] warm-up 2: 0.194 s, 128 spikes, finite=True
+[bench] warm-up 3: 0.097 s, 128 spikes, finite=True
+[bench] repeat 1: 0.094 s, 128 spikes, finite=True
+[bench] repeat 2: 0.136 s, 128 spikes, finite=True
+[bench] repeat 3: 0.325 s, 128 spikes, finite=True
+[bench] repeat 4: 0.516 s, 128 spikes, finite=True
+[bench] repeat 5: 0.152 s, 128 spikes, finite=True
+[bench] repeat 6: 0.091 s, 128 spikes, finite=True
+[bench] repeat 7: 0.540 s, 128 spikes, finite=True
+[bench] repeat 8: 0.098 s, 128 spikes, finite=True
+[bench] repeat 9: 0.093 s, 128 spikes, finite=True
+[bench] repeat 10: 0.090 s, 128 spikes, finite=True
+{
+  "status": "PASS",
+  "record": "artifacts/bench/bench-B0-20261109T064609Z.json",
+  "gates": {
+    "no_oom": true,
+    "all_runs_finite": true,
+    "vram_peak_reserved_within_10GiB_target": true,
+    "vram_observed_device_delta_within_10GiB_target": true
+  },
+  "stats": {
+    "wall_s": {
+      "n": 10,
+      "median": 0.11727000149767264,
+      "p25": 0.0932006300008652,
+      "p75": 0.282016224002291,
+      "iqr": 0.18881559400142578,
+      "min": 0.09043689100144547,
+      "max": 0.5397443319998274,
+      "mean": 0.21365697999972327
+    },
+    "steps_per_s": {
+      "n": 10,
+      "median": 8754.918896674517,
+      "p25": 3953.541647599617,
+      "p75": 10730.095830220787,
+      "iqr": 6776.55418262117,
+      "min": 1852.7290435730222,
+      "max": 11057.434515125213,
+      "mean": 7436.960397594099
+    },
+    "simulated_s_per_wall_s": {
+      "n": 10,
+      "median": 0.8754918896674518,
+      "p25": 0.39535416475996177,
+      "p75": 1.073009583022079,
+      "iqr": 0.6776554182621172,
+      "min": 0.18527290435730223,
+      "max": 1.1057434515125213,
+      "mean": 0.7436960397594101
+    },
+    "spikes_per_wall_s": {
+      "n": 10,
+      "median": 1120.6296187743383,
+      "p25": 506.053330892751,
+      "p75": 1373.452266268261,
+      "iqr": 867.39893537551,
+      "min": 237.14931757734684,
+      "max": 1415.3516179360272,
+      "mean": 951.9309308920447
+    },
+    "synaptic_events_per_wall_s": {
+      "n": 10,
+      "median": 22999.17194156396,
+      "p25": 10385.953908244195,
+      "p75": 28187.96174599001,
+      "iqr": 17802.007837745816,
+      "min": 4867.11919746633,
+      "max": 29047.880471233937,
+      "mean": 19536.894964479703
+    }
+  }
+}
+
+## bench_B0_1s
+$ gpu bench --config configs/bench/b0_synthetic_100ms.yaml --tag B0-1s --steps 10000 --warmup 1 --repeats 3
+ Container flylab-gpu-run-1157377dfab3 Creating 
+ Container flylab-gpu-run-1157377dfab3 Created 
+[bench] bench_b0_synthetic_100ms: torch-cuda float32, 10000 steps x 0.1 ms, 20,000 neurons, 399,812 edges
+[bench] warm-up 1: 1.414 s, 128 spikes, finite=True
+[bench] repeat 1: 3.622 s, 128 spikes, finite=True
+[bench] repeat 2: 1.428 s, 128 spikes, finite=True
+[bench] repeat 3: 1.455 s, 128 spikes, finite=True
+{
+  "status": "PASS",
+  "record": "artifacts/bench/bench-B0-1s-20261109T064619Z.json",
+  "gates": {
+    "no_oom": true,
+    "all_runs_finite": true,
+    "vram_peak_reserved_within_10GiB_target": true,
+    "vram_observed_device_delta_within_10GiB_target": true
+  },
+  "stats": {
+    "wall_s": {
+      "n": 3,
+      "median": 1.455162461999862,
+      "p25": 1.4416298729993287,
+      "p75": 2.538673700999425,
+      "iqr": 1.0970438280000963,
+      "min": 1.4280972839987953,
+      "max": 3.622184939998988,
+      "mean": 2.168481561999215
+    },
+    "steps_per_s": {
+      "n": 3,
+      "median": 6872.084912262497,
+      "p25": 4816.424762066571,
+      "p75": 6937.204496016633,
+      "iqr": 2120.779733950062,
+      "min": 2760.764611870645,
+      "max": 7002.3240797707695,
+      "mean": 5545.05786796797
+    },
+    "simulated_s_per_wall_s": {
+      "n": 3,
+      "median": 0.6872084912262496,
+      "p25": 0.481642476206657,
+      "p75": 0.6937204496016633,
+      "iqr": 0.21207797339500634,
+      "min": 0.27607646118706447,
+      "max": 0.700232407977077,
+      "mean": 0.554505786796797
+    },
+    "spikes_per_wall_s": {
+      "n": 3,
+      "median": 87.96268687695995,
+      "p25": 61.6502369544521,
+      "p75": 88.79621754901291,
+      "iqr": 27.14598059456081,
+      "min": 35.33778703194425,
+      "max": 89.62974822106585,
+      "mean": 70.97674070999001
+    },
+    "synaptic_events_per_wall_s": {
+      "n": 3,
+      "median": 1805.2967064513577,
+      "p25": 1265.274784994888,
+      "p75": 1822.4036211035695,
+      "iqr": 557.1288361086815,
+      "min": 725.2528635384184,
+      "max": 1839.5105357557811,
+      "mean": 1456.6867019151857
+    }
+  }
+}
+
+## bench_B1
+$ gpu bench --config configs/bench/b1_male_cns_100ms.yaml --tag B1 --warmup 3 --repeats 10
+ Container flylab-gpu-run-2789444d1d4b Creating 
+ Container flylab-gpu-run-2789444d1d4b Created 
+[bench] bench_b1_male_cns_100ms: torch-cuda float32, 1000 steps x 0.1 ms, 166,700 neurons, 24,559,135 edges
+[bench] warm-up 1: 0.708 s, 23,138 spikes, finite=True
+[bench] warm-up 2: 0.097 s, 23,138 spikes, finite=True
+[bench] warm-up 3: 0.096 s, 23,138 spikes, finite=True
+[bench] repeat 1: 0.096 s, 23,138 spikes, finite=True
+[bench] repeat 2: 0.096 s, 23,138 spikes, finite=True
+[bench] repeat 3: 0.096 s, 23,138 spikes, finite=True
+[bench] repeat 4: 0.094 s, 23,138 spikes, finite=True
+[bench] repeat 5: 0.096 s, 23,138 spikes, finite=True
+[bench] repeat 6: 0.095 s, 23,138 spikes, finite=True
+[bench] repeat 7: 0.095 s, 23,138 spikes, finite=True
+[bench] repeat 8: 0.197 s, 23,138 spikes, finite=True
+[bench] repeat 9: 0.312 s, 23,138 spikes, finite=True
+[bench] repeat 10: 0.097 s, 23,138 spikes, finite=True
+{
+  "status": "PASS",
+  "record": "artifacts/bench/bench-B1-20261109T064627Z.json",
+  "gates": {
+    "no_oom": true,
+    "all_runs_finite": true,
+    "vram_peak_reserved_within_10GiB_target": true,
+    "vram_observed_device_delta_within_10GiB_target": true
+  },
+  "stats": {
+    "wall_s": {
+      "n": 10,
+      "median": 0.09586431950083352,
+      "p25": 0.09515786400152138,
+      "p75": 0.09652686224853824,
+      "iqr": 0.0013689982470168616,
+      "min": 0.09441462899849284,
+      "max": 0.31156796000141185,
+      "mean": 0.12729794510014472
+    },
+    "steps_per_s": {
+      "n": 10,
+      "median": 10431.416373214222,
+      "p25": 10359.890431466858,
+      "p75": 10508.972435494334,
+      "iqr": 149.0820040274757,
+      "min": 3209.572640253088,
+      "max": 10591.578981006885,
+      "mean": 9203.928827548873
+    },
+    "simulated_s_per_wall_s": {
+      "n": 10,
+      "median": 1.0431416373214222,
+      "p25": 1.035989043146686,
+      "p75": 1.0508972435494335,
+      "iqr": 0.014908200402747429,
+      "min": 0.32095726402530883,
+      "max": 1.0591578981006886,
+      "mean": 0.9203928827548873
+    },
+    "spikes_per_wall_s": {
+      "n": 10,
+      "median": 241362.11204343068,
+      "p25": 239707.1448032802,
+      "p75": 243156.6042124679,
+      "iqr": 3449.4594091876934,
+      "min": 74263.09175017595,
+      "max": 245067.9544625373,
+      "mean": 212960.5052118258
+    },
+    "synaptic_events_per_wall_s": {
+      "n": 10,
+      "median": 58297399.50575081,
+      "p25": 57897666.98124166,
+      "p75": 58730832.184983745,
+      "iqr": 833165.2037420869,
+      "min": 17937136.411506098,
+      "max": 59192490.18167738,
+      "mean": 51437417.19100626
+    }
+  }
+}
+
+## bench_B2
+$ gpu bench --config configs/bench/b2_male_cns_1s.yaml --tag B2 --warmup 3 --repeats 10
+ Container flylab-gpu-run-478179f674fb Creating 
+ Container flylab-gpu-run-478179f674fb Created 
+[bench] bench_b2_male_cns_1s: torch-cuda float32, 10000 steps x 0.1 ms, 166,700 neurons, 24,559,135 edges
+[bench] warm-up 1: 3.399 s, 237,655 spikes, finite=True
+[bench] warm-up 2: 0.959 s, 237,655 spikes, finite=True
+[bench] warm-up 3: 1.989 s, 237,655 spikes, finite=True
+[bench] repeat 1: 1.660 s, 237,655 spikes, finite=True
+[bench] repeat 2: 1.728 s, 237,655 spikes, finite=True
+[bench] repeat 3: 1.108 s, 237,655 spikes, finite=True
+[bench] repeat 4: 1.016 s, 237,655 spikes, finite=True
+[bench] repeat 5: 0.949 s, 237,655 spikes, finite=True
+[bench] repeat 6: 0.957 s, 237,655 spikes, finite=True
+[bench] repeat 7: 1.013 s, 237,655 spikes, finite=True
+[bench] repeat 8: 2.260 s, 237,655 spikes, finite=True
+[bench] repeat 9: 3.456 s, 237,655 spikes, finite=True
+[bench] repeat 10: 4.162 s, 237,655 spikes, finite=True
+{
+  "status": "PASS",
+  "record": "artifacts/bench/bench-B2-20261109T064656Z.json",
+  "gates": {
+    "no_oom": true,
+    "all_runs_finite": true,
+    "vram_peak_reserved_within_10GiB_target": true,
+    "vram_observed_device_delta_within_10GiB_target": true
+  },
+  "stats": {
+    "wall_s": {
+      "n": 10,
+      "median": 1.3840200835002179,
+      "p25": 1.0135208892497758,
+      "p75": 2.126752349000526,
+      "iqr": 1.1132314597507502,
+      "min": 0.9488087270001415,
+      "max": 4.161834340997302,
+      "mean": 1.830721130999882
+    },
+    "steps_per_s": {
+      "n": 10,
+      "median": 7523.680697547659,
+      "p25": 4765.756026900567,
+      "p75": 9866.612419743647,
+      "iqr": 5100.85639284308,
+      "min": 2402.786651427288,
+      "max": 10539.53206313469,
+      "mean": 7126.796068200418
+    },
+    "simulated_s_per_wall_s": {
+      "n": 10,
+      "median": 0.7523680697547659,
+      "p25": 0.4765756026900567,
+      "p75": 0.9866612419743647,
+      "iqr": 0.510085639284308,
+      "min": 0.24027866514272875,
+      "max": 1.053953206313469,
+      "mean": 0.7126796068200417
+    },
+    "spikes_per_wall_s": {
+      "n": 10,
+      "median": 178804.0336175689,
+      "p25": 113260.57485730542,
+      "p75": 234484.97746141764,
+      "iqr": 121224.40260411223,
+      "min": 57103.426164495206,
+      "max": 250477.24924642747,
+      "mean": 169371.87195881704
+    },
+    "synaptic_events_per_wall_s": {
+      "n": 10,
+      "median": 41878343.85051678,
+      "p25": 26527171.68968485,
+      "p75": 54919580.47721049,
+      "iqr": 28392408.787525643,
+      "min": 13374401.391157169,
+      "max": 58665188.68980818,
+      "mean": 39669202.92004026
+    }
+  }
+}
+
+## eager_B1
+$ gpu bench --config configs/bench/b1_male_cns_100ms.yaml --tag B1-eager --engine-impl eager --warmup 1 --repeats 3
+ Container flylab-gpu-run-d523f8529146 Creating 
+ Container flylab-gpu-run-d523f8529146 Created 
+[bench] bench_b1_male_cns_100ms: torch-cuda float32, 1000 steps x 0.1 ms, 166,700 neurons, 24,559,135 edges
+[bench] warm-up 1: 3.596 s, 23,138 spikes, finite=True
+[bench] repeat 1: 2.742 s, 23,138 spikes, finite=True
+[bench] repeat 2: 3.559 s, 23,138 spikes, finite=True
+[bench] repeat 3: 3.442 s, 23,138 spikes, finite=True
+{
+  "status": "PASS",
+  "record": "artifacts/bench/bench-B1-eager-20261109T064714Z.json",
+  "gates": {
+    "no_oom": true,
+    "all_runs_finite": true,
+    "vram_peak_reserved_within_10GiB_target": true,
+    "vram_observed_device_delta_within_10GiB_target": true
+  },
+  "stats": {
+    "wall_s": {
+      "n": 3,
+      "median": 3.442353327998717,
+      "p25": 3.092142244999195,
+      "p75": 3.5005400989994087,
+      "iqr": 0.40839785400021356,
+      "min": 2.7419311619996733,
+      "max": 3.5587268700001005,
+      "mean": 3.24767045333283
+    },
+    "steps_per_s": {
+      "n": 3,
+      "median": 290.49894206570906,
+      "p25": 285.7491548425271,
+      "p75": 327.6026996366511,
+      "iqr": 41.85354479412399,
+      "min": 280.9993676193452,
+      "max": 364.70645720759313,
+      "mean": 312.06825563088245
+    },
+    "simulated_s_per_wall_s": {
+      "n": 3,
+      "median": 0.029049894206570906,
+      "p25": 0.028574915484252714,
+      "p75": 0.032760269963665115,
+      "iqr": 0.004185354479412401,
+      "min": 0.028099936761934525,
+      "max": 0.036470645720759316,
+      "mean": 0.03120682556308825
+    },
+    "spikes_per_wall_s": {
+      "n": 3,
+      "median": 6721.564521516376,
+      "p25": 6611.663944746393,
+      "p75": 7580.071264192833,
+      "iqr": 968.4073194464399,
+      "min": 6501.763367976409,
+      "max": 8438.57800686929,
+      "mean": 7220.635298787358
+    },
+    "synaptic_events_per_wall_s": {
+      "n": 3,
+      "median": 1623493.1360892782,
+      "p25": 1596948.2994716763,
+      "p75": 1830852.568489275,
+      "iqr": 233904.2690175986,
+      "min": 1570403.4628540745,
+      "max": 2038212.0008892717,
+      "mean": 1744036.1999442081
+    }
+  }
+}
+
+## cpu_B1
+$ gpu bench --config configs/bench/b1_male_cns_100ms.yaml --tag B1-numpy --backend numpy --warmup 1 --repeats 3
+ Container flylab-gpu-run-6aac47a0c717 Creating 
+ Container flylab-gpu-run-6aac47a0c717 Created 
+[bench] bench_b1_male_cns_100ms: numpy float32, 1000 steps x 0.1 ms, 166,700 neurons, 24,559,135 edges
+[bench] warm-up 1: 0.464 s, 23,138 spikes, finite=True
+[bench] repeat 1: 0.461 s, 23,138 spikes, finite=True
+[bench] repeat 2: 0.470 s, 23,138 spikes, finite=True
+[bench] repeat 3: 0.456 s, 23,138 spikes, finite=True
+{
+  "status": "PASS",
+  "record": "artifacts/bench/bench-B1-numpy-20261109T064719Z.json",
+  "gates": {
+    "no_oom": true,
+    "all_runs_finite": true,
+    "vram_peak_reserved_within_10GiB_target": null
+  },
+  "stats": {
+    "wall_s": {
+      "n": 3,
+      "median": 0.4610369839974737,
+      "p25": 0.45871808299853,
+      "p75": 0.4652763279991632,
+      "iqr": 0.006558245000633178,
+      "min": 0.4563991819995863,
+      "max": 0.46951567200085265,
+      "mean": 0.46231727933263755
+    },
+    "steps_per_s": {
+      "n": 3,
+      "median": 2169.02338578,
+      "p25": 2149.438871719277,
+      "p75": 2180.043893034156,
+      "iqr": 30.605021314879195,
+      "min": 2129.8543576585535,
+      "max": 2191.0644002883128,
+      "mean": 2163.3140479089557
+    },
+    "simulated_s_per_wall_s": {
+      "n": 3,
+      "median": 0.21690233857799998,
+      "p25": 0.21494388717192767,
+      "p75": 0.21800438930341565,
+      "iqr": 0.00306050213148798,
+      "min": 0.21298543576585535,
+      "max": 0.21910644002883128,
+      "mean": 0.21633140479089552
+    },
+    "spikes_per_wall_s": {
+      "n": 3,
+      "median": 50186.86310017763,
+      "p25": 49733.71661384062,
+      "p75": 50441.8555970243,
+      "iqr": 708.1389831836859,
+      "min": 49280.570127503604,
+      "max": 50696.848093870976,
+      "mean": 50054.7604405174
+    },
+    "synaptic_events_per_wall_s": {
+      "n": 3,
+      "median": 12121884.34763538,
+      "p25": 12012433.607728602,
+      "p75": 12183473.962234728,
+      "iqr": 171040.35450612567,
+      "min": 11902982.867821824,
+      "max": 12245063.576834075,
+      "mean": 12089976.93076376
+    }
+  }
+}
+
+## profile_B1
+$ docker compose run --rm gpu python scripts/profile_step.py --config configs/bench/b1_male_cns_100ms.yaml --tag B1
+ Container flylab-gpu-run-4b34a506403e Creating 
+ Container flylab-gpu-run-4b34a506403e Created 
+USDT:2026-11-09 06:47:24 7:7 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-11-09 06:47:24 7:7 SyncActivityProfilerHandler.cpp:46] profiler_stop
+torch-cuda: 0.447 ms/step with profiler (schedule 0.017 ms/step)
+self CPU total 162 us/step, device total 24 us/step
+sync/copy calls per step: {'cudaMemcpyAsync': 4.0, 'cudaStreamSynchronize': 3.0, 'cudaDeviceSynchronize': 0.006666666666666667}
+copy directions per step: {'host_to_device': 1.0, 'device_to_host': 3.0}
+op                                               calls/step  cpu us/step  dev us/step
+cudaMemcpyAsync                                         4.0        100.3          0.0
+cuLaunchKernelEx                                        4.0         24.0          0.0
+aten::copy_                                             4.0          8.4          0.0
+aten::slice                                             7.0          5.3          0.0
+Activity Buffer Request                                 0.0          4.3          0.0
+aten::_to_copy                                          3.0          3.3          0.0
+aten::empty_strided                                     3.0          2.8          0.0
+cudaStreamSynchronize                                   3.0          1.7          0.0
+aten::detach                                            4.0          1.7          0.0
+aten::view                                              3.0          1.7          0.0
+aten::select                                            1.0          1.6          0.0
+aten::as_strided                                        8.0          1.4          0.0
+aten::fill_                                             3.0          1.4          0.0
+detach                                                  4.0          1.3          0.0
+aten::to                                                7.0          1.2          0.0
+cudaStreamIsCapturing                                   4.0          0.9          0.0
+aten::resolve_conj                                      4.0          0.2          0.0
+Lazy Function Loading                                   0.0          0.1          0.0
+aten::resolve_neg                                       4.0          0.1          0.0
+cudaDeviceSynchronize                                   0.0          0.0          0.0
+Memcpy HtoD (Pinned -> Device)                          1.0          0.0          0.7
+_inputs_kernel                                          1.0          0.0          1.3
+_integrate_kernel                                       1.0          0.0          9.3
+_arrivals_kernel                                        1.0          0.0          6.8
+_finish_kernel                                          1.0          0.0          4.5
+profile=artifacts/gpu/profile-B1-20261109T064724Z.json
+gpu_after=109 MiB, 12227 MiB
+
+## Summary
+build=PASS
+gpu_tests=PASS
+parity_B0=PASS
+parity_B1=PASS
+bench_B0=PASS
+bench_B0_1s=PASS
+bench_B1=PASS
+bench_B2=PASS
+eager_B1=PASS
+cpu_B1=PASS
+profile_B1=PASS
+overall=PASS
+records: artifacts/bench/ artifacts/parity/

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>FlyLab — Neural sandbox</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#workspace">Skip to live activity</a>
+  <header class="masthead">
+    <div class="brand">FlyLab<span>Neural sandbox</span></div>
+    <div class="service"><span id="service">Connecting to local service</span><span class="badge">GPU runs UNVERIFIED</span></div>
+  </header>
+  <div class="notice"><strong>Engineering simulation, not validated behaviour.</strong>
+    <span>Activity reflects a configured LIF model. No fly behaviour is simulated.</span>
+  </div>
+  <main class="layout">
+    <aside class="controls">
+      <section class="section">
+        <div class="section-head"><h1>Run an experiment</h1><span id="state" class="badge" role="status">Idle</span></div>
+        <form id="run-form">
+          <label for="config">Configuration</label>
+          <select id="config" required><option value="">Loading allowed configurations…</option></select>
+          <p id="config-description" class="hint">Only configurations allowed by this service can run.</p>
+          <label for="backend">Backend</label>
+          <select id="backend"><option value="numpy">NumPy · CPU reference</option><option value="torch-cpu">PyTorch · CPU</option><option value="torch-cuda">PyTorch · CUDA (unverified here)</option></select>
+          <div class="field-pair">
+            <div><label for="seed">Seed</label><input id="seed" type="number" min="0" max="4294967295" step="1" required></div>
+            <div><label for="steps">Steps</label><input id="steps" type="number" min="1" max="100000" step="1" required></div>
+          </div>
+          <p id="duration" class="hint">Simulation time is separate from wall time.</p>
+          <div class="actions"><button id="start" type="submit" disabled>Start run</button><button id="stop" type="button" class="secondary" disabled>Stop</button></div>
+          <p id="error" class="error" role="alert" hidden></p>
+        </form>
+      </section>
+      <section class="section run-progress">
+        <h2>Simulation time</h2>
+        <div class="time"><span id="sim-time">—</span><small>ms</small></div>
+        <progress id="progress" max="100" value="0" aria-label="Simulation progress"></progress>
+        <dl class="run-facts"><div><dt>Run</dt><dd id="run-id">No run selected</dd></div><div><dt>Wall time</dt><dd id="wall-time">—</dd></div><div><dt>Stream</dt><dd id="stream-state">Waiting for a run</dd></div></dl>
+        <p id="pace" class="hint" hidden></p>
+      </section>
+      <section class="section intervention-section">
+        <h2>Active inputs &amp; interventions</h2>
+        <ul id="interventions" class="intervention-list"><li>No active run.</li></ul>
+        <p class="hint">Silencing and stimulation come from the selected config. This interface does not edit populations.</p>
+      </section>
+    </aside>
+    <div id="workspace" class="workspace" tabindex="-1">
+      <div class="workspace-head"><div><p class="eyebrow">Recorded neural activity</p><h2 id="experiment-title">Choose a configuration to begin.</h2></div><button id="pause" class="secondary" type="button" aria-pressed="false">Pause charts</button></div>
+      <section class="plot-panel">
+        <div class="plot-head"><h3>01 <span>Population rates</span></h3><span id="bin-info">Hz per neuron · binned simulation time</span></div>
+        <div class="chart-wrap"><canvas id="rates" aria-label="Population firing rates over simulation time; current values are in the table below" role="img"></canvas><p id="rate-empty" class="chart-empty">Rates will appear as the simulation runs.</p></div>
+        <div id="legend" class="legend" aria-label="Rate plot legend"></div>
+        <table class="latest"><caption class="sr-only">Latest received population rates</caption><thead><tr><th scope="col">Population</th><th scope="col">Neurons</th><th scope="col">Latest Hz / neuron</th></tr></thead><tbody id="latest"><tr><td colspan="3">No recorded population yet.</td></tr></tbody></table>
+      </section>
+      <section class="plot-panel raster-panel">
+        <div class="plot-head"><h3>02 <span>Spike raster</span></h3><span>Deterministic sample · max 64 neurons</span></div>
+        <div class="chart-wrap raster"><canvas id="raster" aria-label="Sampled spikes by neuron index over simulation time" role="img"></canvas><p id="raster-empty" class="chart-empty">Waiting for sampled spikes.</p></div>
+        <p id="sample-info" class="plot-note">Up to 128 sampled events per message. The raster is a bounded preview.</p>
+      </section>
+      <div class="lower-grid">
+        <section class="body-placeholder"><span class="eyebrow">Future body view</span><h3>Body not connected.</h3><p>Embodied replay will appear here after a separate body and decoder integration.</p><span class="badge">Neural simulation only</span></section>
+        <section class="provenance"><span class="eyebrow">Run provenance</span><h3 id="dataset">Dataset loads when a run starts.</h3><p id="model">Model parameters and evidence labels will appear here.</p><div id="labels" class="labels"></div><details><summary>Manifest summary &amp; limitations</summary><pre id="manifest">No manifest loaded.</pre></details></section>
+      </div>
+      <footer><span>Local service · one run at a time</span><span id="bounds">Bounded stream · read-only configuration allowlist</span></footer>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,127 @@
+# PR-04 / M4: w_syn x input-rate sweep for the Shiu et al. calibration criterion on MaleCNS.
+# Criterion (Shiu et al. 2024 Methods): 'We chose Wsyn such that activation of sugar GRNs at
+# 100 Hz resulted in roughly 80% of maximal MN9 firing'. 'Maximal MN9 firing' is not defined
+# numerically in the paper; FlyLab's definition (ENGINEERED) is in docs/acceptance/M4.md and
+# flylab.experiments.calibration. Input range 10-200 Hz = the sugar GRN range Shiu et al.
+# simulated ('10-200 Hz firing (sugar)'). Readout: MN9 left and right (OPEN_QUESTIONS Q19).
+# Result = w_syn calibrated FOR THIS CRITERION on this graph, not a physiological value.
+# Run:  flylab replicate run --config configs/m4/calibration_wsyn_rate.yaml --jobs 4
+schema_version: 1
+kind: flylab_replicate_group
+group_id: m4_calibration_wsyn_rate
+description: w_syn x LB3c-left forced Poisson rate, 5 seeds, 1 s, MN9 left/right readout.
+base_config: configs/male_cns_lb3c_mn9.yaml
+base_patch:
+  sensitivity: null              # sign variants are separate conditions in configs/m4/controls_*.yaml
+  recording: {spike_events: false}
+seeds: {first: 1, count: 5}
+sweep:
+  - axis: w_syn
+    levels:
+      - label: w0.100
+        patch:
+          model:
+            overrides:
+              w_syn:
+                value: 0.1
+                units: mV
+                evidence: ASSUMED
+                rationale: calibration sweep level (PR-04, OPEN_QUESTIONS Q16); not physiology
+      - label: w0.125
+        patch:
+          model:
+            overrides:
+              w_syn:
+                value: 0.125
+                units: mV
+                evidence: ASSUMED
+                rationale: calibration sweep level (PR-04, OPEN_QUESTIONS Q16); not physiology
+      - label: w0.150
+        patch:
+          model:
+            overrides:
+              w_syn:
+                value: 0.15
+                units: mV
+                evidence: ASSUMED
+                rationale: calibration sweep level (PR-04, OPEN_QUESTIONS Q16); not physiology
+      - label: w0.175
+        patch:
+          model:
+            overrides:
+              w_syn:
+                value: 0.175
+                units: mV
+                evidence: ASSUMED
+                rationale: calibration sweep level (PR-04, OPEN_QUESTIONS Q16); not physiology
+      - label: w0.200
+        patch:
+          model:
+            overrides:
+              w_syn:
+                value: 0.2
+                units: mV
+                evidence: ASSUMED
+                rationale: calibration sweep level (PR-04, OPEN_QUESTIONS Q16); not physiology
+      - label: w0.225
+        patch:
+          model:
+            overrides:
+              w_syn:
+                value: 0.225
+                units: mV
+                evidence: ASSUMED
+                rationale: calibration sweep level (PR-04, OPEN_QUESTIONS Q16); not physiology
+      - label: w0.250
+        patch:
+          model:
+            overrides:
+              w_syn:
+                value: 0.25
+                units: mV
+                evidence: ASSUMED
+                rationale: calibration sweep level (PR-04, OPEN_QUESTIONS Q16); not physiology
+      - label: w0.275
+        patch:
+          model:
+            overrides:
+              w_syn:
+                value: 0.275
+                units: mV
+                evidence: ASSUMED
+                rationale: calibration sweep level (PR-04, OPEN_QUESTIONS Q16); not physiology
+  - axis: rate
+    levels:
+      - label: r010
+        patch:
+          stimuli:
+            - {kind: forced_spikes, population: lb3c_left, onset_ms: 0.0, offset_ms: 1000.0, rate_hz: 10.0}
+      - label: r025
+        patch:
+          stimuli:
+            - {kind: forced_spikes, population: lb3c_left, onset_ms: 0.0, offset_ms: 1000.0, rate_hz: 25.0}
+      - label: r050
+        patch:
+          stimuli:
+            - {kind: forced_spikes, population: lb3c_left, onset_ms: 0.0, offset_ms: 1000.0, rate_hz: 50.0}
+      - label: r075
+        patch:
+          stimuli:
+            - {kind: forced_spikes, population: lb3c_left, onset_ms: 0.0, offset_ms: 1000.0, rate_hz: 75.0}
+      - label: r100
+        patch:
+          stimuli:
+            - {kind: forced_spikes, population: lb3c_left, onset_ms: 0.0, offset_ms: 1000.0, rate_hz: 100.0}
+      - label: r125
+        patch:
+          stimuli:
+            - {kind: forced_spikes, population: lb3c_left, onset_ms: 0.0, offset_ms: 1000.0, rate_hz: 125.0}
+      - label: r150
+        patch:
+          stimuli:
+            - {kind: forced_spikes, population: lb3c_left, onset_ms: 0.0, offset_ms: 1000.0, rate_hz: 150.0}
+      - label: r200
+        patch:
+          stimuli:
+            - {kind: forced_spikes, population: lb3c_left, onset_ms: 0.0, offset_ms: 1000.0, rate_hz: 200.0}
+statistics: {n_boot: 10000, confidence: 0.95, seed: 0, psth: false}
